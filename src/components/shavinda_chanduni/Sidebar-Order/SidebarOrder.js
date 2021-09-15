@@ -43,7 +43,7 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
-const SidebarOrder = () => {
+const _SidebarOrder = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -72,4 +72,5 @@ const SidebarOrder = () => {
   );
 };
 
+const SidebarOrder = () => {return (<div></div>)}
 export default SidebarOrder;

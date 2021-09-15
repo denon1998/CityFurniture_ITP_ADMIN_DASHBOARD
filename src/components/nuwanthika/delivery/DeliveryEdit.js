@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Navbar, Container, Nav, Row, Col, InputGroup, FormControl, Button, Table, Pagination, Form, Modal } from 'react-bootstrap';
 
@@ -157,10 +156,10 @@ export default class DeliveryEdit extends React.Component {
 
 
 
-                        <Form.Select aria-label="Default select example" readOnly={this.isView} placeholder="status" value={this.state.status} onChange={(event) => {
+                        <Form.Select   readOnly={this.isView} placeholder="status" value={this.state.status} onChange={(event) => {
                                 this.setState({ status: event.target.value });
                             }} >
-                            {/* <option>Status</option> */}
+                            
                             <option value="PENDING">PENDING</option>
                             <option value="PROBLEM">PROBLEM</option>
                             <option value="DELIVERED">DELIVERED</option>

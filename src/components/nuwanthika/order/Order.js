@@ -65,7 +65,7 @@ export default class Order extends React.Component {
                         <h2 style={{ textAlign: 'left' }}>Orders</h2>
                         <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
                             e.preventDefault();
-                            this.props.history.push('/order/new');
+                            this.props.history.push('/order-for-delivery/new');
                         }}   >Create New Order</Button>{' '}
                     </div>
 
@@ -139,10 +139,10 @@ export default class Order extends React.Component {
 
 
                                         <Button variant="warning" onClick={() => {
-                                            this.props.history.push('/order/edit?_id=' + item._id);
+                                            this.props.history.push('/order-for-delivery/edit?_id=' + item._id);
                                         }} >EDIT</Button>{' '}
                                         <Button variant="info" onClick={() => {
-                                            this.props.history.push('/order/view?_id=' + item._id);
+                                            this.props.history.push('/order-for-delivery/view?_id=' + item._id);
                                         }} >VIEW</Button>{' '}
                                         <Button variant="danger" onClick={() => {
                                             this.dataToDelete = item;

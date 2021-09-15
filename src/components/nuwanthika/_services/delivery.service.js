@@ -4,8 +4,7 @@ export class DeliveryService {
 
     domain = 'http://furniture-store-backend.herokuapp.com';
     endpoint = '/api/deliveries';
-
-    constructor() { }
+ 
     getAll(a, s, length, data) {
         var requestOptions = {
             method: 'GET',
