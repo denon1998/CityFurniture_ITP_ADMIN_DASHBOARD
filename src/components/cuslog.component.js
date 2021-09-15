@@ -21,9 +21,9 @@ export default function Login() {
         //   const email = this.state.email
         //   const password = this.state.password
 
-        if (email === 'customer@gmail.com' && password === 'customer') {
-            window.location = '#';
-        }
+        // if (email === 'customer@gmail.com' && password === 'customer') {
+        //     window.location = '#';
+        // }
 
 
     }
@@ -58,13 +58,13 @@ export default function Login() {
                             }
                         />
                     </
-                    Form.Group > <
-                        Button block size="lg"
-                        type="submit"
-                        disabled={!validateForm()}
-                        onClick={onSubmit()} >
-                        Login </
-                    Button> </
+                    Form.Group >  <Button block size="lg" variant="primary "  onClick={()=>{
+                        if (email === 'admin@gmail.com' && password === 'admin') {
+                            window.location = '/home';
+                        }
+                    }}>LOGIN NOW</Button>{' '}
+                    
+                    </
                 Form >
 
 

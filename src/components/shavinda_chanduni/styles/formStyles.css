@@ -1,0 +1,19 @@
+.card{
+
+    background-color: rgb(255, 238, 217);
+    border-width: thick;
+    border-radius: 30px;
+    border-color:black;
+
+
+}
+
+.cardU{
+
+  background-color: rgb(209, 227, 248);
+  border-width: thick;
+  border-radius: 30px;
+  border-color:black;
+
+
+}

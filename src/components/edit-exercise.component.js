@@ -16,7 +16,7 @@ export default class EditExercise extends Component {
         this.onChangepassword = this.onChangepassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-
+ 
         this.state = {
             Username: '',
             Address: '',
