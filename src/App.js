@@ -1,6 +1,8 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route,withRouter, Switch } from "react-router-dom";
+
+import {  Container, Nav } from 'react-bootstrap';
 
 import Navbar from "./components/navbar.component"
 import AdminDashboard from "./components/admin-dashboard.component"
@@ -54,6 +56,127 @@ import RequestProducts from './components/shavinda_chanduni/manage-suppliers/Req
 import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminDashboard';
 
 
+import OrderEdit from './components/nuwanthika/order/OrderEdit';
+import DeliveryEdit from './components/nuwanthika/delivery/DeliveryEdit';
+import VehicleEdit from './components/nuwanthika/vehicle/VehicleEdit';
+ import EntityHome from './components/nuwanthika/entityHome/entity-home';
+
+
+import Driver from "./components/nuwanthika/driver/Driver";
+import DriverEdit from "./components/nuwanthika/driver/DriverEdit";
+import Order from "./components/nuwanthika/order/Order";
+import Delivery from "./components/nuwanthika/delivery/Delivery";
+import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
+
+
+import {Sidebar} from "./components/nuwanthika/sidebar/Sidebar";
+
+
+
+
+class App extends React.Component {
+   
+    constructor() {
+        super();
+        this.state = {
+            error: null,
+            isLoaded: false,
+            items: [],
+
+        };
+
+
+    }
+    render() {
+        const { error, isLoaded, items } = this.state;
+
+        return (
+            <div className="App">
+                <Router  >
+                <Sidebar></Sidebar>
+
+
+
+                    {/* <Sidebar pageName={this.state.pageName} ></Sidebar> */}
+
+                    <Container fluid>
+                        <Switch>
+                            <React.Fragment>
+
+                                <Route exact path="/delivery-mgt" render={({ history }) => (
+                                    <EntityHome history={history} />
+                                )} />
+
+
+
+
+                                <
+                                    Route path="/"
+                                    exact component={main}
+                                // exact component = { ExercisesList }
+                                />
+
+                                <
+                                    Route path="/admindashboard"
+                                    exact component={AdminDashboard}
+                                /> <
+                                    Route path="/edit/:id"
+                                    component={EditExercise}
+                                /> <
+                                    Route path="/main"
+                                    component={ExercisesList}
+                                /> <
+                                    Route path="/create"
+                                    component={CreateExercise}
+                                /> <
+                                    Route path="/user/add/"
+                                    component={CreateUser}
+                                /> <
+                                    Route path="/users/"
+                                    component={userList}
+                                />  <
+                                    Route path="/user/Edit/:id"
+                                    component={EditUser}
+                                />
+
+
+
+
+
+                                <Route path="/category/add" exact component={CreateCatPost}></Route>
+                                <Route path="/category/edit/:id" exact component={EditCatPost}></Route>
+                                <Route path="/category/post/:id" exact component={PostDetailsCat}></Route>
+                                <Route path="/category/home" exact component={CatHome}></Route>
+                                <Route path="/category" exact component={HomeMainCategory}></Route>
+
+
+                                <Route path="/order" exact component={HomeMainOrder}></Route>
+                                <Route path="/order/home" exact component={OrderHome}></Route>
+                                <Route path="/order/edit/:id" exact component={EditOrderPost}></Route>
+                                <Route path="/order/post/:id" exact component={PostDetailsOrder}></Route>
+
+
+
+                                <Route path="/stockHome" exact component={StockHome} />
+
+                                <Route path="/homeP" component={HomeStockPro} />
+                                <Route path="/homeC" component={HomeStockCat} />
+                                <Route path="/homeS" component={HomeStockSup} />
+
+                                <Route path="/addP" component={CreatePostStockPro}></Route>
+                                <Route path="/editP/:id" component={EditPostStockPro}></Route>
+                                <Route path="/postP/:id" component={PostDetailsStockPro}></Route>
+
+                                <Route path="/addC" component={CreatePostStockCat}></Route>
+                                <Route path="/editC/:id" component={EditPostStockCat}></Route>
+                                <Route path="/postC/:id" component={PostDetailsStockCat}></Route>
+
+
+                                <Route path="/addS" component={CreatePostStockSup}></Route>
+                                <Route path="/editS/:id" component={EditPostStockSup}></Route>
+                                <Route path="/postS/:id" component={PostDetailsStockSup}></Route>
+
+                                <Route path="/req" component={RequestProducts}></Route>
 
 
 
@@ -61,96 +184,110 @@ import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminD
 
 
 
-function App() {
-
-    return (<
-        Router >
-        <
-            div className="container" >
-            <Navbar />
-            <br />
-            <
-                Route path="/"
-                exact component={main}
-            // exact component = { ExercisesList }
-            /> 
-            
-            <
-                Route path="/admindashboard"
-                exact component={AdminDashboard}
-            /> <
-                Route path="/edit/:id"
-                component={EditExercise}
-            /> <
-                Route path="/main"
-                component={ExercisesList}
-            /> <
-                Route path="/create"
-                component={CreateExercise}
-            /> <
-                Route path="/user/add/"
-                component={CreateUser}
-            /> <
-                Route path="/users/"
-                component={userList}
-            />  <
-                Route path="/user/Edit/:id"
-                component={EditUser}
-            /> 
-            
-            
-            
-            
-        
-        <Route path="/category/add" exact component={CreateCatPost}></Route>
-        <Route path="/category/edit/:id" exact component={EditCatPost}></Route>
-        <Route path="/category/post/:id" exact component={PostDetailsCat}></Route>
-        <Route path="/category/home" exact component={CatHome}></Route>
-        <Route path="/category" exact component={HomeMainCategory}></Route>
-        
-
-        <Route path="/order" exact component={HomeMainOrder}></Route>
-        <Route path="/order/home" exact component={OrderHome}></Route>
-        <Route path="/order/edit/:id" exact component={EditOrderPost}></Route>
-        <Route path="/order/post/:id" exact component={PostDetailsOrder}></Route>
 
 
-      
-        <Route path = "/stockHome" exact component = {StockHome}/>
-
-        <Route path = "/homeP" component = {HomeStockPro}/>
-        <Route path = "/homeC" component = {HomeStockCat}/>
-        <Route path = "/homeS" component = {HomeStockSup}/>
-      
-        <Route path = "/addP" component={CreatePostStockPro}></Route>
-        <Route path = "/editP/:id" component={EditPostStockPro}></Route>
-        <Route path = "/postP/:id" component={PostDetailsStockPro}></Route>
-
-        <Route path = "/addC" component={CreatePostStockCat}></Route>
-        <Route path = "/editC/:id" component={EditPostStockCat}></Route>
-        <Route path = "/postC/:id" component={PostDetailsStockCat}></Route>  
 
 
-        <Route path = "/addS" component={CreatePostStockSup}></Route>  
-        <Route path = "/editS/:id" component={EditPostStockSup}></Route>
-        <Route path = "/postS/:id" component={PostDetailsStockSup}></Route>
 
-        <Route path = "/req" component={RequestProducts}></Route>
 
-                   
-         
-       
 
-        
-            
-            
-            
-            
-            
-            
-            </
-        div > </Router>
-    );
+
+
+
+
+
+                                {/* driver routing start */}
+                                <Route exact path="/driver" render={({ history }) => (
+                                    <Driver history={history} />
+                                )} />
+                                <Route exact path="/driver/new" render={({ history }) => (
+                                    <DriverEdit history={history} />
+                                )} />
+                                <Route exact path="/driver/view" render={({ history }) => (
+                                    <DriverEdit history={history} />
+                                )} />
+                                <Route exact path="/driver/edit" render={({ history }) => (
+                                    <DriverEdit history={history} />
+                                )} />
+                                {/* driver routing end */}
+
+
+
+
+                                {/* order routing start */}
+                                <Route exact path="/order-for-delivery" render={({ history }) => (
+                                    <Order history={history} />
+                                )} />
+                                <Route exact path="/order-for-delivery/new" render={({ history }) => (
+                                    <OrderEdit history={history} />
+                                )} />
+                                <Route exact path="/order-for-delivery/view" render={({ history }) => (
+                                    <OrderEdit history={history} />
+                                )} />
+                                <Route exact path="/order-for-delivery/edit" render={({ history }) => (
+                                    <OrderEdit history={history} />
+                                )} />
+                                {/* order routing end */}
+
+                                {/* delivery routing start */}
+                                <Route exact path="/delivery" render={({ history }) => (
+                                    <Delivery history={history} />
+                                )} />
+                                <Route exact path="/delivery/new" render={({ history }) => (
+                                    <DeliveryEdit history={history} />
+                                )} />
+                                <Route exact path="/delivery/view" render={({ history }) => (
+                                    <DeliveryEdit history={history} />
+                                )} />
+                                <Route exact path="/delivery/edit" render={({ history }) => (
+                                    <DeliveryEdit history={history} />
+                                )} />
+                                <Route exact path="/delivery/status" render={({ history }) => (
+                                    <DeliveryEdit history={history} />
+                                )} />
+                                {/* delivery routing end */}
+
+                                {/* vehicle routing start */}
+                                <Route exact path="/vehicle" render={({ history }) => (
+                                    <Vehicle history={history} />
+                                )} />
+                                <Route exact path="/vehicle/new" render={({ history }) => (
+                                    <VehicleEdit history={history} />
+                                )} />
+                                <Route exact path="/vehicle/view" render={({ history }) => (
+                                    <VehicleEdit history={history} />
+                                )} />
+                                <Route exact path="/vehicle/edit" render={({ history }) => (
+                                    <VehicleEdit history={history} />
+                                )} />
+                                {/* vehicle routing end */}
+
+
+                            </React.Fragment>
+
+                        </Switch>
+                    </Container>
+
+
+
+
+
+                </Router>
+
+
+
+            </div>
+        );
+    }
+
 }
 
-export default App;
+
+export default withRouter(App);
+
+
+
+
+
+
+ 
