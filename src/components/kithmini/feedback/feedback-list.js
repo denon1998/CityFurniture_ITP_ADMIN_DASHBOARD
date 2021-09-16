@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// import Footer from '../Footer/Footer';
+import SidebarCustomercare from '../customercare/SidebarCustomercare';
+
 
 const Customer = props => (
  <tr >
@@ -34,13 +37,25 @@ export default class FeedbackList extends Component {
             })
     }
 
-    deleteFeedback(id) {
-        axios.delete('http://furniture-store-backend.herokuapp.com/api/feedback/' + id)
-            .then(response => { console.log(response.data) });
+    getPosts() {
+        axios.get('http://furniture-store-backend.herokuapp.com/api/feedback/')
+            .then(response => {
+                this.setState({ exercises: response.data })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
 
-        this.setState({
-            feedback: this.state.feedback.filter(el => el._id !== id)
-        })
+    deleteFeedback(id) {
+        if (window.confirm('Are you sure?')) {
+            axios.delete('http://furniture-store-backend.herokuapp.com/api/feedback/' + id)
+                .then(response => { console.log(response.data) });
+
+            this.setState({
+                feedback: this.state.feedback.filter(el => el._id !== id)
+            })
+        }
     }
 
     feedbackList() {
@@ -52,23 +67,41 @@ export default class FeedbackList extends Component {
         });
     }
 
-    handleSearchArea = (id) => {
+    filterData(Customer, searchKey) {
 
-        axios.get('http://furniture-store-backend.herokuapp.com/api/feedback/' + id)
-            .then(response => {
-                this.setState({ feedback: response.data })
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        this.setState({
+           feedback: this.state.feedback.filter(el => el.Username = searchKey)
+        })
 
     }
+
+    handleSearchArea = (e) => {
+
+        const searchKey = e.currentTarget.value;
+
+        axios.get('http://furniture-store-backend.herokuapp.com/api/feedback/').then(response => {
+
+
+            const resultt = response.data
+            const result = resultt.filter((props) =>
+                props.Username.includes(searchKey)
+            )
+
+            this.setState({ feedback: result })
+
+        });
+
+    }
+
 
 
     render() {
         return ( 
             <div>
+                <SidebarCustomercare/>
+                 <center>
             <h3> Feedback List </h3>
+            </center>
 
             <div className = "col-lg-3 mt-10 mb-2">
             <input className = "form-control"
@@ -94,6 +127,10 @@ export default class FeedbackList extends Component {
             </thead> 
             <tbody>{this.feedbackList()}</tbody> 
             </table >
+
+            <br/><br/><br/> <br/><br/><br/>
+
+            {/* <Footer /> */}
 
             </div>
         )

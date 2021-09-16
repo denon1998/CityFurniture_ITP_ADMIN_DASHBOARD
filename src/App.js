@@ -104,6 +104,15 @@ import EditPostOffers from './components/supi/components/EditPostOffers';
 import HomeOffer from './components//supi/components/HomeOffer';
 import PostDetailsOffer from './components/supi/components/PostDetailsOffer';
 
+
+
+import feedbackList from "./components/kithmini/feedback/feedback-list";
+import Editcontact from "./components/kithmini/contact/edit-contact";
+import contactList from "./components/kithmini/contact/contact-list";
+import FAQsList from "./components/kithmini/FAQs/FAQs-list";
+import suggestionList from "./components/kithmini/suggestion/suggestion-list";
+import CustomercareHome from './components/kithmini/customercare/customercare-home';
+
 const AddEmployee = import('./components/anjali/views/employee/AddEmployee');
 
 
@@ -231,6 +240,15 @@ class App extends React.Component {
 
 
 
+                                {/* Kithmini */}
+                                <Route path="/feedback/" exact component={feedbackList} />
+                                <Route path="/contact/" exact component={contactList} />
+                                <Route path="/edit/:id" component={Editcontact} />
+                                <Route path="/FAQs/" exact component={FAQsList} />
+                                <Route path="/suggestion/" exact component={suggestionList} />
+                                <Route path="/CustomercareHome" exact component={CustomercareHome} />
+
+
 
 
 
@@ -340,17 +358,17 @@ class App extends React.Component {
 
 
                                 <Route path="/home-products" exact component={HomeProducts}></Route>
-         <Route path="/addProducts" component={CreatePostProducts}></Route>
-         <Route path="/editProducts/:id" component={EditPostProducts}></Route>
-         <Route path="/postProducts/:id" component={PostDetailsProducts}></Route>
-         <Route path="/HomeCategory" exact component={HomeCategories}></Route>
-         <Route path="/addCategory" component={CreatePostCategory}></Route>
-         <Route path="/editCategory/:id" component={EditPostCategory}></Route>
-         <Route path="/postCategory/:id" component={PostDetailsCategories}></Route>
-         <Route path="/HomeOffer" exact component={HomeOffer}></Route>
-         <Route path="/addOffers" component={CreatePostOffers}></Route>
-         <Route path="/editOffers/:id" component={EditPostOffers}></Route>
-         <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>
+                                <Route path="/addProducts" component={CreatePostProducts}></Route>
+                                <Route path="/editProducts/:id" component={EditPostProducts}></Route>
+                                <Route path="/postProducts/:id" component={PostDetailsProducts}></Route>
+                                <Route path="/HomeCategory" exact component={HomeCategories}></Route>
+                                <Route path="/addCategory" component={CreatePostCategory}></Route>
+                                <Route path="/editCategory/:id" component={EditPostCategory}></Route>
+                                <Route path="/postCategory/:id" component={PostDetailsCategories}></Route>
+                                <Route path="/HomeOffer" exact component={HomeOffer}></Route>
+                                <Route path="/addOffers" component={CreatePostOffers}></Route>
+                                <Route path="/editOffers/:id" component={EditPostOffers}></Route>
+                                <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>
 
 
                             </React.Fragment>
