@@ -113,9 +113,10 @@ import FAQsList from "./components/kithmini/FAQs/FAQs-list";
 import suggestionList from "./components/kithmini/suggestion/suggestion-list";
 import CustomercareHome from './components/kithmini/customercare/customercare-home';
 
-const AddEmployee = import('./components/anjali/views/employee/AddEmployee');
 
-
+import AddEmployee from './components/anjali/views/employee/AddEmployee';
+import Dashboard from './components/anjali/views/dashboard/Dashboard'
+import Attendence from './components/anjali/views/employee/Attendence'
 
 class App extends React.Component {
 
@@ -330,6 +331,20 @@ class App extends React.Component {
 
                                 {/* Anjali */}
 
+                                <Route exact path="/addemp" render={({ history }) => (
+                                    <AddEmployee history={history} />
+                                )} />
+
+
+                                <Route exact path="/staff-dashboard" render={({ history }) => (
+                                    <Dashboard history={history} />
+                                     
+                                )} />
+
+                                <Route exact path="/attendence" render={({ history }) => (
+                                    <Attendence history={history} />
+                                     
+                                )} />
                                 {anjaliRoutes.map((e, i) => {
                                     const Component = e.component;
                                     <Route exact path={e.path} theme={e.theme} component={e.component} key={i} />;

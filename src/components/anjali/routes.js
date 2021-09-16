@@ -14,9 +14,6 @@ const LeavedEmp = import('./views/employee/LeavedEmp')
 const EditSalary = import('./views/salary/EditSalary')
 const AttendenceHistory = import('./views/employee/AttendenceHistory')
 const routes = [
-  { path: '/staff-home', exact: true, name: 'Home' },
-  { path: '/staff-dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/addemp', name: 'Theme', component: AddEmployee, exact: true },
   { path: '/empdetails', name: 'Theme', component: EmpDetails, exact: true },
   { path: '/monthlysalarypaymentreport', name: 'Theme', component: MonthlySalaryPaymentReport, exact: true },
   { path: '/ViewAEmp', name: 'Theme', component: ViewAEmp, exact: true },
