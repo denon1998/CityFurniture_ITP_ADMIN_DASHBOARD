@@ -70,7 +70,6 @@ import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
 
 
 import { Sidebar } from "./components/nuwanthika/sidebar/Sidebar";
-import routes from "./components/anjali/routes";
 
 
 import EditPosts from './components/samali/components/AdminClientUpdateCard';
@@ -113,10 +112,19 @@ import FAQsList from "./components/kithmini/FAQs/FAQs-list";
 import suggestionList from "./components/kithmini/suggestion/suggestion-list";
 import CustomercareHome from './components/kithmini/customercare/customercare-home';
 
-const AddEmployee = import('./components/anjali/views/employee/AddEmployee');
 
-
-
+import AddEmployee from './components/anjali/views/employee/AddEmployee';
+import Dashboard from './components/anjali/views/dashboard/Dashboard';
+import Attendence from './components/anjali/views/employee/Attendence';
+import EmpDetails from './components/anjali/views/employee/EmpDetails';
+import ViewAEmployee from './components/anjali/views/employee/ViewAEmployee';
+import AttendenceHistory from './components/anjali/views/employee/AttendenceHistory';
+import MonthlySalaryPaymentReport from './components/anjali/views/report/MonthlySalaryPaymentReport';
+import SalaryDetails from './components/anjali/views//salary/SalaryDetails';
+import AddSalary from './components/anjali/views/salary/AddSalary';
+import LeavedEmp from './components/anjali/views/employee/LeavedEmp';
+import EditEmp from './components/anjali/views/employee/EditEmp';
+import EditSalary from './components/anjali/views/salary/EditSalary';
 class App extends React.Component {
 
     constructor() {
@@ -133,8 +141,7 @@ class App extends React.Component {
     render() {
         const { error, isLoaded, items } = this.state;
         // Containers
-        const TheLayout = React.lazy(() => import('./components/anjali/containers/TheLayout'));
-        const anjaliRoutes = routes;
+        
         const loading = (
             <div className="pt-3 text-center">
                 <div className="sk-spinner sk-spinner-pulse"></div>
@@ -330,13 +337,62 @@ class App extends React.Component {
 
                                 {/* Anjali */}
 
-                                {anjaliRoutes.map((e, i) => {
-                                    const Component = e.component;
-                                    <Route exact path={e.path} theme={e.theme} component={e.component} key={i} />;
-
-                                })}
+                                <Route exact path="/addemp" render={({ history }) => (
+                                    <AddEmployee history={history} />
+                                )} />
 
 
+                                <Route exact path="/staff-dashboard" render={({ history }) => (
+                                    <Dashboard history={history} />
+                                     
+                                )} />
+
+                                <Route exact path="/attendence" render={({ history }) => (
+                                    <Attendence history={history} />
+                                     
+                                )} />
+
+                                <Route exact path="/view/empdetails" render={({ history }) => (
+                                    <EmpDetails history={history} />
+                                     
+                                )} />
+
+                                 <Route exact path="/view/ViewAEmp" render={({ history }) => (
+                                    <ViewAEmployee history={history} />
+                                     
+                                )} />
+
+                                <Route exact path="/attendence-history" render={({ history }) => (
+                                    <AttendenceHistory history={history} />
+                                     
+                                )} />
+
+                                <Route exact path="/monthlysalarypaymentreport" render={({ history }) => (
+                                    <MonthlySalaryPaymentReport history={history} />
+                                     
+                                )} />
+
+                                <Route exact path="/view/salary-detail" render={({ history }) => (
+                                    <SalaryDetails history={history} />
+                                     
+                                )} />
+                                <Route exact path="/add-salary" render={({ history }) => (
+                                    <AddSalary history={history} />
+                                     
+                                )} />
+
+
+                                <Route exact path="/LeavedEmp" render={({ history }) => (
+                                    <LeavedEmp history={history} />
+                                )} />   
+
+                                <Route exact path="/editemp/:id" render={({ history }) => (
+                                    <EditEmp history={history} />
+                                )} />     
+
+                                <Route exact path="/edit-salary/:id" render={({ history }) => (
+                                    <EditSalary history={history} />
+                                )} />     
 
 
 
