@@ -71,6 +71,39 @@ export const SidebarData = [
     icon: <FaIcons.FaEnvelopeOpenText />
   },
 
+  {
+    title: 'Pay Home',
+    path: '/pay-home',
+    icon: <FaIcons.FaEnvelopeOpenText />
+  },
+
+  {
+    title: 'PayPal Home',
+    path: '/payDisplay',
+    icon: <FaIcons.FaEnvelopeOpenText />
+  },
+
+  {
+    title: 'Products',
+    path: '/home-products',
+    icon: <FaIcons.FaEnvelopeOpenText />
+  },
+
+  {
+    title: 'Category',
+    path: '/HomeCategory',
+    icon: <FaIcons.FaEnvelopeOpenText />
+  },
+
+  {
+    title: 'Offers',
+    path: '/HomeOffer',
+    icon: <FaIcons.FaEnvelopeOpenText />
+  },
+
+
+
+
 
 
   {

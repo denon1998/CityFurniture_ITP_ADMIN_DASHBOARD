@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,900&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+  .shoe-container{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   background-size: cover;
+
+  }
+.section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(#449ef1,#073142);
+}
+
+.section::before{
+  content: "";
+  position: absolute;
+  bottom: -15%;
+  left: 40%;
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(#449ef1);
+  border-radius: 50%;
+  border: none;
+  
+}
+
+.card{
+      position: relative;
+      width: 508px;
+      height: 314px;
+      transform-style: preserve-3d;
+      perspective: 500px;
+}
+.card1{
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 15px 35px (0,0,0,0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+
+}
+ 

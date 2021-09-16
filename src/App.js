@@ -72,7 +72,40 @@ import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
 import { Sidebar } from "./components/nuwanthika/sidebar/Sidebar";
 import routes from "./components/anjali/routes";
 
+
+import EditPosts from './components/samali/components/AdminClientUpdateCard';
+import PayHome from './components/samali/components/CardPayHomeAdmin';
+import payHome from './components/samali/components/payHomeClient';
+import CardPay from './components/samali/components/CardPayClient';
+import NavBar from './components/samali/components/AdminNavbar';
+import PostDetails from './components/samali/components/CardDetailsAdmin';
+import CardPaySuccess from './components/samali/components/CardPaySuccessClient';
+import payPal from './components/samali/components/payPalClient';
+import PaypalDisplay from './components/samali/components/PaypalDisplayAdmin';
+import PayDetails from './components/samali/components/PayDetailsAdmin';
+import PalUpdate from './components/samali/components/PalUpdateAdminClient';
+import paypalSuccess from './components/samali/components/paypalSuccessClient';
+import mailer from './components/samali/components/AdminMailer';
+
+
+
+
+
+import CreatePostProducts from './components/supi/components/CreatePostProducts';
+import EditPostProducts from './components/supi/components/EditPostProducts';
+import HomeProducts from './components//supi/components/HomeProducts';
+import PostDetailsProducts from './components/supi/components/PostDetailsProducts';
+import CreatePostCategory from './components/supi/components/CreatePostCategory';
+import EditPostCategory from './components/supi/components/EditPostCategory';
+import HomeCategories from './components/supi/components/HomeCategories';
+import PostDetailsCategories from './components/supi/components/PostDetailsCategories';
+import CreatePostOffers from './components/supi/components/CreatePostOffers';
+import EditPostOffers from './components/supi/components/EditPostOffers';
+import HomeOffer from './components//supi/components/HomeOffer';
+import PostDetailsOffer from './components/supi/components/PostDetailsOffer';
+
 const AddEmployee = import('./components/anjali/views/employee/AddEmployee');
+
 
 
 class App extends React.Component {
@@ -105,12 +138,12 @@ class App extends React.Component {
                 <Router  >
                     <Sidebar></Sidebar>
 
-                    <HashRouter>
+                    {/* <HashRouter>
                         <React.Suspense fallback={loading}>
 
 
                         </React.Suspense>
-                    </HashRouter>
+                    </HashRouter> */}
 
                     {/* <Sidebar pageName={this.state.pageName} ></Sidebar> */}
 
@@ -281,9 +314,43 @@ class App extends React.Component {
 
                                 {anjaliRoutes.map((e, i) => {
                                     const Component = e.component;
-                                    <Route exact path={e.path} theme={e.theme} components={e.component} key={i} />;
+                                    <Route exact path={e.path} theme={e.theme} component={e.component} key={i} />;
 
                                 })}
+
+
+
+
+
+
+                                <Route path="/pay-home" exact component={PayHome}></Route>
+
+                                <Route path="/payHome" component={payHome}></Route>
+                                <Route path="/edit/:id" component={EditPosts}></Route>
+                                <Route path="/post/:id" component={PostDetails}></Route>
+                                <Route path="/payDisplay" component={PaypalDisplay}></Route>
+                                <Route path="/palEdit/:id" component={PayDetails}></Route>
+                                <Route path="/palUpdate/:id" component={PalUpdate}></Route>
+                                <Route path="/mail" component={mailer}></Route>
+
+
+
+
+
+
+
+                                <Route path="/home-products" exact component={HomeProducts}></Route>
+         <Route path="/addProducts" component={CreatePostProducts}></Route>
+         <Route path="/editProducts/:id" component={EditPostProducts}></Route>
+         <Route path="/postProducts/:id" component={PostDetailsProducts}></Route>
+         <Route path="/HomeCategory" exact component={HomeCategories}></Route>
+         <Route path="/addCategory" component={CreatePostCategory}></Route>
+         <Route path="/editCategory/:id" component={EditPostCategory}></Route>
+         <Route path="/postCategory/:id" component={PostDetailsCategories}></Route>
+         <Route path="/HomeOffer" exact component={HomeOffer}></Route>
+         <Route path="/addOffers" component={CreatePostOffers}></Route>
+         <Route path="/editOffers/:id" component={EditPostOffers}></Route>
+         <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>
 
 
                             </React.Fragment>
