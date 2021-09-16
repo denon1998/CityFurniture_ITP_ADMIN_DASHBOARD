@@ -244,7 +244,7 @@ class App extends React.Component {
                                 <Route path="/feedback/" exact component={feedbackList} />
                                 <Route path="/contact/" exact component={contactList} />
                                 <Route path="/edit/:id" component={Editcontact} />
-                                <Route path="/FAQs/" exact component={FAQsList} />
+                                <Route path="/FAQs" exact component={FAQsList} />
                                 <Route path="/suggestion/" exact component={suggestionList} />
                                 <Route path="/CustomercareHome" exact component={CustomercareHome} />
 
