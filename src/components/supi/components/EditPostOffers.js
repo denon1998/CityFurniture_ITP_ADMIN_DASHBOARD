@@ -46,7 +46,7 @@ export default class EditPostOffers extends Component {
 
     console.log(data)
 
-    axios.put(`http://furniture-store-backend.herokuapp.com/api/postOffers/update/${id}`,data).then((res) =>{
+    axios.put(`https://furniture-store-backend.herokuapp.com/api/postOffers/update/${id}`,data).then((res) =>{
       if(res.data.success){
         swal("Post updated successfully")
         this.setState(
@@ -68,7 +68,7 @@ export default class EditPostOffers extends Component {
     const id = this.props.match.params.id;
 
     //post/${id}/
-    axios.get(`http://furniture-store-backend.herokuapp.com/api/postOffers/${id}`).then((res) => {
+    axios.get(`https://furniture-store-backend.herokuapp.com/api/postOffers/${id}`).then((res) => {
         if (res.data.success) {
 
             this.setState({

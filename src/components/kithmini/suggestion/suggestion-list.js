@@ -29,7 +29,7 @@ export default class suggestionList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/suggestion/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/suggestion/')
             .then(response => {
                 this.setState({ suggestion: response.data })
             })
@@ -39,7 +39,7 @@ export default class suggestionList extends Component {
     }
 
     getPosts() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/suggestion/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/suggestion/')
             .then(response => {
                 this.setState({suggestion: response.data })
             })
@@ -50,7 +50,7 @@ export default class suggestionList extends Component {
 
         deletesuggestion(id) {
             if (window.confirm('Are you sure?')) {
-                axios.delete('http://furniture-store-backend.herokuapp.com/api/suggestion/' + id)
+                axios.delete('https://furniture-store-backend.herokuapp.com/api/suggestion/' + id)
                     .then(response => { console.log(response.data) });
     
                 this.setState({
@@ -78,7 +78,7 @@ export default class suggestionList extends Component {
 
     handleSearchArea = (e) => {
         const searchKey = e.currentTarget.value;
-        axios.get('http://furniture-store-backend.herokuapp.com/api/suggestion/').then(response => {
+        axios.get('https://furniture-store-backend.herokuapp.com/api/suggestion/').then(response => {
 
             const resultt = response.data
             const result = resultt.filter((props) =>

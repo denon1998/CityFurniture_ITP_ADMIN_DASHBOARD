@@ -22,7 +22,7 @@ export default class Editcontact extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/contact/' + this.props.match.params.id)
+        axios.get('https://furniture-store-backend.herokuapp.com/api/contact/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     Username: response.data.Username,
@@ -34,7 +34,7 @@ export default class Editcontact extends Component {
                 console.log(error);
             })
 
-        axios.get('http://furniture-store-backend.herokuapp.com/api/users/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/users/')
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
@@ -77,7 +77,7 @@ export default class Editcontact extends Component {
 
         console.log(contact);
 
-        axios.put('http://furniture-store-backend.herokuapp.com/api/contact/update/' + this.props.match.params.id, contact)
+        axios.put('https://furniture-store-backend.herokuapp.com/api/contact/update/' + this.props.match.params.id, contact)
             .then(res => console.log(res.data));
 
         window.location = "/contact/";

@@ -75,7 +75,7 @@ export default class CreatePostCategory extends Component {
 
     } else {
 
-      axios.post("http://furniture-store-backend.herokuapp.com/api/postCategory/save", data).then((res) => {
+      axios.post("https://furniture-store-backend.herokuapp.com/api/postCategory/save", data).then((res) => {
         if (res.data.success) {
           swal("post insert successfully")
           this.setState(

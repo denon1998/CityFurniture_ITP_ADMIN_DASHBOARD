@@ -44,7 +44,7 @@ export default class EditCatPost extends Component {
 
     console.log(data)
 
-    axios.put(`http://furniture-store-backend.herokuapp.com/api/admincat/update/${id}`, data).then((res) => {
+    axios.put(`https://furniture-store-backend.herokuapp.com/api/admincat/update/${id}`, data).then((res) => {
       if (res.data.success) {
         //alert("Post updated Successfully")
         swal("Update Successful", "Update is recorder", "success");
@@ -65,7 +65,7 @@ export default class EditCatPost extends Component {
 
     const id = this.props.match.params.id;
 
-    axios.get(`http://furniture-store-backend.herokuapp.com/api/admincat/${id}`).then((res) => {
+    axios.get(`https://furniture-store-backend.herokuapp.com/api/admincat/${id}`).then((res) => {
 
       if (res.data.success) {
         this.setState({

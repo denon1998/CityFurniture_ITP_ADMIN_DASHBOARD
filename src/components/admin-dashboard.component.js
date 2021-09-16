@@ -128,7 +128,7 @@ export default class AdminDashboard extends Component {
                         <div className="text-center">
                           <div className="row">
                             <div className="col-sm">
-                              <a className="btn btn-primary btn-lg" href="/stockHome" role="button">-----8-----</a><br /><br />
+                              <a className="btn btn-primary btn-lg" href="/home-products" role="button">-----8-----</a><br /><br />
                             </div></div></div></p></div></div></div>&nbsp;
               </th>
 

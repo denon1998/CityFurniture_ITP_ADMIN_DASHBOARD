@@ -19,7 +19,7 @@ export default class PostDetailsStockSup extends Component{
 
     const id = this.props.match.params.id;
 
-    axios.get(`http://furniture-store-backend.herokuapp.com/api/suppost/${id}`).then((res) =>{
+    axios.get(`https://furniture-store-backend.herokuapp.com/api/suppost/${id}`).then((res) =>{
 
       if(res.data.success){
         this.setState({

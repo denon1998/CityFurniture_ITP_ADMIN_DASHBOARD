@@ -11,6 +11,83 @@ export const SidebarData = [
     path: '/admindashboard',
     icon: <AiIcons.AiFillHome />
   },
+  {
+    title: 'Admin Settings',
+    path: '/main',
+    icon: <AiIcons.AiFillHome />
+  },
+
+  {
+    title: 'Stock Product',
+
+
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav:
+      [
+        {
+          title: 'Add Products',
+          path: '/addP',
+          icon: <AiIcons.AiFillHome />
+        }, {
+          title: 'Manage Products',
+          path: '/homeP',
+          icon: <AiIcons.AiFillHome />
+        },
+
+      ]
+  }, {
+    title: 'Stock Category',
+
+
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav:
+      [
+        {
+          title: 'Add Category',
+          path: '/addC',
+          icon: <AiIcons.AiFillHome />
+        }, {
+          title: 'Manage Category',
+          path: '/homeC',
+          icon: <AiIcons.AiFillHome />
+        },
+
+      ]
+  },
+  {
+    title: 'Supplier',
+
+
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav:
+      [
+        {
+          title: 'Add Supplier',
+          path: '/addS',
+          icon: <AiIcons.AiFillHome />
+        }, {
+          title: 'Manage Supplier',
+          path: '/homeS',
+          icon: <AiIcons.AiFillHome />
+        },
+
+      ]
+  },
+
+  {
+    title: 'Request Products',
+    path: '/req',
+    icon: <AiIcons.AiFillHome />
+  },
 
   {
     title: 'Order',
@@ -130,7 +207,7 @@ export const SidebarData = [
   },
   {
     title: 'FAQs',
-    path: '#',
+    path: '/FAQs',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -138,7 +215,7 @@ export const SidebarData = [
     subNav: [
       {
         title: 'View FAQs',
-        path: '/addC',
+        path: '/FAQs',
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
       },
@@ -327,7 +404,7 @@ export const SidebarData = [
         path: '/monthlysalarypaymentreport',
         icon: <IoIcons.IoMdHelpCircle />
       },
-    
+
     ],
   },
 

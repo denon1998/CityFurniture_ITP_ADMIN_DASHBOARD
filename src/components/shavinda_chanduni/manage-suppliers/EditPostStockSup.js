@@ -76,7 +76,7 @@ export default class EditPostStockSup extends Component{
 
         }else{
 
-        axios.put(`http://furniture-store-backend.herokuapp.com/api/suppost/update/${id}`,data).then((res) =>{
+        axios.put(`https://furniture-store-backend.herokuapp.com/api/suppost/update/${id}`,data).then((res) =>{
           if(res.data.success){
             swal("Successful!", "Supplier details updated", "success");
             this.setState(
@@ -99,7 +99,7 @@ export default class EditPostStockSup extends Component{
 
     const id = this.props.match.params.id;
 
-    axios.get(`http://furniture-store-backend.herokuapp.com/api/suppost/${id}`).then((res) =>{
+    axios.get(`https://furniture-store-backend.herokuapp.com/api/suppost/${id}`).then((res) =>{
 
       if(res.data.success){
         this.setState({

@@ -33,7 +33,7 @@ export default class ExercisesList extends Component {
 
 
     componentDidMount() {
-        axios.get('https://furniture-store-backend.herokuapp.com/api0/exercises/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/exercises/')
             .then(response => {
                 this.setState({ exercises: response.data })
             })
@@ -43,7 +43,7 @@ export default class ExercisesList extends Component {
     }
 
     getPosts() {
-        axios.get('https://furniture-store-backend.herokuapp.com/api0/exercises/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/exercises/')
             .then(response => {
                 this.setState({ exercises: response.data })
             })
@@ -51,10 +51,9 @@ export default class ExercisesList extends Component {
                 console.log(error);
             })
     }
-
     deleteExercise(id) {
         if (window.confirm('Are you sure?')) {
-            axios.delete('https://furniture-store-backend.herokuapp.com/api0/exercises/' + id)
+            axios.delete('https://furniture-store-backend.herokuapp.com/api/exercises/' + id)
                 .then(response => { console.log(response.data) });
 
             this.setState({
@@ -89,7 +88,7 @@ export default class ExercisesList extends Component {
 
         const searchKey = e.currentTarget.value;
 
-        axios.get('https://furniture-store-backend.herokuapp.com/api0/exercises/').then(response => {
+        axios.get('https://furniture-store-backend.herokuapp.com/api/exercises/').then(response => {
 
 
             const resultt = response.data

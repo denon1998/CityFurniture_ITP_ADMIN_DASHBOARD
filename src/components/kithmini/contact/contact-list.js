@@ -27,7 +27,7 @@ export default class contactList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/contact/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/contact/')
             .then(response => {
                 this.setState({ contact: response.data })
             })
@@ -37,7 +37,7 @@ export default class contactList extends Component {
     }
 
     getPosts() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/contact/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/contact/')
             .then(response => {
                 this.setState({ contact: response.data })
             })
@@ -48,7 +48,7 @@ export default class contactList extends Component {
 
     deletecontact(id) {
         if (window.confirm('Are you sure?')) {
-            axios.delete('http://furniture-store-backend.herokuapp.com/api/contact/' + id)
+            axios.delete('https://furniture-store-backend.herokuapp.com/api/contact/' + id)
                 .then(response => { console.log(response.data) });
 
             this.setState({
@@ -82,7 +82,7 @@ export default class contactList extends Component {
     handleSearchArea = (e) => {
         const searchKey = e.currentTarget.value;
 
-        axios.get('http://furniture-store-backend.herokuapp.com/api/contact/').then(response => {
+        axios.get('https://furniture-store-backend.herokuapp.com/api/contact/').then(response => {
 
 
             const resultt = response.data

@@ -3,7 +3,7 @@
 export class OrderService {
 
 
-    domain = 'http://furniture-store-backend.herokuapp.com';
+    domain = 'https://furniture-store-backend.herokuapp.com';
     endpoint = '/api/orders';
 
 

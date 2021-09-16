@@ -31,7 +31,7 @@ class payPal extends Component {
             cpassword: this.state.cpassword
         };
 
-        axios.post("http://furniture-store-backend.herokuapp.com/api/postPay/save", Paypal)
+        axios.post("https://furniture-store-backend.herokuapp.com/api/postPay/save", Paypal)
             .then(response => {
                 if (response.data.success) {
                     alert('successful')

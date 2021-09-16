@@ -17,7 +17,7 @@ componentDidMount(){
 }
 
 retrievePosts(){
-  axios.get("http://furniture-store-backend.herokuapp.com/api/posts").then(res =>{
+  axios.get("https://furniture-store-backend.herokuapp.com/api/posts").then(res =>{
     if(res.data.success){
       this.setState({
         posts:res.data.existingPosts
@@ -30,7 +30,7 @@ retrievePosts(){
 
 
 onDelete=(id)=>{
-  axios.delete(`http://furniture-store-backend.herokuapp.com/api/post/delete/${id}`).then((res)=>{
+  axios.delete(`https://furniture-store-backend.herokuapp.com/api/post/delete/${id}`).then((res)=>{
     swal("Deleted Successful", "Category is removed", "success");
     
     
@@ -53,7 +53,7 @@ filterData(posts,searchKey){
 handleSearchArea =(e) =>{
   const searchKey=e.currentTarget.value;
 
-  axios.get("http://furniture-store-backend.herokuapp.com/api/posts").then(res =>{
+  axios.get("https://furniture-store-backend.herokuapp.com/api/posts").then(res =>{
     if(res.data.success){
 
       this.filterData(res.data.existingPosts,searchKey)
