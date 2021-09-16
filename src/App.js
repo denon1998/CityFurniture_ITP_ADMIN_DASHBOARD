@@ -278,14 +278,12 @@ class App extends React.Component {
                                 {/* vehicle routing end */}
 
                                 {/* Anjali */}
-                                <Route exact path="/addemp" render={({ history }) => (
-                                    <AddEmployee history={history} theme={'Theme'} />
-                                )} />
-                                {/* {anjaliRoutes.map((e, i) => {
-                                    const Component = e.component;
-<Route exact path={e.path} theme={e.theme} components={e.component}  key={i}  />; 
 
-                                })} */}
+                                {anjaliRoutes.map((e, i) => {
+                                    const Component = e.component;
+                                    <Route exact path={e.path} theme={e.theme} components={e.component} key={i} />;
+
+                                })}
 
 
                             </React.Fragment>
