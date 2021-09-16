@@ -59,7 +59,7 @@ class PalUpdate extends Component {
 
         console.log(data)
 
-        axios.put(`http://furniture-store-backend.herokuapp.com/api/paypalpost/update/${id}`, data).then((res) => {
+        axios.put(`https://furniture-store-backend.herokuapp.com/api/paypalpost/update/${id}`, data).then((res) => {
 
             if (res.data.success) {
 
@@ -83,7 +83,7 @@ class PalUpdate extends Component {
         const id = this.props.match.params.id;
 
         //post/${id}/
-        axios.get(`http://furniture-store-backend.herokuapp.com/api/paypalpost/${id}`).then((res) => {
+        axios.get(`https://furniture-store-backend.herokuapp.com/api/paypalpost/${id}`).then((res) => {
             if (res.data.success) {
 
 

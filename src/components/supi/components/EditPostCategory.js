@@ -47,7 +47,7 @@ export default class EditPostCategory extends Component {
 
     console.log(data)    
 
-    axios.put(`http://furniture-store-backend.herokuapp.com/api/postCategory/update/${id}`, data).then((res) => {
+    axios.put(`https://furniture-store-backend.herokuapp.com/api/postCategory/update/${id}`, data).then((res) => {
       if (res.data.success) {
         swal("Post updated Successfully")
         this.setState(
@@ -69,7 +69,7 @@ export default class EditPostCategory extends Component {
 
     const id = this.props.match.params.id;
 
-    axios.get(`http://furniture-store-backend.herokuapp.com/api/postCategory/${id}`).then((res) => {
+    axios.get(`https://furniture-store-backend.herokuapp.com/api/postCategory/${id}`).then((res) => {
 
       if (res.data.success) {
         this.setState({

@@ -31,7 +31,7 @@ export default class FAQsList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/FAQs/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/FAQs/')
             .then(response => {
                 this.setState({ FAQs: response.data })
             })
@@ -41,7 +41,7 @@ export default class FAQsList extends Component {
     }
 
     getPosts() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/FAQs/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/FAQs/')
             .then(response => {
                 this.setState({ FAQs: response.data })
             })
@@ -52,7 +52,7 @@ export default class FAQsList extends Component {
 
     deleteFAQs(id) {
         if (window.confirm('Are you sure?')) {
-            axios.delete('http://furniture-store-backend.herokuapp.com/api/FAQs/' + id)
+            axios.delete('https://furniture-store-backend.herokuapp.com/api/FAQs/' + id)
                 .then(response => { console.log(response.data) });
 
             this.setState({
@@ -86,7 +86,7 @@ export default class FAQsList extends Component {
     handleSearchArea = (e) => {
 
         const searchKey = e.currentTarget.value;
-        axios.get('http://furniture-store-backend.herokuapp.com/api/FAQs/').then(response => {
+        axios.get('https://furniture-store-backend.herokuapp.com/api/FAQs/').then(response => {
 
             const resultt = response.data
             const result = resultt.filter((props) =>props.fname.includes(searchKey))

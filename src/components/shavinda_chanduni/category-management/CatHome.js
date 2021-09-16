@@ -19,7 +19,7 @@ class CatHome extends Component {
     this.retrievePosts();
   }
   retrievePosts() {
-    axios.get("http://furniture-store-backend.herokuapp.com/api/admincat").then(res => {
+    axios.get("https://furniture-store-backend.herokuapp.com/api/admincat").then(res => {
       if (res.data.success) {
         this.setState({
           posts: res.data.existingPosts
@@ -39,7 +39,7 @@ class CatHome extends Component {
     .then((willDelete) => {
 
       if (willDelete) {
-        axios.delete(`http://furniture-store-backend.herokuapp.com/api/admincat/delete/${id}`).then((res)=>{
+        axios.delete(`https://furniture-store-backend.herokuapp.com/api/admincat/delete/${id}`).then((res)=>{
       swal("Deleted Successful", "Category is removed", "success");
       this.retrievePosts();
     })

@@ -2,7 +2,7 @@
 
 export class DeliveryService {
 
-    domain = 'http://furniture-store-backend.herokuapp.com';
+    domain = 'https://furniture-store-backend.herokuapp.com';
     endpoint = '/api/deliveries';
  
     getAll(a, s, length, data) {

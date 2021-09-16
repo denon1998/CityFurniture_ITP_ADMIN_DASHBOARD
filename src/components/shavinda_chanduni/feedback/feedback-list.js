@@ -25,7 +25,7 @@ export default class FeedbackList extends Component {
     } 
 
     componentDidMount() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/feedback/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/feedback/')
             .then(response => {
                 this.setState({ feedback: response.data })
             })
@@ -35,7 +35,7 @@ export default class FeedbackList extends Component {
     }
 
     deleteFeedback(id) {
-        axios.delete('http://furniture-store-backend.herokuapp.com/api/feedback/' + id)
+        axios.delete('https://furniture-store-backend.herokuapp.com/api/feedback/' + id)
             .then(response => { console.log(response.data) });
 
         this.setState({
@@ -54,7 +54,7 @@ export default class FeedbackList extends Component {
 
     handleSearchArea = (id) => {
 
-        axios.get('http://furniture-store-backend.herokuapp.com/api/feedback/' + id)
+        axios.get('https://furniture-store-backend.herokuapp.com/api/feedback/' + id)
             .then(response => {
                 this.setState({ feedback: response.data })
             })

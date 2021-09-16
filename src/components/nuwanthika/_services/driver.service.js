@@ -4,7 +4,7 @@ import { DriverModel } from '../_models/driver.model';
 
 export class DriverService {
 
-    domain = 'http://furniture-store-backend.herokuapp.com';
+    domain = 'https://furniture-store-backend.herokuapp.com';
     endpoint = '/api/drivers';
 
     getAll(a, s, length, data) {

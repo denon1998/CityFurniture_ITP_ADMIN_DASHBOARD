@@ -28,7 +28,7 @@ export default class FeedbackList extends Component {
     } 
 
     componentDidMount() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/feedback/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/feedback/')
             .then(response => {
                 this.setState({ feedback: response.data })
             })
@@ -38,7 +38,7 @@ export default class FeedbackList extends Component {
     }
 
     getPosts() {
-        axios.get('http://furniture-store-backend.herokuapp.com/api/feedback/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/feedback/')
             .then(response => {
                 this.setState({ exercises: response.data })
             })
@@ -49,7 +49,7 @@ export default class FeedbackList extends Component {
 
     deleteFeedback(id) {
         if (window.confirm('Are you sure?')) {
-            axios.delete('http://furniture-store-backend.herokuapp.com/api/feedback/' + id)
+            axios.delete('https://furniture-store-backend.herokuapp.com/api/feedback/' + id)
                 .then(response => { console.log(response.data) });
 
             this.setState({
@@ -79,7 +79,7 @@ export default class FeedbackList extends Component {
 
         const searchKey = e.currentTarget.value;
 
-        axios.get('http://furniture-store-backend.herokuapp.com/api/feedback/').then(response => {
+        axios.get('https://furniture-store-backend.herokuapp.com/api/feedback/').then(response => {
 
 
             const resultt = response.data

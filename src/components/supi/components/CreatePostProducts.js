@@ -91,7 +91,7 @@ export default class CreatePostProducts extends Component {
         
    }else{
 
-    axios.post("http://furniture-store-backend.herokuapp.com/api/postProducts/save",data).then((res) =>{
+    axios.post("https://furniture-store-backend.herokuapp.com/api/postProducts/save",data).then((res) =>{
       if(res.data.success){
 
       

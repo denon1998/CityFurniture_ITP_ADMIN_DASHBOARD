@@ -93,7 +93,7 @@ export default class CreatePostStockPro extends Component {
       swal("Invalid Product Name !", "Product name cannot contain Numbers ! Please enter valid product name !", "error");
   
     }else{
-   axios.post("http://furniture-store-backend.herokuapp.com/api/postPro/save",data).then((res) =>{
+   axios.post("https://furniture-store-backend.herokuapp.com/api/postPro/save",data).then((res) =>{
       if(res.data.success){
         this.setState(
           {

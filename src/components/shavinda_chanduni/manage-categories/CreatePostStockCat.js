@@ -81,7 +81,7 @@ export default class CreatePostStockCat extends Component {
 
 
       }else{
-      axios.post("http://furniture-store-backend.herokuapp.com/api/catpost/save",data).then((res) =>{
+      axios.post("https://furniture-store-backend.herokuapp.com/api/catpost/save",data).then((res) =>{
         if(res.data.success){
           this.setState(
             {

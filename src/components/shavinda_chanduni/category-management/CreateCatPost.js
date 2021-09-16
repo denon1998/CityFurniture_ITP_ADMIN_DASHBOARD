@@ -64,7 +64,7 @@ export default class CreatCatePost extends Component {
       .then((willDelete) => {
         if (willDelete) {
 
-    axios.post("http://furniture-store-backend.herokuapp.com/api/admincat/save",data).then((res) =>{
+    axios.post("https://furniture-store-backend.herokuapp.com/api/admincat/save",data).then((res) =>{
       if(res.data.success){
         this.setState(
           {

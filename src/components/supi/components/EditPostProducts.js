@@ -57,7 +57,7 @@ export default class EditPostProducts extends Component {
 
     console.log(data)
 
-    axios.put(`http://furniture-store-backend.herokuapp.com/api/postProducts/update/${id}`, data).then((res) => {
+    axios.put(`https://furniture-store-backend.herokuapp.com/api/postProducts/update/${id}`, data).then((res) => {
       if (res.data.success) {
         swal("Post Updated Successfully")
         this.setState(
@@ -84,7 +84,7 @@ export default class EditPostProducts extends Component {
 
     const id = this.props.match.params.id;
 
-    axios.get(`http://furniture-store-backend.herokuapp.com/api/postProducts/${id}`).then((res) => {
+    axios.get(`https://furniture-store-backend.herokuapp.com/api/postProducts/${id}`).then((res) => {
 
       if (res.data.success) {
         this.setState({

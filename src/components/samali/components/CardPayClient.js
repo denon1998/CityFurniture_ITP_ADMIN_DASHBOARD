@@ -75,7 +75,7 @@ function CardPayClient() {
 
             axios({
                 method: 'post',
-                url: 'http://furniture-store-backend.herokuapp.com/api/cardpost/save',
+                url: 'https://furniture-store-backend.herokuapp.com/api/cardpost/save',
                 data: {
                     cardnumber: cardnumber,
                     customerName: customerName,

@@ -21,7 +21,7 @@ class Home extends Component {
   }
 
   retrievePosts() {
-    axios.get("http://furniture-store-backend.herokuapp.com/api/paypalposts").then(res => {
+    axios.get("https://furniture-store-backend.herokuapp.com/api/paypalposts").then(res => {
 
       if (res.data.success) {
         this.setState({
@@ -35,7 +35,7 @@ class Home extends Component {
 
   //delete function 
   onDelete = (id) => {
-    axios.delete(`http://furniture-store-backend.herokuapp.com/api/paypalpost/delete/${id}`).then((res) => {
+    axios.delete(`https://furniture-store-backend.herokuapp.com/api/paypalpost/delete/${id}`).then((res) => {
       alert("Deleted Successfully");
       this.retrievePosts();
     })
@@ -63,7 +63,7 @@ class Home extends Component {
 
     const searchKey = e.currentTarget.value;
 
-    axios.get("http://furniture-store-backend.herokuapp.com/api/paypalposts").then(res => {
+    axios.get("https://furniture-store-backend.herokuapp.com/api/paypalposts").then(res => {
 
       if (res.data.success) {
 

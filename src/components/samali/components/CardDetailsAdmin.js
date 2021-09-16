@@ -17,7 +17,7 @@ class CardDetailsAdmin extends Component {
         const id = this.props.match.params.id;
         
         //post/${id}/
-        axios.get(`http://furniture-store-backend.herokuapp.com/api/cardpost/${id}`).then((res) =>{
+        axios.get(`https://furniture-store-backend.herokuapp.com/api/cardpost/${id}`).then((res) =>{
             if(res.data.success){
                 this.setState({
                     post:res.data.post
