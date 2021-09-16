@@ -1,8 +1,8 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route,withRouter, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, withRouter, Switch, HashRouter } from "react-router-dom";
 
-import {  Container, Nav } from 'react-bootstrap';
+import { Container, Nav } from 'react-bootstrap';
 
 import Navbar from "./components/navbar.component"
 import AdminDashboard from "./components/admin-dashboard.component"
@@ -59,7 +59,7 @@ import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminD
 import OrderEdit from './components/nuwanthika/order/OrderEdit';
 import DeliveryEdit from './components/nuwanthika/delivery/DeliveryEdit';
 import VehicleEdit from './components/nuwanthika/vehicle/VehicleEdit';
- import EntityHome from './components/nuwanthika/entityHome/entity-home';
+import EntityHome from './components/nuwanthika/entityHome/entity-home';
 
 
 import Driver from "./components/nuwanthika/driver/Driver";
@@ -69,13 +69,14 @@ import Delivery from "./components/nuwanthika/delivery/Delivery";
 import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
 
 
-import {Sidebar} from "./components/nuwanthika/sidebar/Sidebar";
+import { Sidebar } from "./components/nuwanthika/sidebar/Sidebar";
+import routes from "./components/anjali/routes";
 
-
+const AddEmployee = import('./components/anjali/views/employee/AddEmployee');
 
 
 class App extends React.Component {
-   
+
     constructor() {
         super();
         this.state = {
@@ -89,13 +90,27 @@ class App extends React.Component {
     }
     render() {
         const { error, isLoaded, items } = this.state;
+        // Containers
+        const TheLayout = React.lazy(() => import('./components/anjali/containers/TheLayout'));
+        const anjaliRoutes = routes;
+        const loading = (
+            <div className="pt-3 text-center">
+                <div className="sk-spinner sk-spinner-pulse"></div>
+            </div>
+        )
+
 
         return (
             <div className="App">
                 <Router  >
-                <Sidebar></Sidebar>
+                    <Sidebar></Sidebar>
+
+                    <HashRouter>
+                        <React.Suspense fallback={loading}>
 
 
+                        </React.Suspense>
+                    </HashRouter>
 
                     {/* <Sidebar pageName={this.state.pageName} ></Sidebar> */}
 
@@ -262,6 +277,16 @@ class App extends React.Component {
                                 )} />
                                 {/* vehicle routing end */}
 
+                                {/* Anjali */}
+                                <Route exact path="/addemp" render={({ history }) => (
+                                    <AddEmployee history={history} theme={'Theme'} />
+                                )} />
+                                {/* {anjaliRoutes.map((e, i) => {
+                                    const Component = e.component;
+<Route exact path={e.path} theme={e.theme} components={e.component}  key={i}  />; 
+
+                                })} */}
+
 
                             </React.Fragment>
 
@@ -290,4 +315,3 @@ export default withRouter(App);
 
 
 
- 
