@@ -7,12 +7,12 @@ import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 import { DeliveryService } from '../_services/delivery.service';
 import { DeliveryModel } from "../_models/delivery.model";
- import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 
 export default class DeliveryEdit extends React.Component {
-   
+
     isView = false;
 
 
@@ -156,10 +156,10 @@ export default class DeliveryEdit extends React.Component {
 
 
 
-                        <Form.Select   readOnly={this.isView} placeholder="status" value={this.state.status} onChange={(event) => {
-                                this.setState({ status: event.target.value });
-                            }} >
-                            
+                        <Form.Select readOnly={this.isView} placeholder="status" value={this.state.status} onChange={(event) => {
+                            this.setState({ status: event.target.value });
+                        }} >
+
                             <option value="PENDING">PENDING</option>
                             <option value="PROBLEM">PROBLEM</option>
                             <option value="DELIVERED">DELIVERED</option>
@@ -186,7 +186,7 @@ export default class DeliveryEdit extends React.Component {
 
 
 
-                        <Button variant="primary" hidden={!this.isView}   style={{ backgroundColor: 'red', width: '200px', height: '200px', borderRadius: '200px', float: 'right', fontWeight: 'bolder', fontSize: '30px' }} size="lg" active
+                        <Button variant="primary" hidden={!this.isView} style={{ backgroundColor: 'red', width: '200px', height: '200px', borderRadius: '200px', float: 'right', fontWeight: 'bolder', fontSize: '30px' }} size="lg" active
                             onClick={() => {
                                 this.openModal();
                             }}>
@@ -215,8 +215,9 @@ export default class DeliveryEdit extends React.Component {
                         <Button variant="danger" onClick={
                             () => {
                                 if (navigator.geolocation) {
+                                    // GPS
                                     navigator.geolocation.getCurrentPosition(pos => {
-                                        this.setState({ lat: pos.coords.latitude, long: pos.coords.longitude, status: this.state.status==='PROBLEM'?'PROBLEM': 'DELIVERED' });
+                                        this.setState({ lat: pos.coords.latitude, long: pos.coords.longitude, status: this.state.status === 'PROBLEM' ? 'PROBLEM' : 'DELIVERED' });
                                         this.closeModal();
                                         new DeliveryService().update(this.state, (result) => {
                                             alert('SAVED')
@@ -255,10 +256,12 @@ export default class DeliveryEdit extends React.Component {
 
 
     isValid() {
-        // alert('isvalid')
+        // 1 x 1 x 1= 1
+        // 1 x 1 x 1 x 0 = 0
+        // 0 x 0 x 0 x 0 = 0
         if ((
 
-            // !(this.state.contactNumber.length < 10) *
+
             !(this.state.deliveryID.length <= 0) *
             !(this.state.receiverAddress.length <= 0) *
             !(this.state.assignedDriver.length <= 0) *
@@ -267,11 +270,13 @@ export default class DeliveryEdit extends React.Component {
 
         ) === 0
         ) {
+            // form is invalid
             this.setState({
                 isValid: false
             });
 
         } else {
+            // form is valid
             this.setState({
                 isValid: true
             });
