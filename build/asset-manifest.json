@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ee217110.chunk.css",
+    "main.js": "/static/js/main.ccc1dcd6.chunk.js",
+    "main.js.map": "/static/js/main.ccc1dcd6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6c0f0777.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6c0f0777.js.map",
+    "static/css/2.54355caf.chunk.css": "/static/css/2.54355caf.chunk.css",
+    "static/js/2.74ac53d8.chunk.js": "/static/js/2.74ac53d8.chunk.js",
+    "static/js/2.74ac53d8.chunk.js.map": "/static/js/2.74ac53d8.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.54355caf.chunk.css.map": "/static/css/2.54355caf.chunk.css.map",
+    "static/css/main.ee217110.chunk.css.map": "/static/css/main.ee217110.chunk.css.map",
+    "static/js/2.74ac53d8.chunk.js.LICENSE.txt": "/static/js/2.74ac53d8.chunk.js.LICENSE.txt",
+    "static/media/9.33354162.jpg": "/static/media/9.33354162.jpg",
+    "static/media/Sofa1.7bc7c7a5.jpg": "/static/media/Sofa1.7bc7c7a5.jpg",
+    "static/media/UserGif.64f3354c.gif": "/static/media/UserGif.64f3354c.gif",
+    "static/media/chair1.d3ab1adc.jpg": "/static/media/chair1.d3ab1adc.jpg",
+    "static/media/cupboard1.443fcc66.jpg": "/static/media/cupboard1.443fcc66.jpg",
+    "static/media/emailgif.dbd76844.gif": "/static/media/emailgif.dbd76844.gif",
+    "static/media/mattress1.8954de8d.png": "/static/media/mattress1.8954de8d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c0f0777.js",
+    "static/css/2.54355caf.chunk.css",
+    "static/js/2.74ac53d8.chunk.js",
+    "static/css/main.ee217110.chunk.css",
+    "static/js/main.ccc1dcd6.chunk.js"
+  ]
+}
