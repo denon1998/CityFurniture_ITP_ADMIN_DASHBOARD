@@ -222,7 +222,7 @@ export default class Order extends React.Component {
 
 
     fetchData(a, s) {
-        if (this.state.searchQuery.length >= 1) {
+        if (this.state.searchQuery.length >= 1) { 
             const query = { query: this.state.searchQuery, size: s, page: a };
             new OrderService().search(query,
                 (l) => {
