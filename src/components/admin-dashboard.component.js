@@ -9,7 +9,6 @@ export default class AdminDashboard extends Component {
       <div className="jumbotron">
         <div className>
 
-
           <h1 className="text-center" style={{ backgroundColor: 'white' }}><font face="Comic sans MS" size="8"><b>City Furniture</b></font></h1><br />
           <h2 className="text-center" style={{ color: '#0066d3' }}><font face="Comic sans MS" size="6"><b>Admin Dashboard</b></font></h2>
 
@@ -29,7 +28,6 @@ export default class AdminDashboard extends Component {
                               <a className="btn btn-primary btn-lg" href="/main" role="button">Admin Settings</a><br /><br />
                             </div></div></div></p></div></div></div>&nbsp;
               </th>
-
 
               <br />
               <th>
