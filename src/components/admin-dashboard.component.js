@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// nuwanthika change homepage
+// homepage
 
 export default class AdminDashboard extends Component {
 
