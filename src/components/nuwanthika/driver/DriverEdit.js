@@ -8,16 +8,17 @@ import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 import { DriverModel } from '../_models/driver.model';
 import { DriverService } from '../_services/driver.service';
- 
+import SweetAlert, { SweetAlertType } from 'react-bootstrap-sweetalert';
+
 
 
 
 
 export default class DriverEdit extends React.Component {
     isView = false;
-     constructor(props) {
+    constructor(props) {
         super(props);
-        this.state = { ...DriverModel, isValid: false };
+        this.state = { ...DriverModel, isValid: false, showSaved: false, alertTitle: 'Saved' };
         // this.setState({ ...DriverModel, isValid: false })
 
 
@@ -40,15 +41,20 @@ export default class DriverEdit extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        if (this.state._id.length === 0) {
+        if (this.state._id === undefined) {
             new DriverService().save(this.state, (result) => {
-                alert('SAVED')
-                this.props.history.push('/driver');
+                this.setState({
+                    showSaved: true,
+                    alertTitle: 'Saved'
+                })
             })
         } else {
             new DriverService().update(this.state, (result) => {
-                alert('UPDATED')
-                this.props.history.push('/driver');
+                this.setState({
+                    alertTitle: 'Saved Changes',
+                    showSaved: true
+                })
+
             })
         }
     }
@@ -61,11 +67,11 @@ export default class DriverEdit extends React.Component {
                     <form onSubmit={this.handleSubmit}>
 
 
-                        <Form.Group className="mb-3" controlId="id" hidden={this.state._id.length === 0}>
+                        <Form.Group className="mb-3" controlId="id" hidden={this.state._id === undefined}>
                             <Form.Label   > ID</Form.Label>
                             <Form.Control type="text" readOnly={true} placeholder="ID" value={this.state._id} onChange={(event) => {
                                 this.setState({
-                                    empID: event.target.value,
+                                    _id: event.target.value,
 
                                     // isValid: !(event.target.value === undefined) && (event.target.value.length > 0)
                                 }, () => {
@@ -87,8 +93,8 @@ export default class DriverEdit extends React.Component {
                                     this.isValid();
                                 });
                             }} />
-  <Form.Text className="text-muted">
-                               *required
+                            <Form.Text className="text-muted">
+                                *required
                             </Form.Text>
                         </Form.Group>
 
@@ -103,8 +109,8 @@ export default class DriverEdit extends React.Component {
                                         this.isValid();
                                     });
                                 }} />
-  <Form.Text className="text-muted">
-                               *required
+                            <Form.Text className="text-muted">
+                                *required
                             </Form.Text>
                         </Form.Group>
 
@@ -115,12 +121,12 @@ export default class DriverEdit extends React.Component {
                             <Form.Label>Vehicle ID</Form.Label>
                             <Form.Control type="text" readOnly={this.isView} placeholder="Vehicle ID" value={this.state.vehicleID} onChange={(event) => {
                                 this.setState({ vehicleID: event.target.value }
-                                 , () => {
-                                    this.isValid();
-                                });
+                                    , () => {
+                                        this.isValid();
+                                    });
                             }} />
-  <Form.Text className="text-muted">
-                               ex: T0001
+                            <Form.Text className="text-muted">
+                                ex: T0001
                             </Form.Text>
                         </Form.Group>
 
@@ -131,6 +137,7 @@ export default class DriverEdit extends React.Component {
                             <Form.Label>Current Order ID</Form.Label>
                             <Form.Control type="text" readOnly={this.isView} placeholder="Current Order ID" value={this.state.currentOrderID} onChange={(event) => {
                                 this.setState({ currentOrderID: event.target.value });
+                                this.isValid();
                             }} />
 
                         </Form.Group>
@@ -162,7 +169,17 @@ export default class DriverEdit extends React.Component {
 
                     </form>
 
+                    <SweetAlert
+                        show={this.state.showSaved}
+                        title={this.state.alertTitle}
+                        onConfirm={() => {
+                            this.props.history.push('/driver');
+                        }}
 
+                        type={"success"}
+                    >
+
+                    </SweetAlert>
                 </div>
             </Container>
 
@@ -175,7 +192,7 @@ export default class DriverEdit extends React.Component {
 
             !(this.state.contactNumber.length < 10) *
             !(this.state.empID.length <= 0) *
-           ( this.state.vehicleID.length>0?  (/[A-Z]{1}[0-9]{4}$/.exec(this.state.vehicleID)) :true  )  *
+            (this.state.vehicleID.length > 0 ? (/[A-Z]{1}[0-9]{4}$/.exec(this.state.vehicleID)) : true) *
             !(this.state.empName.length <= 0)
 
         ) === 0
@@ -188,9 +205,8 @@ export default class DriverEdit extends React.Component {
             this.setState({
                 isValid: true
             });
-        } 
+        }
 
     }
 
 }
- 

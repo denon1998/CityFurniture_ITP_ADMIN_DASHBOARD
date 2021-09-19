@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Navbar, Container, Nav, Row, Col, InputGroup, FormControl, Button, Table, Pagination, Form, Modal } from 'react-bootstrap';
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -40,13 +41,13 @@ const DropdownLink = styled(Link)`
   }
 `;
 
-const SubMenu = ({ item }) => {
+const SubMenu = ({ item, controlSidebar }) => {
   const [subnav, setSubnav] = useState(false);
 
-  const showSubnav = () => setSubnav(!subnav);
-
+  const showSubnav = () => setSubnav(!subnav); 
+ 
   return (
-    <div>
+    <Button style={{backgroundColor:'transparent',width:'260px', border:'none'}} onClick={()=>{controlSidebar()}}>
       <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
         <div>
           {item.icon}
@@ -56,20 +57,21 @@ const SubMenu = ({ item }) => {
           {item.subNav && subnav
             ? item.iconOpened
             : item.subNav
-            ? item.iconClosed
-            : null}
+              ? item.iconClosed
+              : null}
         </div>
       </SidebarLink>
       {subnav &&
         item.subNav.map((item, index) => {
           return (
-            <DropdownLink to={item.path} key={index}>
+            <DropdownLink to={item.path} key={index} 
+           >
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
             </DropdownLink>
           );
         })}
-    </div>
+    </Button>
   );
 };
 

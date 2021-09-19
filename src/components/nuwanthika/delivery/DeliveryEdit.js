@@ -8,6 +8,7 @@ import * as RiIcons from 'react-icons/ri';
 import { DeliveryService } from '../_services/delivery.service';
 import { DeliveryModel } from "../_models/delivery.model";
 import { useLocation } from "react-router-dom";
+import SweetAlert, { SweetAlertType } from 'react-bootstrap-sweetalert';
 
 
 
@@ -21,7 +22,7 @@ export default class DeliveryEdit extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { ...DeliveryModel, isValid: false };
+        this.state = { ...DeliveryModel, isValid: false, showSaved: false, alertTitle: 'Saved' };
         this.setState({
             ...DeliveryModel,
             isOpen: false,
@@ -43,15 +44,19 @@ export default class DeliveryEdit extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        if (this.state._id.length === 0) {
+        if (this.state._id === undefined) {
             new DeliveryService().save(this.state, (result) => {
-                alert('SAVED')
-                this.props.history.push('/delivery');
+                this.setState({
+                    showSaved: true,
+                    alertTitle: 'Saved'
+                })
             })
         } else {
             new DeliveryService().update(this.state, (result) => {
-                alert('UPDATED')
-                this.props.history.push('/delivery');
+                this.setState({
+                    showSaved: true,
+                    alertTitle: 'Saved Changes'
+                })
             })
         }
     }
@@ -63,7 +68,7 @@ export default class DeliveryEdit extends React.Component {
 
                     <form onSubmit={this.handleSubmit}>
 
-                        <Form.Group className="mb-3" controlId="id" hidden={this.state._id.length === 0}>
+                        <Form.Group className="mb-3" controlId="id" hidden={this.state._id === undefined}>
                             <Form.Label  > ID</Form.Label>
                             <Form.Control type="text" readOnly={true} placeholder="ID" value={this.state._id} onChange={(event) => {
                                 this.setState({ _id: event.target.value });
@@ -139,6 +144,7 @@ export default class DeliveryEdit extends React.Component {
                             <Form.Label>latitude</Form.Label>
                             <Form.Control type="text" readOnly={this.isView} placeholder="latitude" value={this.state.lat} onChange={(event) => {
                                 this.setState({ lat: event.target.value });
+                                this.isValid();
                             }} />
 
                         </Form.Group>
@@ -158,6 +164,7 @@ export default class DeliveryEdit extends React.Component {
 
                         <Form.Select readOnly={this.isView} placeholder="status" value={this.state.status} onChange={(event) => {
                             this.setState({ status: event.target.value });
+                            this.isValid();
                         }} >
 
                             <option value="PENDING">PENDING</option>
@@ -177,6 +184,7 @@ export default class DeliveryEdit extends React.Component {
                             <InputGroup.Text>TYPE REMARKS</InputGroup.Text>
                             <FormControl as="textarea" aria-label="TYPE REMARKS" value={this.state.remarks} onChange={(event) => {
                                 this.setState({ remarks: event.target.value });
+                                this.isValid();
                             }} />
                         </InputGroup>
 
@@ -195,7 +203,17 @@ export default class DeliveryEdit extends React.Component {
 
                     </form>
 
+                    <SweetAlert
+                        show={this.state.showSaved}
+                        title={this.state.alertTitle}
+                        onConfirm={() => {
+                            this.props.history.push('/delivery');
+                        }}
 
+                        type={"success"}
+                    >
+
+                    </SweetAlert>
 
                 </div>
 
@@ -220,8 +238,10 @@ export default class DeliveryEdit extends React.Component {
                                         this.setState({ lat: pos.coords.latitude, long: pos.coords.longitude, status: this.state.status === 'PROBLEM' ? 'PROBLEM' : 'DELIVERED' });
                                         this.closeModal();
                                         new DeliveryService().update(this.state, (result) => {
-                                            alert('SAVED')
-                                            this.props.history.push('/delivery');
+                                            this.setState({
+                                                showSaved: true,
+                                                alertTitle: 'Saved'
+                                            })
                                         });
                                     });
                                 } else {

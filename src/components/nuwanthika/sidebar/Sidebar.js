@@ -6,6 +6,7 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
+import { useLocation } from 'react-router-dom';
 
 const Nav = styled.div`
   background: #15171c;
@@ -49,6 +50,14 @@ export const Sidebar = () => {
     const [messages, setMessages] = useState([]);
 
     const showSidebar = () => setSidebar(!sidebar);
+    const location = useLocation()
+
+    // React.useEffect(() => {
+    //     showSidebar()
+    //     // runs on location, i.e. route, change
+    //     console.log('handle route change here', location)
+    //   }, [location])
+
 
     useEffect(() => {
         // subscribe to home component messages
@@ -65,6 +74,7 @@ export const Sidebar = () => {
 
         // return unsubscribe method to execute when component unmounts
         // return subscription.unsubscribe;
+       
     }, []);
 
 
@@ -92,7 +102,9 @@ export const Sidebar = () => {
                                 <AiIcons.AiOutlineClose onClick={showSidebar} />
                             </NavIcon>
                             {SidebarData.map((item, index) => {
-                                return <SubMenu item={item} key={index} />;
+                                return <SubMenu item={item} key={index} controlSidebar={()=>{
+                                   showSidebar()
+                                }} />;
                             })}
                         </SidebarWrap>       </div>
                     </SidebarNav>
