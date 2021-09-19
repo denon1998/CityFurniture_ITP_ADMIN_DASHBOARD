@@ -255,7 +255,7 @@ export const SidebarData = [
 
   {
     title: 'Delivery Management',
-    path: '#t',
+    path: '#',
     icon: <IoIcons.IoMdHelpCircle
 
 
