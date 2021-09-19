@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+// homepage
 
 export default class AdminDashboard extends Component {
 
@@ -8,7 +8,6 @@ export default class AdminDashboard extends Component {
     return (
       <div className="jumbotron">
         <div className>
-
 
           <h1 className="text-center" style={{ backgroundColor: 'white' }}><font face="Comic sans MS" size="8"><b>City Furniture</b></font></h1><br />
           <h2 className="text-center" style={{ color: '#0066d3' }}><font face="Comic sans MS" size="6"><b>Admin Dashboard</b></font></h2>
@@ -30,7 +29,6 @@ export default class AdminDashboard extends Component {
                             </div></div></div></p></div></div></div>&nbsp;
               </th>
 
-
               <br />
               <th>
                 <div className="col-sm">
@@ -44,6 +42,7 @@ export default class AdminDashboard extends Component {
                               <a className="btn btn-primary btn-lg" href="/order" role="button">-----2-----</a><br /><br />
                             </div></div></div></p></div></div></div>&nbsp;
               </th>
+
 
               <br />
               <th>
