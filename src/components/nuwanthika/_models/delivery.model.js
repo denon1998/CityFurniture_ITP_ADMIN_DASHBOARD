@@ -9,6 +9,6 @@ export const DeliveryModel={
     long:'0',
     status:'PENDING',
     remarks:'',
-     _id:''
+     _id:undefined
 
 }

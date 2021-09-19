@@ -1,7 +1,7 @@
 
 
 export const OrderModel = {
-    _id: '',
+    _id: undefined,
     orderID: '',
     name: '',
     postalNo: '',

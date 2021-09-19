@@ -10,6 +10,8 @@ import { VehicleModel } from '../_models/vehicle.model';
  import { VehicleService } from '../_services/vehicle.service';
 import moment from 'moment';
 
+import SweetAlert, { SweetAlertType } from 'react-bootstrap-sweetalert';
+
 
 
 
@@ -17,7 +19,7 @@ export default class VehicleEdit extends React.Component {
     isView = false;
      constructor(props) {
         super(props);
-        this.state = { ...VehicleModel, isValid: false };
+        this.state = { ...VehicleModel, isValid: false, showSaved: false, alertTitle: 'Saved' };
         this.handleSubmit = this.handleSubmit.bind(this);
 
         const url = new URL(window.location.href);
@@ -35,15 +37,19 @@ export default class VehicleEdit extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        if (this.state._id.length === 0) {
+        if (this.state._id === undefined) {
             new VehicleService().save(this.state, (result) => {
-                alert('SAVED')
-                this.props.history.push('/vehicle');
+                this.setState({
+                    showSaved: true,
+                    alertTitle: 'Saved'
+                })
             })
         } else {
             new VehicleService().update(this.state, (result) => {
-                alert('UPDATED')
-                this.props.history.push('/vehicle');
+                this.setState({
+                    showSaved: true,
+                    alertTitle: 'Saved Changes'
+                })
             })
         }
     }
@@ -56,7 +62,7 @@ export default class VehicleEdit extends React.Component {
 
                     <form onSubmit={this.handleSubmit}>
 
-                        <Form.Group className="mb-3" controlId="id" hidden={this.state._id.length === 0} >
+                        <Form.Group className="mb-3" controlId="id" hidden={this.state._id === undefined} >
                             <Form.Label  > ID</Form.Label>
                             <Form.Control type="text" readOnly={true} placeholder="ID" value={this.state._id} onChange={(event) => {
                                 this.setState({ _id: event.target.value });
@@ -101,6 +107,7 @@ export default class VehicleEdit extends React.Component {
                             <Form.Label>mileage</Form.Label>
                             <Form.Control type="number" readOnly={this.isView} placeholder="mileage" value={this.state.mileage} onChange={(event) => {
                                 this.setState({ mileage: event.target.value });
+                                this.isValid();
                             }} />
 
                         </Form.Group>
@@ -131,7 +138,17 @@ export default class VehicleEdit extends React.Component {
                     </form>
 
 
+                    <SweetAlert
+                        show={this.state.showSaved}
+                        title={this.state.alertTitle}
+                        onConfirm={() => {
+                            this.props.history.push('/vehicle');
+                        }}
 
+                        type={"success"}
+                    >
+
+                    </SweetAlert>
                 </div>
             </Container>
 
