@@ -166,7 +166,7 @@ export default class Order extends React.Component {
 
                             }} />
                             <Pagination>{this.items}</Pagination>
-                            <Pagination.Next disabled={Math.round((this.length / this.size) + 1) === this.active} onClick={() => {
+                            <Pagination.Next disabled={Math.round((this.length / this.size) + (this.length%this.size)) === this.active} onClick={() => {
                                 this.active++;
                                 this.fetchData(this.active, this.size);
 
@@ -177,6 +177,9 @@ export default class Order extends React.Component {
 
                     </div>
 
+                    <div className={centerDiv}>
+                    <p style={{textAlign:'center'}}>   {(this.active*this.size)-(this.size-1) } - {this.active*this.size } of {this.length} records total</p>
+                    </div>
                 </div>
 
 
@@ -265,7 +268,7 @@ export default class Order extends React.Component {
 
     paginationUpdate() {
         this.items = []
-        for (let number = 1; number <= (this.length / this.size) + 1; number++) {
+        for (let number = 1; number <= (this.length / this.size) + (this.length%this.size); number++) {
             this.items.push(
                 <Pagination.Item key={number} active={number === this.active} onClick={() => {
                     this.active = number;

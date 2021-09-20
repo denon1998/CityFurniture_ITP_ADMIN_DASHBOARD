@@ -65,7 +65,7 @@ export default class DeliveryEdit extends React.Component {
         return (
             <Container>
                 <div className="mb-4 mt-4   ">
-
+                    <h3 className="mb-4">Delivery Details Form    </h3>
                     <form onSubmit={this.handleSubmit}>
 
                         <Form.Group className="mb-3" controlId="id" hidden={this.state._id === undefined}>
@@ -143,7 +143,7 @@ export default class DeliveryEdit extends React.Component {
                         <Form.Group className="mb-3" controlId="latitude">
                             <Form.Label>latitude</Form.Label>
                             <Form.Control type="text" readOnly={this.isView} placeholder="latitude" value={this.state.lat} onChange={(event) => {
-                                this.setState({ lat: event.target.value });
+                                this.setState({ lat: Number(event.target.value).toFixed(5).toString() });
                                 this.isValid();
                             }} />
 
@@ -155,7 +155,7 @@ export default class DeliveryEdit extends React.Component {
                         <Form.Group className="mb-3" controlId="longitude">
                             <Form.Label>longitude</Form.Label>
                             <Form.Control type="text" readOnly={this.isView} placeholder="longitude" value={this.state.long} onChange={(event) => {
-                                this.setState({ long: event.target.value });
+                                this.setState({ long: Number(event.target.value).toFixed(5).toString() });
                             }} />
 
                         </Form.Group>
@@ -235,7 +235,7 @@ export default class DeliveryEdit extends React.Component {
                                 if (navigator.geolocation) {
                                     // GPS
                                     navigator.geolocation.getCurrentPosition(pos => {
-                                        this.setState({ lat: pos.coords.latitude, long: pos.coords.longitude, status: this.state.status === 'PROBLEM' ? 'PROBLEM' : 'DELIVERED' });
+                                        this.setState({ lat: Number(pos.coords.latitude).toFixed(5).toString(), long: Number(pos.coords.longitude).toFixed(5), status: this.state.status === 'PROBLEM' ? 'PROBLEM' : 'DELIVERED' });
                                         this.closeModal();
                                         new DeliveryService().update(this.state, (result) => {
                                             this.setState({

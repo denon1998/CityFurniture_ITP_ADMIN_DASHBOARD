@@ -7,7 +7,7 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 
- import { DeliveryService } from '../_services/delivery.service';
+import { DeliveryService } from '../_services/delivery.service'; 
 const searchDiv = {
     display: 'flex',
     flexDirection: 'row',
@@ -26,7 +26,7 @@ export default class Delivery extends React.Component {
     items = [];
     length = 0;
     size = 5;
-  
+
     dataToDelete = {};
 
     openModal = () => this.setState({ isOpen: true });
@@ -126,11 +126,11 @@ export default class Delivery extends React.Component {
                                     <td>{item.receiverAddress} </td>
 
                                     <td>{item.assignedDriver} </td>
-                                    <td>{item.lat} </td>
-                                    <td>{item.long} </td>
+                                    <td>{Number(item.lat).toFixed(5).toString()} </td>
+                                    <td>{Number(item.long).toFixed(5).toString()} </td>
                                     <td>   <a hidden={!(item.lat > 0)} target="_blank" href={'https://www.google.com/maps/search/?api=1&query=' + item.lat + '%2C' + item.long}>SHOW</a>  </td>
-                                    <td>{item['status']} </td>
-                                    <td>{item.remarks} </td>
+                                    <td style={{ backgroundColor: (item['status'] === 'PENDING' ? 'orange' : (item['status'] === 'PROBLEM' ? 'red' : 'limegreen')),color:item['status'] === 'PROBLEM'?'white':'black' ,textAlign:'center',verticalAlign:'middle',borderRadius:'6px' }} > <h5 className="m-0 p-0">{item['status']}</h5> </td>
+                                    <td> {item.remarks}  </td> 
 
                                     <td>
                                         <Button variant="success" onClick={() => {
@@ -164,7 +164,7 @@ export default class Delivery extends React.Component {
 
                             }} />
                             <Pagination>{this.items}</Pagination>
-                            <Pagination.Next disabled={Math.round((this.length / this.size) + 1) === this.active} onClick={() => {
+                            <Pagination.Next disabled={Math.round((this.length / this.size) + (this.length % this.size)) === this.active} onClick={() => {
                                 this.active++;
                                 this.fetchData(this.active, this.size);
 
@@ -173,6 +173,9 @@ export default class Delivery extends React.Component {
 
 
 
+                    </div>
+                    <div className={centerDiv}>
+                        <p style={{ textAlign: 'center' }}>   {(this.active * this.size) - (this.size - 1)} - {this.active * this.size} of {this.length} records total</p>
                     </div>
 
                 </div>
@@ -251,7 +254,7 @@ export default class Delivery extends React.Component {
 
     paginationUpdate() {
         this.items = []
-        for (let number = 1; number <= (this.length / this.size) + 1; number++) {
+        for (let number = 1; number <= (this.length / this.size) + (this.length % this.size); number++) {
             this.items.push(
                 <Pagination.Item key={number} active={number === this.active} onClick={() => {
                     this.active = number;
