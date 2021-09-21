@@ -2,7 +2,9 @@
     "name": "mern",
     "version": "0.1.0",
     "private": true,
-    "engines": {"node": "12.x"} , 
+    "engines": {
+        "node": "12.x"
+    },
     "dependencies": {
         "@coreui/chartjs": "^2.0.0",
         "@coreui/coreui": "^3.4.0",
