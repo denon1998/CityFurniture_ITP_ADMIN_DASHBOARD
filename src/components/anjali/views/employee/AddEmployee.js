@@ -140,7 +140,7 @@ function AddEmployee() {
       }
     }).then(res => {
       console.log(res.data.url)
-      setProfileImage(`https://furniture-store-backend.herokuapp.com/api/${res.data.url}`);
+      setProfileImage(`https://furniture-store-backend.herokuapp.com/${res.data.url}`);
     });
   }
 
@@ -280,9 +280,9 @@ function AddEmployee() {
 
     
     return (
-        <div>
+        <div style={{backgroundColor:"#ccc"}}>
             
-            <div className={classes.rootGrid}>
+            <div className={classes.rootGrid} >
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper} >
