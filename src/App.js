@@ -51,6 +51,11 @@ import HomeStockSup from './components/shavinda_chanduni/manage-suppliers/HomeSt
 import PostDetailsStockSup from './components/shavinda_chanduni/manage-suppliers/PostDetailsStockSup';
 
 import StockHome from './components/shavinda_chanduni/manage-products/StockHome';
+
+import categoryStockHome from './components/shavinda_chanduni/manage-categories/categoryStockHome';
+import productStockHome from './components/shavinda_chanduni/manage-products/productStockHome';
+import supplierStockHome from './components/shavinda_chanduni/manage-suppliers/supplierStockHome';
+
 import RequestProducts from './components/shavinda_chanduni/manage-suppliers/RequestProducts';
 
 import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminDashboard';
@@ -69,7 +74,9 @@ import Delivery from "./components/nuwanthika/delivery/Delivery";
 import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
 
 
-import { Sidebar } from "./components/nuwanthika/sidebar/Sidebar";
+// SIDEBAR
+// import { SidebarStock } from "./components/shavinda_chanduni/SidebarStock/SidebarStock";
+import SidebarStock from './components/shavinda_chanduni/SidebarStock/SidebarStock';
 
 
 import EditPosts from './components/samali/components/AdminClientUpdateCard';
@@ -152,7 +159,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Router  >
-                    <Sidebar></Sidebar>
+                <SidebarStock></SidebarStock>
 
                     {/* <HashRouter>
                         <React.Suspense fallback={loading}>
@@ -220,7 +227,7 @@ class App extends React.Component {
                                 <Route path="/order/post/:id" exact component={PostDetailsOrder}></Route>
 
 
-
+                                  {/* Shavinda    */}
                                 <Route path="/stockHome" exact component={StockHome} />
 
                                 <Route path="/homeP" component={HomeStockPro} />
@@ -239,6 +246,11 @@ class App extends React.Component {
                                 <Route path="/addS" component={CreatePostStockSup}></Route>
                                 <Route path="/editS/:id" component={EditPostStockSup}></Route>
                                 <Route path="/postS/:id" component={PostDetailsStockSup}></Route>
+
+                                
+                                <Route path = "/homeStockP" component = {productStockHome}/>
+                                <Route path = "/homeStockC" component = {categoryStockHome}/>
+                                <Route path = "/homeStockS" component = {supplierStockHome}/>
 
                                 <Route path="/req" component={RequestProducts}></Route>
 

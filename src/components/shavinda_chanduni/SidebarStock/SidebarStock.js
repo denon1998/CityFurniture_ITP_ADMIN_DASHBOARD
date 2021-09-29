@@ -28,7 +28,7 @@ const NavIcon = styled(Link)`
 
 const SidebarNav = styled.nav`
   background: #15171c;
-  width: 250px;
+  width: 300px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -43,33 +43,37 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
-const SidebarStock = () => {return (<div></div>)}
-const _SidebarStock = () => {
+const SidebarStock = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <div>
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <Nav>
-          <NavIcon to='#'>
-            
-            <FaIcons.FaBars onClick={showSidebar} />
-          </NavIcon>
-        </Nav>
-        <SidebarNav sidebar={sidebar}>
-          <SidebarWrap>
-            <NavIcon to='#'>
-              <AiIcons.AiOutlineClose onClick={showSidebar} />
-            </NavIcon>
-            {SidebarDataStock.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
-            })}
-          </SidebarWrap>
-        </SidebarNav>
-      </IconContext.Provider>
-    </div>
+    <>
+           <IconContext.Provider value={{ color: '#fff' }}>
+                <Nav>
+                    <NavIcon to='#'>
+                        <FaIcons.FaBars onClick={showSidebar} />
+                    </NavIcon>
+                </Nav>
+              
+                    <SidebarNav sidebar={sidebar}>
+                    <div style={{overflow:'auto',width:'300px'}}>
+                        <SidebarWrap>
+                            <NavIcon to='#'>
+                                <AiIcons.AiOutlineClose onClick={showSidebar} />
+                            </NavIcon>
+                            {SidebarDataStock.map((item, index) => {
+                                return <SubMenu item={item} key={index} />;
+                            })}
+                        </SidebarWrap>       
+                    </div>
+                    </SidebarNav>
+         
+
+
+            </IconContext.Provider>
+    </>
   );
 };
 

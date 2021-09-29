@@ -3,7 +3,7 @@ import axios from 'axios';
 import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import swal from 'sweetalert';
-import SidebarStock from '../SidebarStock/SidebarStock';
+
 
 
 export default class HomeStockCat extends Component{
@@ -38,24 +38,25 @@ retrievePosts(){
 
 onDelete = (id) =>{
 
-  axios.delete(`https://furniture-store-backend.herokuapp.com/api/catpost/delete/${id}`).then((res)=>{
-    swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this category details!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        swal("Poof! Category details has been deleted!", {
-          icon: "success",
-        });
-      } 
-    });
-  this.retrievePosts();
-
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this category details !",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
   })
+  .then((willDelete) => {
+    if (willDelete) {
+      axios.delete(`https://furniture-store-backend.herokuapp.com/api/catpost/delete/${id}`).then((res)=>{
+        this.retrievePosts();
+        })
+      swal("Done! Category details has been deleted!", {
+        icon: "success",
+      });
+    } else {
+      swal("Not Deleted ! Your category details are safe!");
+    }
+  });
 }
 
 filterData(posts, searchKey){
@@ -78,6 +79,7 @@ const searchKey = e.currentTarget.value;
 
 axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res =>{
 
+
   if(res.data.success){
 
     this.filterData(res.data.existingPosts, searchKey)
@@ -91,10 +93,9 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
     return(
 
       <div>
-      <SidebarStock/>  
+  
       <div className = "container">
-          <div className = "row">
-          
+
             <center>
           <h3><font face = "Comic sans MS" size ="6"><b>Categories</b></font></h3>
           </center>
@@ -107,9 +108,6 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
         onChange = {this.handleSearchArea} />
           </form>
       </nav>
-
-   </div>
-        
         
         <table className = "table table-hover" style = {{marginTop:'40px'}}>
         <thead>

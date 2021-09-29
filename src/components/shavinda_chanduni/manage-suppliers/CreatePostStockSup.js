@@ -8,7 +8,6 @@ import Sofa1 from "../../images/Sofa1.jpg";
 import cupboard1 from "../../images/cupboard1.jpg";
 import chair1 from "../../images/chair1.jpg";
 import UserGif from "../../images/UserGif.gif";
-import SidebarStock from '../SidebarStock/SidebarStock';
 
 
 
@@ -67,17 +66,17 @@ export default class CreatePostStockSup extends Component {
 
      //Validation 
      const con = /^[0-9\b]+$/;
-     const email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
      const name = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/;
+     const email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
      
     if(supplierID.length === 0 || supplierName.length === 0 || supplierPhone.length === 0 || supplierEmail.length === 0 || supplierAddress.length === 0 || supplierComName.length === 0 || supplierComAddress.length === 0 || supplierDate.length === 0){
       swal("Feilds cannot be empty !", "Plese fill all the information!", "error");
     }else if(supplierID.length > 6 ){
-      swal("Invalid Category ID !", "Do not enter more than 6 letters !", "error");
+      swal("Invalid supplier ID !", "Do not enter more than 6 letters !", "error");
     }else if(supplierID.length < 6){
-      swal("Invalid Category ID !", "Do not enter less than 6 letters !", "error");
+      swal("Invalid supplier ID !", "Do not enter less than 6 letters !", "error");
     }else if(supplierID.length < 6){
-      swal("Invalid Category ID !", "Do not enter less than 6 letters !", "error");
+      swal("Invalid supplier ID !", "Do not enter less than 6 letters !", "error");
     }else if((!con.test(String(supplierPhone)))||(supplierPhone.length != 10)){
       swal("Invalid Contact Number !", "Please enter valid contact number !", "error");
     }else if((!email.test(String(supplierEmail)))){
@@ -89,7 +88,7 @@ export default class CreatePostStockSup extends Component {
     
       
     }else{
-    axios.post("https://furniture-store-backend.herokuapp.com/api/suppost/save",data).then((res) =>{
+      axios.post("https://furniture-store-backend.herokuapp.com/api/suppost/save",data).then((res) =>{
       if(res.data.success){
         this.setState(
           {
@@ -133,8 +132,7 @@ export default class CreatePostStockSup extends Component {
     return (
 
       <div>
-      <SidebarStock/>
-
+    
       <div className = "container">
 
         <div className="row">

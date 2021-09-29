@@ -1,12 +1,12 @@
 import React from "react";
-// import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import emailjs from 'emailjs-com';
 import emailgif from "../../images/emailgif.gif";
-import SidebarStock from '../SidebarStock/SidebarStock';
+import swal from 'sweetalert';
 
 
 const RequestProducts = () => {
+
 
     function sendEmail(e){
 
@@ -17,18 +17,16 @@ const RequestProducts = () => {
         ).then(res=>{
 
             console.log(res);
+            swal("Successful!", "Email sent to the Supplier!", "success");
             
             
 
         }).catch(err => console.log(err));
-        
     }
-  
+    
     return(
 
       <div>
-          <SidebarStock/>
-        
 
           <div class="col-sm">
           <div className = "container border"
