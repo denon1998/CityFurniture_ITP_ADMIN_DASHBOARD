@@ -3,7 +3,6 @@ import axios from 'axios';
 import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import '../styles/formStyles.css';
-import SidebarStock from '../SidebarStock/SidebarStock';
 
 
 export default class PostDetailsStockSup extends Component{
@@ -39,84 +38,61 @@ export default class PostDetailsStockSup extends Component{
     return(
 
       <div>
-      <SidebarStock/>
 
-      <div className = "container">
+      <div className="container border"
 
+        style={{
 
-      <div style = {{marginTop: '20px'}}>
+          marginTop: "80px",
 
-      <div className="cardS">
-      <div className = "card-body" style = {{marginTop: '60px'}}> 
-            <div className = "row">
-            <div className="col-sm" />
-            <div className="col-sm"><b>Supplier ID</b></div>
-            <div className="col-sm">{supplierID}</div>
-            </div>
+          width: '100%',
 
-            <br/>
+          backgroundImage: `url('https://bhiroof.com/wp-content/uploads/2020/10/empty-living-room-with-blue-sofa-plants-table-empty-white-wall-background-3d-rendering_41470-1778.jpg')`,
 
-            <div className="row">
-            <div className="col-sm" />
-            <div className="col-sm"><b>Name</b></div>
-            <div className="col-sm">{supplierName}</div>
-            </div>
-            <br/>
+          backgroundPosition: 'center',
 
-            <div className="row">
-            <div className="col-sm" />
-            <div className="col-sm"><b>Contact Number</b></div>
-            <div className="col-sm">{supplierPhone}</div>
-            </div>
-            <br/>
+          backgroundSize: 'cover',
 
-            <div className="row">
-            <div className="col-sm" />
-            <div className="col-sm"><b>Email</b></div>
-            <div className="col-sm">{supplierEmail}</div>
-            </div>
-            <br/>
+        }}>
 
-            <div className="row">
-            <div className="col-sm" />
-            <div className="col-sm"><b>Address</b></div>
-            <div className="col-sm">{supplierAddress}</div>
-            </div>
-            <br/>
+        <div style={{ marginTop: '20px' }}>
 
-            <div className="row">
-            <div className="col-sm" />
-            <div className="col-sm"><b>Company</b></div>
-            <div className="col-sm">{supplierComName}</div>
-            </div>
-            <br/>
+          <h1>{supplierName}</h1>
+          <br/>
 
-            <div className="row">
-            <div className="col-sm" />
-            <div className="col-sm"><b>Company Address</b></div>
-            <div className="col-sm">{supplierComAddress}</div>
-            </div>
-            <br/>
-            
-            <div className="row">
-            <div className="col-sm" />
-            <div className="col-sm"><b>Date</b></div>
-            <div className="col-sm">{supplierDate}</div>
-            
-            </div>
-            </div>
-            </div>
+          <dl className="row">
 
-            <SlideShow/>
+            <dt className="col-sm-3">Supplier ID</dt><br></br>
+            <dd className="col-sm-9">{supplierID}</dd><br></br>
+
+            <dt className="col-sm-3">Contact Number</dt><br></br>
+            <dd className="col-sm-9">{supplierPhone}</dd><br></br>
+
+            <dt className="col-sm-3">Email</dt><br></br>
+            <dd className="col-sm-9">{supplierEmail}</dd><br></br>
+
+            <dt className="col-sm-3">Address</dt><br></br>
+            <dd className="col-sm-9">{supplierAddress}</dd><br></br>
+
+            <dt className="col-sm-3">Company Name</dt><br></br>
+            <dd className="col-sm-9">{supplierComName}</dd><br></br>
+
+            <dt className="col-sm-3">Company Address</dt><br></br>
+            <dd className="col-sm-9">{supplierComAddress}</dd><br></br>
+
+            <dt className="col-sm-3">Date</dt><br></br>
+            <dd className="col-sm-9">{supplierDate}</dd><br></br>
+
+          </dl>
+
+        </div>
       </div>
-
-      <br/><br/><br/>
-
-      <Footer />
-
+      <SlideShow/>
       </div>
-      </div>
-
+  
+  
   )
+      
+
   }
 }

@@ -6,10 +6,6 @@ import mattress1 from "../../images/mattress1.png";
 import Sofa1 from "../../images/Sofa1.jpg";
 import cupboard1 from "../../images/cupboard1.jpg";
 import chair1 from "../../images/chair1.jpg";
-import SidebarStock from '../SidebarStock/SidebarStock';
-
-
-
 
 
 export default class CreatePostStockCat extends Component {
@@ -81,7 +77,8 @@ export default class CreatePostStockCat extends Component {
 
 
       }else{
-      axios.post("https://furniture-store-backend.herokuapp.com/api/catpost/save",data).then((res) =>{
+        axios.post("https://furniture-store-backend.herokuapp.com/api/catpost/save",data).then((res) =>{
+
         if(res.data.success){
           this.setState(
             {
@@ -122,7 +119,6 @@ export default class CreatePostStockCat extends Component {
     return (
       
       <div>
-      <SidebarStock/>  
 
       <div className = "container">
 
@@ -253,10 +249,6 @@ export default class CreatePostStockCat extends Component {
       
           </div>
         </div>
-
-
-
-
 
         <br/><br/><br/>
 

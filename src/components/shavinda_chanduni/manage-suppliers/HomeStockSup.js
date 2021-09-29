@@ -3,7 +3,6 @@ import axios from 'axios';
 import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import swal from 'sweetalert';
-import SidebarStock from '../SidebarStock/SidebarStock';
 
 export default class HomeStockSup extends Component{
 
@@ -37,24 +36,25 @@ retrievePosts(){
 
 onDelete = (id) =>{
 
-  axios.delete(`https://furniture-store-backend.herokuapp.com/api/suppost/delete/${id}`).then((res)=>{
-    swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this Supplier details!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        swal("Poof! Supplier details has been deleted!", {
-          icon: "success",
-        });
-      } 
-    });
-  this.retrievePosts();
-
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this Supplier details!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
   })
+  .then((willDelete) => {
+    if (willDelete) {
+      axios.delete(`https://furniture-store-backend.herokuapp.com/api/suppost/delete/${id}`).then((res)=>{
+        this.retrievePosts();
+        })
+      swal("Done! Supplier details has been deleted!", {
+        icon: "success",
+      });
+    } else {
+      swal("Not deleted ! Supplier details are safe !");
+    }
+  });
 }
 
 filterData(posts, searchKey){
@@ -96,7 +96,6 @@ handleSearchArea = (e) =>{
     return(
 
       <div>
-      <SidebarStock/>
 
       <div className = "container">
 

@@ -3,7 +3,6 @@ import axios from 'axios';
 import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import swal from 'sweetalert';
-import SidebarStock from '../SidebarStock/SidebarStock';
 
 
 
@@ -26,6 +25,7 @@ componentDidMount(){
 retrievePosts(){
   axios.get("https://furniture-store-backend.herokuapp.com/api/postsPro").then(res =>{
 
+
   if(res.data.success){
     this.setState({
       posts:res.data.existingPosts
@@ -39,29 +39,27 @@ retrievePosts(){
 
 onDelete = (id) =>{
 
-  axios.delete(`https://furniture-store-backend.herokuapp.com/api/postPro/delete/${id}`).then((res)=>{
-    swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this product details !",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-
-      .then((willDelete) => {
-        if (willDelete) { 
-          swal("Product details has been deleted!", {
-            icon: "success",
-        });
-      } else {
-        swal("Your imaginary file is safe!");
-      }
-    });
-
-  this.retrievePosts();
-
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this product details!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
   })
+  .then((willDelete) => {
+    if (willDelete) {
+      axios.delete(`https://furniture-store-backend.herokuapp.com/api/postPro/delete/${id}`).then((res)=>{
+        this.retrievePosts();
+        })
+      swal("Done! Product details has been deleted!", {
+        icon: "success",
+      });
+    } else {
+      swal("Not deleted ! Product details are safe !");
+    }
+  });
 }
+
 
 filterData(posts, searchKey){
 
@@ -100,7 +98,7 @@ handleSearchArea = (e) =>{
     return(
       
       <div>
-      <SidebarStock/>
+ 
 
       <div className = "container">
          

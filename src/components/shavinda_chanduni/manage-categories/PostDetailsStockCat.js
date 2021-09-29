@@ -38,73 +38,52 @@ export default class PostDetailsStockCat extends Component{
     return(
 
       <div>
-      <SidebarStock/>  
-      <div className = "container">
-      <center>
-      <h1>Category Details</h1>
-      </center>
 
-      <br/>
+      <div className="container border"
 
-  <div style = {{marginTop: '20px'}}>
+        style={{
 
-  <div className="cardS">
-  <div className = "card-body" style = {{marginTop: '60px'}}> 
+          marginTop: "80px",
 
-  <div className="row">
-        <div className="col-sm" />
-        <div className="col-sm"><b>Category ID</b></div>
-        <div className="col-sm">{catID}</div>
+          width: '100%',
+
+          backgroundImage: `url('https://bhiroof.com/wp-content/uploads/2020/10/empty-living-room-with-blue-sofa-plants-table-empty-white-wall-background-3d-rendering_41470-1778.jpg')`,
+
+          backgroundPosition: 'center',
+
+          backgroundSize: 'cover',
+
+        }}>
+
+        <div style={{ marginTop: '20px' }}>
+
+          <h1>{catName}</h1>
+          <br/>
+
+          <dl className="row">
+
+            <dt className="col-sm-3">Category ID</dt><br></br>
+            <dd className="col-sm-9">{catID}</dd><br></br>
+
+            <dt className="col-sm-3">Sub category</dt><br></br>
+            <dd className="col-sm-9">{catSub}</dd><br></br>
+
+            <dt className="col-sm-3">Description</dt><br></br>
+            <dd className="col-sm-9">{catDescription}</dd><br></br>
+
+            <dt className="col-sm-3">Status</dt><br></br>
+            <dd className="col-sm-9">{catStatus}</dd><br></br>
+
+            <dt className="col-sm-3">Date</dt><br></br>
+            <dd className="col-sm-9">{catDate}</dd><br></br>
+
+          </dl>
+
         </div>
-
-        <br/>
-
-        <div className="row">
-        <div className="col-sm" />
-        <div className="col-sm"><b>Name</b></div>
-        <div className="col-sm">{catName}</div>
-        </div>
-        <br/>
-
-        <div className="row">
-        <div className="col-sm" />
-        <div className="col-sm"><b>Sub categories</b></div>
-        <div className="col-sm">{catSub}</div>
-        </div>
-        <br/>
-
-        <div className="row">
-        <div className="col-sm" />
-        <div className="col-sm"><b>Description</b></div>
-        <div className="col-sm">{catDescription}</div>
-        </div>
-        <br/>
-
-        <div className="row">
-        <div className="col-sm" />
-        <div className="col-sm"><b>Status</b></div>
-        <div className="col-sm">{catStatus}</div>
-        </div>
-        <br/>
-
-        <div className="row">
-        <div className="col-sm" />
-        <div className="col-sm"><b>Date</b></div>
-        <div className="col-sm">{catDate}</div>
-        </div>
-        <br/>
-
-        <SlideShow/>
-
-  </div>
-  </div>
-  </div>
-
-  <br/><br/><br/>
-
-  </div>
-  <Footer />
-  </div>
+      </div>
+      <SlideShow/>
+      </div>
+  
   )
   }
 }

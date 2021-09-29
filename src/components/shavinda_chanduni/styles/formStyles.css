@@ -1,19 +1,31 @@
-.card{
+.cardS{
 
-    background-color: rgb(255, 238, 217);
-    border-width: thick;
-    border-radius: 30px;
-    border-color:black;
+  background-color: rgb(253, 244, 232);
+  border-width: thick;
+  border-radius: 30px;
+  border-color:black;
 
 
 }
 
 .cardU{
 
-  background-color: rgb(209, 227, 248);
-  border-width: thick;
-  border-radius: 30px;
-  border-color:black;
+background-color: rgb(209, 227, 248);
+border-width: thick;
+border-radius: 30px;
+border-color:black;
+
+
+}
+
+.cardSS{
+
+border-style: solid;
+border-color: black;
+border-width: 5px;
+box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.5);
+align-content: center;
+margin-left: 100px;
 
 
 }

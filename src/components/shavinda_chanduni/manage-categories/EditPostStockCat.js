@@ -77,7 +77,9 @@ export default class EditPostStockCat extends Component{
           swal("Invalid sub category Name !", "sub category name cannot contain Numbers ! Please enter valid sub category name !", "error");
 
         }else{
-        axios.put(`https://furniture-store-backend.herokuapp.com/api/catpost/update/${id}`,data).then((res) =>{
+         
+          axios.put(`https://furniture-store-backend.herokuapp.com/api/catpost/update/${id}`,data).then((res) =>{
+
           if(res.data.success){
             swal("Successful!", "Category details updated", "success");
             this.setState(
@@ -123,7 +125,7 @@ export default class EditPostStockCat extends Component{
         return (
           
           <div>
-          <SidebarStock/>  
+         
           <div className = "container">    
 
           <div className = "cardU" style={{marginTop:'40px'}}>
