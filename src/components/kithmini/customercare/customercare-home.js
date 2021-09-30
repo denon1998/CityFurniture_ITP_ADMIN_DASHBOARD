@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import Footer from '../Footer/Footer';
-import SidebarCustomercare from '../customercare/SidebarCustomercare';
+//import SidebarCustomercare from '../customercare/SidebarCustomercare';
 
 export default class CustomercareHome extends Component {
     render() {
@@ -13,7 +13,8 @@ export default class CustomercareHome extends Component {
         
             <header>
             
-            <div className="p-5 text-center bg-image" style={{backgroundImage: 'url("https://static1.bigstockphoto.com/3/0/2/large1500/203502559.jpg")', backgroundSize:'cover',height:"100%"}}>
+            <div className="p-5 text-center bg-image" style={{backgroundImage: 'url("https://static1.bigstockphoto.com/3/0/2/large1500/203502559.jpg")', backgroundSize:'cover', height:"600px" ,marginTop: '50px'}}>
+
                 <div className="mask" style={{backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
                 <div className="d-flex justify-content-center align-items-center h-100">
                     <div className="text-white"><br/>
@@ -29,7 +30,6 @@ export default class CustomercareHome extends Component {
                 </div>
             </div>
             </header>
-            <br/><br/><br/>
 
             
 

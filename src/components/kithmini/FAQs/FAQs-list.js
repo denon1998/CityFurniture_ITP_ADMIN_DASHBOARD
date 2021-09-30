@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // import Footer from '../Footer/Footer';
-import SidebarCustomercare from '../customercare/SidebarCustomercare';
+//import SidebarCustomercare from '../customercare/SidebarCustomercare';
 
 
 const Customer = props => (
@@ -99,8 +99,12 @@ export default class FAQsList extends Component {
     render() {
         return ( 
             <div >
-                 <SidebarCustomercare/>
+                 <div className = "container">
+                  {/* <SidebarCustomercare/> */}
+                  <br/><br/>
+                  <center> 
             <h3 > FAQs List </h3>
+            </center> 
             <div className = "col-lg-3 mt-10 mb-2" >
 
             <input className = "form-control"
@@ -135,6 +139,8 @@ export default class FAQsList extends Component {
             {/* <Footer /> */}
 
             </div>
+            </div>
+
         )
     }
 }
