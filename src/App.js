@@ -111,7 +111,7 @@ import HomeOffer from './components//supi/components/HomeOffer';
 import PostDetailsOffer from './components/supi/components/PostDetailsOffer';
 
 
-
+//kithmini
 import feedbackList from "./components/kithmini/feedback/feedback-list";
 import Editcontact from "./components/kithmini/contact/edit-contact";
 import contactList from "./components/kithmini/contact/contact-list";
@@ -262,7 +262,7 @@ class App extends React.Component {
                                 {/* Kithmini */}
                                 <Route path="/feedback/" exact component={feedbackList} />
                                 <Route path="/contact/" exact component={contactList} />
-                                <Route path="/edit/:id" component={Editcontact} />
+                                <Route path="/cedit/:id" component={Editcontact} />
                                 <Route path="/FAQs" exact component={FAQsList} />
                                 <Route path="/suggestion/" exact component={suggestionList} />
                                 <Route path="/CustomercareHome" exact component={CustomercareHome} />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // import Footer from '../Footer/Footer';
-import SidebarCustomercare from '../customercare/SidebarCustomercare';
+//import SidebarCustomercare from '../customercare/SidebarCustomercare';
 
 
 const Customer = props => (
@@ -98,8 +98,10 @@ export default class FeedbackList extends Component {
     render() {
         return ( 
             <div>
-                <SidebarCustomercare/>
-                 <center>
+                 <div className = "container">
+                  {/* <SidebarCustomercare/> */}
+                  <br/><br/>
+                 <center>  
             <h3> Feedback List </h3>
             </center>
 
@@ -132,6 +134,7 @@ export default class FeedbackList extends Component {
 
             {/* <Footer /> */}
 
+            </div>
             </div>
         )
     }

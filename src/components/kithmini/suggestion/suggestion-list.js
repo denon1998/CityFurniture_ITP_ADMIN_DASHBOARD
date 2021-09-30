@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import Footer from '../Footer/Footer';
-import SidebarCustomercare from '../customercare/SidebarCustomercare';
+//import SidebarCustomercare from '../customercare/SidebarCustomercare';
 
 
 const Customer = props => (
@@ -93,8 +93,13 @@ export default class suggestionList extends Component {
     render() {
         return ( 
             <div >
-                   <SidebarCustomercare/>
+               <div className = "container"> 
+                    {/* <SidebarCustomercare/> */}
+                    <br/><br/><br/>
+                    <center> 
             <h3 > Suggestion and Inquiry List </h3>
+            </center> 
+            <br/>
 
             <div className = "col-lg-3 mt-10 mb-2" >
             <input className = "form-control"
@@ -125,6 +130,7 @@ export default class suggestionList extends Component {
 
             {/* <Footer /> */}
 
+            </div>
             </div>
         )
     }
