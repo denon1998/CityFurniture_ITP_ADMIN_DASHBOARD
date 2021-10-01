@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import Footer from '../Footer/Footer';
-import SidebarCustomercare from '../customercare/SidebarCustomercare';
+//import SidebarCustomercare from '../customercare/SidebarCustomercare';
 
 
 const Customer = props => (
@@ -11,7 +11,7 @@ const Customer = props => (
     <td > { props.contact.Phone } </td> 
     <td > { props.contact.Email } </td> 
     <td >
-    <Link to = { "/edit/" + props.contact._id } > Edit </Link> | <a href="" onClick={() => {props.deletecontact(props.contact._id) }}>Delete</a > 
+    <Link to = { "/cedit/" + props.contact._id } > Edit </Link> | <a href="" onClick={() => {props.deletecontact(props.contact._id) }}>Delete</a > 
     </td >
  </tr> 
 )
@@ -90,7 +90,7 @@ export default class contactList extends Component {
             /*const result = resultt.filter((props) => props.Email.includes(searchKey)),
             const result = resultt.filter((props) =>props.Phone.includes(searchKey))*/
         
-            this.setState({ exercises: result })
+            this.setState({ contact: result })
 
         });
 
@@ -99,8 +99,12 @@ export default class contactList extends Component {
     render() {
         return ( 
             <div >
-                <SidebarCustomercare/>
+                <div className = "container">
+                 {/* <SidebarCustomercare/> */}
+                 <br/><br/>
+                 <center>
             <h3 > Contact List </h3>
+            </center>
 
             <div className = "col-lg-3 mt-10 mb-2" >
             <input className = "form-control"
@@ -129,6 +133,7 @@ export default class contactList extends Component {
 
             {/* <Footer /> */}
 
+            </div>
             </div>
         )
     }

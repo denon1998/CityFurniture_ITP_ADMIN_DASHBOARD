@@ -91,9 +91,14 @@ export default class CreatePostStockPro extends Component {
       swal("Invalid Product ID !", "Do not enter less than 6 letters !", "error");
     }else if((!name.test(String(productName)))){
       swal("Invalid Product Name !", "Product name cannot contain Numbers ! Please enter valid product name !", "error");
+    }else if((!name.test(String(productColor)))){
+      swal("Invalid Product color !", "Product color cannot contain Numbers ! Please enter valid product color !", "error");
+    }else if((!name.test(String(productMaterial)))){
+      swal("Invalid Product material !", "Product material cannot contain Numbers ! Please enter valid product material !", "error");
+        
   
     }else{
-   axios.post("https://furniture-store-backend.herokuapp.com/api/postPro/save",data).then((res) =>{
+      axios.post("https://furniture-store-backend.herokuapp.com/api/postPro/save",data).then((res) =>{
       if(res.data.success){
         this.setState(
           {
@@ -143,7 +148,7 @@ export default class CreatePostStockPro extends Component {
     return (
 
         <div>
-        <SidebarStock/>
+     
 
         <div className="container">
   

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Footer from '../Footer/Footer';
 import swal from 'sweetalert';
-import SidebarStock from '../SidebarStock/SidebarStock';
 
 export default class EditPostStockPro extends Component{
 
@@ -86,7 +85,7 @@ export default class EditPostStockPro extends Component{
 
             }else{  
 
-            axios.put(`https://furniture-store-backend.herokuapp.com/api/postPro/update/${id}`,data).then((res) =>{
+              axios.put(`https://furniture-store-backend.herokuapp.com/api/postPro/update/${id}`,data).then((res) =>{
               if(res.data.success){
                 swal("Successful!", "Product details updated", "success");
                 this.setState(
@@ -113,7 +112,7 @@ export default class EditPostStockPro extends Component{
 
     const id = this.props.match.params.id;
 
-    axios.get(`https://furniture-store-backend.herokuapp.com/api/${id}`).then((res) =>{
+    axios.get(`https://furniture-store-backend.herokuapp.com/api/postPro/${id}`).then((res) =>{
 
       if(res.data.success){
         this.setState({
@@ -144,7 +143,7 @@ export default class EditPostStockPro extends Component{
 
 
       <div>
-      <SidebarStock/>
+     
         <div className="container">
 
         <div className = "cardU" style={{marginTop:'40px'}}>
