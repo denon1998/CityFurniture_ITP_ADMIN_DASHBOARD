@@ -84,7 +84,7 @@ export default class AdminDashboard extends Component{
     <div class="text-center">
     <div className="row">
     <div className="col-sm">
-    <a className="btn btn-warning btn-lg" href="" role="button"  style={{height: '100%'}}><b>Staff Management</b></a><br /><br />
+    <a className="btn btn-warning btn-lg" href="/staff-dashboard" role="button"  style={{height: '100%'}}><b>Staff Management</b></a><br /><br />
     </div></div></div></p></div></div></div>&nbsp;
     </th>
 
