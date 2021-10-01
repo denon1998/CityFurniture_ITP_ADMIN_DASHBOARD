@@ -60,6 +60,7 @@ import RequestProducts from './components/shavinda_chanduni/manage-suppliers/Req
 
 import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminDashboard';
 
+//Nuwanthika
 
 import OrderEdit from './components/nuwanthika/order/OrderEdit';
 import DeliveryEdit from './components/nuwanthika/delivery/DeliveryEdit';
@@ -96,7 +97,7 @@ import mailer from './components/samali/components/AdminMailer';
 
 
 
-
+// Supi
 import CreatePostProducts from './components/supi/components/CreatePostProducts';
 import EditPostProducts from './components/supi/components/EditPostProducts';
 import HomeProducts from './components//supi/components/HomeProducts';
@@ -119,7 +120,7 @@ import FAQsList from "./components/kithmini/FAQs/FAQs-list";
 import suggestionList from "./components/kithmini/suggestion/suggestion-list";
 import CustomercareHome from './components/kithmini/customercare/customercare-home';
 
-
+// Anjali
 import AddEmployee from './components/anjali/views/employee/AddEmployee';
 import Dashboard from './components/anjali/views/dashboard/Dashboard';
 import Attendence from './components/anjali/views/employee/Attendence';

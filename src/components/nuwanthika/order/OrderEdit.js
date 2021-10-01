@@ -219,7 +219,7 @@ export default class OrderEdit extends React.Component {
 
 
                         <Button hidden={this.isView} disabled={!this.state.isValid} variant="primary" type="submit" >SAVE NOW</Button>{' '}
-                        <Button variant="warning" onClick={() => this.props.history.push('/order')} >CANCEL</Button>{' '}
+                        <Button variant="warning" onClick={() => this.props.history.push('/order-for-delivery')} >CANCEL</Button>{' '}
 
 
                     </form>
@@ -228,7 +228,7 @@ export default class OrderEdit extends React.Component {
                         show={this.state.showSaved}
                         title={this.state.alertTitle}
                         onConfirm={() => {
-                            this.props.history.push('/order');
+                            this.props.history.push('/order-for-delivery');
                         }}
 
                         type={"success"}
