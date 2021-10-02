@@ -1,131 +1,120 @@
-import React, { Component } from 'react'
+import React from 'react';
+import './Footer.css';
+import { Link } from 'react-router-dom';
 
-export default class footer extends Component {
-    render() {
-        return (
-            <div>
-
-                {/* Footer */}
-                <footer className="text-center text-lg-start bg-light text-muted">
-                {/* Section: Social media */}
-                <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-                    {/* Left */}
-                    <div className="me-5 d-none d-lg-block">
-                    <span>Get connected with us on social networks:</span>
-                    </div>
-                    {/* Left */}
-                    {/* Right */}
-                    <div>
-                    <a href className="me-4 text-reset">
-                        <i className="fab fa-facebook-f" />
-                    </a>
-                    <a href className="me-4 text-reset">
-                        <i className="fab fa-twitter" />
-                    </a>
-                    <a href className="me-4 text-reset">
-                        <i className="fab fa-google" />
-                    </a>
-                    <a href className="me-4 text-reset">
-                        <i className="fab fa-instagram" />
-                    </a>
-                    <a href className="me-4 text-reset">
-                        <i className="fab fa-linkedin" />
-                    </a>
-                    <a href className="me-4 text-reset">
-                        <i className="fab fa-github" />
-                    </a>
-                    </div>
-                    {/* Right */}
-                </section>
-                {/* Section: Social media */}
-                {/* Section: Links  */}
-                <section className>
-                    <div className="container text-center text-md-start mt-5">
-                    {/* Grid row */}
-                    <div className="row mt-3">
-                        {/* Grid column */}
-                        <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        {/* Content */}
-                        <h6 className="text-uppercase fw-bold mb-4">
-                            <i className="fas fa-gem me-3" />Company name
-                        </h6>
-                        <p>
-                            Here you can use rows and columns to organize your footer content. Lorem ipsum
-                            dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                        </div>
-                        {/* Grid column */}
-                        {/* Grid column */}
-                        <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        {/* Links */}
-                        <h6 className="text-uppercase fw-bold mb-4">
-                            Products
-                        </h6>
-                        <p>
-                            <a href="#!" className="text-reset">Angular</a>
-                        </p>
-                        <p>
-                            <a href="#!" className="text-reset">React</a>
-                        </p>
-                        <p>
-                            <a href="#!" className="text-reset">Vue</a>
-                        </p>
-                        <p>
-                            <a href="#!" className="text-reset">Laravel</a>
-                        </p>
-                        </div>
-                        {/* Grid column */}
-                        {/* Grid column */}
-                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        {/* Links */}
-                        <h6 className="text-uppercase fw-bold mb-4">
-                            Useful links
-                        </h6>
-                        <p>
-                            <a href="#!" className="text-reset">Pricing</a>
-                        </p>
-                        <p>
-                            <a href="#!" className="text-reset">Settings</a>
-                        </p>
-                        <p>
-                            <a href="#!" className="text-reset">Orders</a>
-                        </p>
-                        <p>
-                            <a href="#!" className="text-reset">Help</a>
-                        </p>
-                        </div>
-                        {/* Grid column */}
-                        {/* Grid column */}
-                        <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        {/* Links */}
-                        <h6 className="text-uppercase fw-bold mb-4">
-                            Contact
-                        </h6>
-                        <p><i className="fas fa-home me-3" /> New York, NY 10012, US</p>
-                        <p>
-                            <i className="fas fa-envelope me-3" />
-                            info@example.com
-                        </p>
-                        <p><i className="fas fa-phone me-3" /> + 01 234 567 88</p>
-                        <p><i className="fas fa-print me-3" /> + 01 234 567 89</p>
-                        </div>
-                        {/* Grid column */}
-                    </div>
-                    {/* Grid row */}
-                    </div>
-                </section>
-                {/* Section: Links  */}
-                {/* Copyright */}
-                <div className="text-center p-4" style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
-                    © 2021 Copyright:
-                    
-                </div>
-                {/* Copyright */}
-                </footer>
-                {/* Footer */}
-
-                
-            </div>
-        )
-    }
+function Footer() {
+  return (
+    <div className='footer-container'>
+      <section className='footer-subscription'>
+        <p className='footer-subscription-heading'>
+          Join with us to receive our best offers and deals
+        </p>
+        <p className='footer-subscription-text'>
+          You can unsubscribe at any time.
+        </p>
+        <div className='input-areas'> 
+          <form>
+            <input
+              className='footer-input'
+              name='email'
+              type='email'
+              placeholder='Your Email'
+            />
+         
+          </form>
+        </div>
+      </section>
+      <div className='footer-links'>
+        <div className='footer-link-wrapper'>
+          <div className='footer-link-items'>
+            <h2>Furniture</h2>
+            <Link to='/sign-up'>Sign-Up</Link>
+            <Link to='/'>Home</Link>
+            <Link to='/'>Products</Link>
+            <Link to='/'>Offers</Link>
+            
+          </div>
+          <div className='footer-link-items'>
+            <h2>Contact Us</h2>
+            <Link to='/contact/create'>Contact</Link>
+            <Link to='/suggestion/create'>Suggestions</Link>
+            <Link to='/FAQs/create'>FAQs</Link>
+            <Link to='/feedback/create'>Feedback</Link>
+          </div>
+        </div>
+        <div className='footer-link-wrapper'>
+          <div className='footer-link-items'>
+            <h2>Payments</h2>
+            <Link to='/'>Master Card</Link>
+            <Link to='/'>American Express</Link>
+            <Link to='/'>Pay Pal</Link>
+            <Link to='/'>Cash On Delivery</Link>
+            
+          </div>
+          <div className='footer-link-items'>
+            <h2>Social Media</h2>
+            <Link to='/'>Instagram</Link>
+            <Link to='/'>Facebook</Link>
+            <Link to='/'>Youtube</Link>
+            <Link to='/'>Twitter</Link>
+          </div>
+        </div>
+      </div>
+      <section className='social-media'>
+        <div className='social-media-wrap'>
+          <div className='footer-logo'>
+            <Link to='/' className='social-logo'>
+            Terms of Service
+              <i className='fab fa-typo3' />
+            </Link>
+          </div>
+          <small className='website-rights'>City Furniture Store © 2021</small>
+          <div className='social-icons'>
+            <Link
+              className='social-icon-link facebook'
+              to='/'
+              target='_blank'
+              aria-label='Facebook'
+            >
+              <i className='fab fa-facebook-f' />
+            </Link>
+            <Link
+              className='social-icon-link instagram'
+              to='/'
+              target='_blank'
+              aria-label='Instagram'
+            >
+              <i className='fab fa-instagram' />
+            </Link>
+            <Link
+              className='social-icon-link youtube'
+              to='/'
+              target='_blank'
+              aria-label='Youtube'
+            >
+              <i className='fab fa-youtube' />
+            </Link>
+            <Link
+              className='social-icon-link twitter'
+              to='/'
+              target='_blank'
+              aria-label='Twitter'
+            >
+              <i className='fab fa-twitter' />
+            </Link>
+            <Link
+              className='social-icon-link twitter'
+              to='/'
+              target='_blank'
+              aria-label='LinkedIn'
+            >
+              <i className='fab fa-linkedin' />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
+
+export default Footer;

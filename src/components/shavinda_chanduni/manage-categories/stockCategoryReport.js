@@ -2,10 +2,12 @@ import React ,{ Component } from 'react';
 import axios from 'axios';
 import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
-import swal from 'sweetalert';
+import jsPdf from 'jspdf'
+import 'jspdf-autotable'
 
 
-export default class HomeStockCat extends Component{
+
+export default class stockCategoryReport extends Component{
 
 constructor(props){
 
@@ -35,28 +37,6 @@ retrievePosts(){
 
 }
 
-onDelete = (id) =>{
-
-  swal({
-    title: "Are you sure?",
-    text: "Once deleted, you will not be able to recover this category details !",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then((willDelete) => {
-    if (willDelete) {
-      axios.delete(`https://furniture-store-backend.herokuapp.com/api/catpost/delete/${id}`).then((res)=>{
-        this.retrievePosts();
-        })
-      swal("Done! Category details has been deleted!", {
-        icon: "success",
-      });
-    } else {
-      swal("Not Deleted ! Your category details are safe!");
-    }
-  });
-}
 
 filterData(posts, searchKey){
 
@@ -88,6 +68,26 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
 }
 
 
+  //Report pdf generating
+  jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l','pt', 'a3');
+
+    doc.text(600, 20 ,'Stock-Category Details Report', { align: 'center' });
+    doc.autoTable({  html:'#stockCat-table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } }, 
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Stock Category Details.pdf");
+  }
+
+
+
 
   render(){
 
@@ -103,14 +103,13 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
           <br/>
    
       <nav className="navbar navbar-light bg-light">
-      <button className = "btn btn-success"><a href = "/addC" style ={{textDecoration:'none', color:'white'}}>Add new category</a></button>
         <form className="form-inline">
           <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name = "searchQuery"
         onChange = {this.handleSearchArea} />
           </form>
       </nav>
         
-        <table className = "table table-hover" style = {{marginTop:'40px'}}>
+        <table id = "stockCat-table" className = "table table-hover" style = {{marginTop:'40px'}}>
         <thead>
         <tr className = "table-primary">
              <th scope = "col">#</th> 
@@ -120,8 +119,6 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
              <th scope = "col">Description</th>
              <th scope = "col">Date</th>
              <th scope = "col">Status</th>
-             <th scope = "col">Edit</th>
-             <th scope = "col">Delete</th>
 
              </tr>
          </thead> 
@@ -142,24 +139,15 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
               <td>{posts.catDescription}</td>
               <td>{posts.catDate}</td>
               <td>{posts.catStatus}</td>
-              <td>
-                  <a className = "btn btn-warning btn-sm" href = {`/editC/${posts._id}`}>
-              
-                    <i className = "fas fa-edit"></i>&nbsp;Edit&nbsp;
-                  </a>
-                  </td>
-              
 
-                  
-                  <td>
-                  <a className = "btn btn-danger btn-sm" onClick={ event =>  this.onDelete(posts._id)}>
-                    <i className = "fas fa-trash-alt"></i>&nbsp;Delete
-                  </a>
-              </td>
             </tr>
             ))}
           </tbody>
          </table>
+         
+         <br/><br/>
+
+         <button className="btn-primary" onClick={this.jsPdfGenerator}>Generate Report PDF</button>
 
          <br/><br/>
         

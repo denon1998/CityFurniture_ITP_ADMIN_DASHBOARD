@@ -2,9 +2,10 @@ import React ,{ Component } from 'react';
 import axios from 'axios';
 import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
-import swal from 'sweetalert';
+import jsPdf from 'jspdf'
+import 'jspdf-autotable'
 
-export default class HomeStockSup extends Component{
+export default class stockSuppliersReport extends Component{
 
 constructor(props){
 
@@ -34,28 +35,6 @@ retrievePosts(){
 
 }
 
-onDelete = (id) =>{
-
-  swal({
-    title: "Are you sure?",
-    text: "Once deleted, you will not be able to recover this Supplier details!",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then((willDelete) => {
-    if (willDelete) {
-      axios.delete(`https://furniture-store-backend.herokuapp.com/api/suppost/delete/${id}`).then((res)=>{
-        this.retrievePosts();
-        })
-      swal("Done! Supplier details has been deleted!", {
-        icon: "success",
-      });
-    } else {
-      swal("Not deleted ! Supplier details are safe !");
-    }
-  });
-}
 
 filterData(posts, searchKey){
 
@@ -91,6 +70,29 @@ handleSearchArea = (e) =>{
   })
 }
 
+  //Report pdf generating
+  jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l','pt', 'a3');
+
+    doc.text(600, 20 ,'Stock-Supplier Details Report', { align: 'center' });
+
+    doc.autoTable({  html:'#stockSup-table' })
+    
+ 
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } }, 
+      margin: { top: 10 },
+      
+      
+    })
+
+    //save the pdf
+    doc.save("Stock-Supplier Details Report.pdf");
+  }
+
 
   render(){
 
@@ -108,7 +110,6 @@ handleSearchArea = (e) =>{
       
       <nav className="navbar navbar-light bg-light">
 
-      <button className = "btn btn-success"><a href = "/addS" style ={{textDecoration:'none', color:'white'}}>Add new Supplier</a></button>
         <form className="form-inline">
           <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name = "searchQuery"
         onChange = {this.handleSearchArea} />
@@ -117,7 +118,7 @@ handleSearchArea = (e) =>{
 
   
         
-        <table className = "table table-hover" style = {{marginTop:'40px'}}>
+        <table id = "stockSup-table" className = "table table-hover" style = {{marginTop:'40px'}}>
         <thead>
         <tr className = "table-primary">
             <th scope = "col">#</th> 
@@ -129,9 +130,6 @@ handleSearchArea = (e) =>{
              <th scope = "col">Company</th>
              <th scope = "col">Company address</th>
              <th scope = "col">Date</th>
-             <th scope = "col">Edit</th>
-             <th scope = "col">Delete</th>
-
              </tr>
          </thead> 
          <tbody>
@@ -154,33 +152,24 @@ handleSearchArea = (e) =>{
                   <td>{posts.supplierComAddress}</td>
                   <td>{posts.supplierDate}</td>
 
-                  <td>
-                  <a className = "btn btn-warning btn-sm" href = {`/editS/${posts._id}`}>
-              
-                    <i className = "fas fa-edit"></i>&nbsp;Edit&nbsp;
-                  </a>
-                  </td>
-              
-
-                  
-                  <td>
-                  <a className = "btn btn-danger btn-sm" onClick={ event => this.onDelete(posts._id)}>
-                    <i className = "fas fa-trash-alt"></i>&nbsp;Delete
-                  </a>
-              </td>
             </tr>
             ))}
           </tbody>
          </table>
 
          <br/><br/>
-                   
+
+         <button className="btn-primary" onClick={this.jsPdfGenerator}>Generate Report PDF</button>
+
+         <br/><br/>
+          
+         
         <SlideShow />
         
          <br/><br/><br/>
-    
+      
+         <Footer />
        </div> 
-       <Footer />
        </div>
     )
   }

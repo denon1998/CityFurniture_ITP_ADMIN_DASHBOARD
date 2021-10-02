@@ -56,6 +56,10 @@ import categoryStockHome from './components/shavinda_chanduni/manage-categories/
 import productStockHome from './components/shavinda_chanduni/manage-products/productStockHome';
 import supplierStockHome from './components/shavinda_chanduni/manage-suppliers/supplierStockHome';
 
+import stockCategoryReport from './components/shavinda_chanduni/manage-categories/stockCategoryReport';
+import stockProductsReport from './components/shavinda_chanduni/manage-products/stockProductsReport';
+import stockSuppliersReport from './components/shavinda_chanduni/manage-suppliers/stockSuppliersReport';
+
 import RequestProducts from './components/shavinda_chanduni/manage-suppliers/RequestProducts';
 
 import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminDashboard';
@@ -78,6 +82,7 @@ import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
 // SIDEBAR
 // import { SidebarStock } from "./components/shavinda_chanduni/SidebarStock/SidebarStock";
 import SidebarStock from './components/shavinda_chanduni/SidebarStock/SidebarStock';
+
 
 
 import EditPosts from './components/samali/components/AdminClientUpdateCard';
@@ -229,6 +234,7 @@ class App extends React.Component {
 
 
                                   {/* Shavinda    */}
+
                                 <Route path="/stockHome" exact component={StockHome} />
 
                                 <Route path="/homeP" component={HomeStockPro} />
@@ -253,6 +259,11 @@ class App extends React.Component {
                                 <Route path = "/homeStockC" component = {categoryStockHome}/>
                                 <Route path = "/homeStockS" component = {supplierStockHome}/>
 
+                                <Route path = "/stockProdRep" component={stockProductsReport}></Route>  
+                                <Route path = "/stockCatRep" component={stockCategoryReport}></Route>
+                                <Route path = "/stockSupRep" component={stockSuppliersReport}></Route>
+
+
                                 <Route path="/req" component={RequestProducts}></Route>
 
 
@@ -267,15 +278,6 @@ class App extends React.Component {
                                 <Route path="/FAQs" exact component={FAQsList} />
                                 <Route path="/suggestion/" exact component={suggestionList} />
                                 <Route path="/CustomercareHome" exact component={CustomercareHome} />
-
-
-
-
-
-
-
-
-
 
 
 
@@ -444,13 +446,8 @@ class App extends React.Component {
 
                         </Switch>
                     </Container>
-
-
-
-
-
+          
                 </Router>
-
 
 
             </div>
