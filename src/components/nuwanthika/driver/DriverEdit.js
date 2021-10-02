@@ -35,7 +35,7 @@ export default class DriverEdit extends React.Component {
                 this.setState(d)
             });
         }
-        this.isValid();
+        // this.isValid();
     }
 
 
@@ -148,7 +148,7 @@ export default class DriverEdit extends React.Component {
 
                         <Form.Group className="mb-3" controlId="contactNumber">
                             <Form.Label>Contact Number</Form.Label>
-                            <Form.Control maxLength="10" required type="text" readOnly={this.isView} placeholder="Contact Number" value={this.state.contactNumber} onChange={(event) => {
+                            <Form.Control maxLength="10"   type="text" readOnly={this.isView} placeholder="Contact Number" value={this.state.contactNumber} onChange={(event) => {
                                 this.setState({
                                     contactNumber: event.target.value,
 
@@ -170,6 +170,8 @@ export default class DriverEdit extends React.Component {
 
                     </form>
 
+{/* {Number(!(this.state.contactNumber.length < 10)) }* {Number(!(this.state.empID.length<= 0))} *{Number(this.state.vehicleID.length > 0 )}*{Number(!(this.state.empName.length <= 0))} * {   Number((/[A-Z]{1}[0-9]{4}$/.test(this.state.vehicleID ) )  )} */}
+                  
                     <SweetAlert
                         show={this.state.showSaved}
                         title={this.state.alertTitle}
@@ -192,8 +194,8 @@ export default class DriverEdit extends React.Component {
         if ((
 
             !(this.state.contactNumber.length < 10) *
-            !(this.state.empID.length <= 0) *
-            (this.state.vehicleID.length > 0 ? (/[A-Z]{1}[0-9]{4}$/.exec(this.state.vehicleID)) : true) *
+            !(this.state.empID.length<= 0) *
+            (this.state.vehicleID.length > 0 ? (/[A-Z]{1}[0-9]{4}$/.test(this.state.vehicleID)) : false) *
             !(this.state.empName.length <= 0)
 
         ) === 0
