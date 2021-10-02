@@ -61,7 +61,6 @@ export const SidebarDataStock = [
     ]
   },
 
-
   {
     title: 'Stock Suppliers',
     path: '/homeStockS',
@@ -90,10 +89,35 @@ export const SidebarDataStock = [
   },
 
   {
-    title: 'Stock -Report',
+    title: 'Stock-Reports',
     path: '#',
-    icon: <FaIcons.FaCartPlus />
+    icon: <FaIcons.FaCartPlus />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Products Report',
+        path: '/stockProdRep',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Categories Report',
+        path: '/stockCatRep',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Suppliers Report',
+        path: '/stockSupRep',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },      
+    ]
   },
+
 
 
  {
@@ -244,25 +268,19 @@ export const SidebarDataStock = [
         path: '/suggestion/',
         icon: <IoIcons.IoIosPaper />
       },
+
+      {
+        title: 'View Ratings',
+        path: '#',
+        icon: <FaIcons.FaEnvelopeOpenText />
+      },
     ]
   },
-  {
-    title: 'View Ratings',
-    path: '#',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
-
-  {
-    title: 'Report',
-    path: '#',
-    icon: <FaIcons.FaCartPlus />
-  },
-
 
 
   {
     title: 'Delivery Management',
-    path: '#t',
+    path: '#',
     icon: <IoIcons.IoMdHelpCircle
 
 
@@ -398,7 +416,7 @@ export const SidebarDataStock = [
 
 
   {
-    title: 'Reports',
+    title: 'Staff Reports',
     path: '#',
     icon: <IoIcons.IoIosPaper />,
 
