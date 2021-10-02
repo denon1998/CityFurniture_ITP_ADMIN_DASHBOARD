@@ -216,7 +216,7 @@ export default class DeliveryEdit extends React.Component {
                     </SweetAlert>
 
                 </div>
-
+ 
 
 {/* {  Number(/[a-zA-Z]{2}[0-9]{4}$/.exec(this.state.deliveryID))} */}
 
