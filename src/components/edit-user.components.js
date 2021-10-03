@@ -21,7 +21,7 @@ export default class EditUser extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://furniture-store-backend.herokuapp.com/api0/users/' + this.props.match.params.id)
+        axios.get('https://furniture-store-backend.herokuapp.com/api/users/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     username: response.data.username,
@@ -73,7 +73,7 @@ export default class EditUser extends Component {
 
         console.log(user);
 
-        axios.post('https://furniture-store-backend.herokuapp.com/api0/users/update/' + this.props.match.params.id, user)
+        axios.post('https://furniture-store-backend.herokuapp.com/api/users/update/' + this.props.match.params.id, user)
             .then(res => console.log(res.data));
 
         window.location = '/users/';
@@ -84,9 +84,22 @@ export default class EditUser extends Component {
 
     render() {
         return ( <
-            div >
+            div > <br/>
+            <div class="row">
+            <div class="col-6">
+            <br/><br/><br/><br/><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <img src="https://icons-for-free.com/iconfiles/png/512/cloud+database-131964743840800085.png" width="50%" height="50%" />
+            </div>
+
+            <div class="col-6">
+            <div class="myformstyle">
+            <div className="card-body"> 
+            <div className="col-md-8 mt-4 mx-auto"> 
+            </div>
+            
             <
-            h3 > Edit Users </h3> <
+            h3 className="text-center" > Edit Users </h3> <
             form onSubmit = { this.onSubmit } >
             <
             div className = "form-group" >
@@ -131,8 +144,8 @@ export default class EditUser extends Component {
             className = "btn btn-primary" / >
             </
             div> </
-            form > </
-            div>
+            form >  </div> </div> </div> </div>
+            <br/><br/> </div> 
         )
     }
 }
