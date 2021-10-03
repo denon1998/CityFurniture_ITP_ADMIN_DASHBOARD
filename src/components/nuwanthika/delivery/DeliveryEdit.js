@@ -191,7 +191,25 @@ export default class DeliveryEdit extends React.Component {
                         <Button hidden={this.isView} disabled={!this.state.isValid} variant="primary" type="submit" >SAVE NOW</Button>{' '}
                         <Button variant="warning" onClick={() => this.props.history.push('/delivery')} >CANCEL</Button>{' '}
 
+                        <Button variant="danger" onClick={() => {
+                            this.isValid();
 
+                            this.setState({
+                                deliveryID: 'DD1234',
+                                orderID: '2346',
+                                receiverAddress: 'Kaduwela',
+                                assignedDriver: 'Sasanka',
+                                lat: '0',
+                                long: '0',
+                                status: 'PENDING',
+                                remarks: '',
+                                _id: undefined
+
+                            }, () => {
+                                this.isValid();
+                            });
+                            this.isValid();
+                        }} >SIMULATE</Button>{' '}
 
 
                         <Button variant="primary" hidden={!this.isView} style={{ backgroundColor: 'red', width: '200px', height: '200px', borderRadius: '200px', float: 'right', fontWeight: 'bolder', fontSize: '30px' }} size="lg" active
@@ -200,7 +218,13 @@ export default class DeliveryEdit extends React.Component {
                             }}>
                             SET <br />DELIVERED
                         </Button>{' '}
-
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </form>
 
                     <SweetAlert
@@ -216,9 +240,9 @@ export default class DeliveryEdit extends React.Component {
                     </SweetAlert>
 
                 </div>
- 
 
-{/* {  Number(/[a-zA-Z]{2}[0-9]{4}$/.exec(this.state.deliveryID))} */}
+
+                {/* {  Number(/[a-zA-Z]{2}[0-9]{4}$/.exec(this.state.deliveryID))} */}
 
 
                 <Modal show={this.state.isOpen} onHide={this.closeModal} animation={false}>

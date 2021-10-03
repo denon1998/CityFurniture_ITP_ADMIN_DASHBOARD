@@ -166,7 +166,19 @@ export default class DriverEdit extends React.Component {
 
                         <Button variant="warning" onClick={() => this.props.history.push('/driver')} >CANCEL</Button>{' '}
 
-
+                        <Button variant="danger" onClick={() => {
+                            this.setState({
+                                _id:undefined,
+                                empID:'008',
+                                empName:'Nimal',
+                                vehicleID:'T0006',
+                                currentOrderID:'2346',
+                                contactNumber:'0712323234'
+                            }, () => {
+                                this.isValid();
+                            });
+                         
+                        }} >SIMULATE</Button>{' '}
 
                     </form>
 

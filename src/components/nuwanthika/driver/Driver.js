@@ -10,7 +10,10 @@ import { useHistory, history } from "react-router-dom";
 import { withRouter } from 'react-router';
 import { Redirect, } from 'react-router-dom';
  import { DriverService } from '../_services/driver.service';
-
+ import jsPdf from 'jspdf'
+ import 'jspdf-autotable'
+ 
+ 
 const searchDiv = {
     display: 'flex',
     flexDirection: 'row',
@@ -65,10 +68,18 @@ class Driver extends React.Component {
                 <div className="mb-4 mt-4   ">
                     <div style={searchDiv}>
                         <h2 style={{ textAlign: 'left' }}>Drivers</h2>
+
+                        <div>
+                        <Button style={{ width: '100px' }} variant="danger" onClick={(e) => {
+                            e.preventDefault();
+                             this.jsPdfGenerator()
+                        }}   >PDF  <IoIcons.IoMdDownload /></Button>{' '}
                         <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
                             e.preventDefault();
                             this.props.history.push('/driver/new');
                         }}   >Create New Driver</Button>{' '}
+                        </div>
+                       
                     </div>
                     <div style={searchDiv} className="mb-4 mt-4   " >
                         <InputGroup className="mr-2 " style={{ marginRight: '5px' }}  >
@@ -96,7 +107,7 @@ class Driver extends React.Component {
                         </div>
                     </div>
 
-                    <Table striped bordered hover className="mt-4">
+                    <Table id="table" striped bordered hover className="mt-4">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -113,8 +124,9 @@ class Driver extends React.Component {
                                 <tr key={item._id} >
 
                                     <td>{item._id} </td>
-                                    <td>{item.empName} </td>
                                     <td>{item.empID} </td>
+
+                                    <td>{item.empName} </td>
                                     <td>{item.vehicleID}</td>
                                     <td>{item.currentOrderID}</td>
                                     <td>{'('+String(item.contactNumber).substring(0,3)+')-'+String(item.contactNumber).substring(3,10)}</td>
@@ -245,6 +257,23 @@ class Driver extends React.Component {
 
 
 
+  //Report pdf generating
+  jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l','pt', 'a3');
+
+    doc.text(600, 20 ,'Driver Details Report', { align: 'center' });
+    doc.autoTable({  html:'#table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } }, 
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Driver Category Details.pdf");
+  }
 
 
 

@@ -452,9 +452,11 @@ class App extends React.Component {
 
                         </Switch>
                     </Container>
+                  <div style={{paddingTop:'100px',width:'100%'}}>
+                  <Footer></Footer>
+                  </div>
 
                 </Router>
-                <Footer></Footer>
 
               
 
