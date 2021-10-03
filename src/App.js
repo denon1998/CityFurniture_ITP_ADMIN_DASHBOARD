@@ -448,25 +448,9 @@ class App extends React.Component {
                     </Container>
 
                 </Router>
-                {/* <Footer></Footer>
- */}
-                <hr style={{ borderWidth: '12px', width: '100%' }} />
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'row', paddingLeft: '20px', paddingRight: '20px' }}>
-                    <div style={{ flex: '1 1 0 auto',width:'400px' }}>
-                        <p style={{textAlign:'center'}}>Designed and Developed with ❤ by <b>Team Scorpion</b></p>
-                    </div>
-                    <div style={{ flex: '1 1 0 auto', flexGrow: '1',display:'flex',flexDirection:'row',justifyContent:'center',gap:'10px' }}>
-                        <a href="#" style={{display:'flex'}} >HOME</a>
-                        <a href="#" style={{display:'flex'}} >SUPPORT</a>
-                        <a href="#" style={{display:'flex'}} >FAQ</a>
-                        <a href="#" style={{display:'flex'}} >ABOUT US</a>
-                    </div>
-                    <div style={{ flex: '1 1 0 auto',width:'400px' }}>
-                        <p style={{textAlign:'center'}}>SLIIT 20xx batch 20.1</p>
-                    </div>
-                </div>
-                <hr style={{ borderWidth: '7px', width: '100%' }} />
+                <Footer></Footer>
 
+              
 
             </div>
         );
