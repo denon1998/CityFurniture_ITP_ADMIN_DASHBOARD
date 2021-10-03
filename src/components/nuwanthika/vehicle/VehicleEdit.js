@@ -136,6 +136,21 @@ export default class VehicleEdit extends React.Component {
 
                         <Button hidden={this.isView} disabled={!this.state.isValid} variant="primary" type="submit" >SAVE NOW</Button>{' '}
                         <Button variant="warning" onClick={() => this.props.history.push('/vehicle')} >CANCEL</Button>{' '}
+                        <Button variant="danger" onClick={() => {
+                           
+
+                            this.setState({
+                                vehicleID: 'J0002',
+                                vehicleLicenseNO: 'MAD2428',
+                                mileage : 60,
+                                nextServiceReminder : '2021-10-06',
+                                _id:undefined
+                            
+                            }, () => {
+                                this.isValid();
+                            });
+                         
+                        }} >SIMULATE</Button>{' '}
 
 
                     </form>

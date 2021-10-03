@@ -6,6 +6,9 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
+import jsPdf from 'jspdf'
+import 'jspdf-autotable'
+
 
 import { DeliveryService } from '../_services/delivery.service'; 
 const searchDiv = {
@@ -60,11 +63,18 @@ export default class Delivery extends React.Component {
 
                     <div style={searchDiv}>
                         <h2 style={{ textAlign: 'left' }}>Deliveries</h2>
+
+                        <div>
+                        <Button style={{ width: '100px' }} variant="danger" onClick={(e) => {
+                            e.preventDefault();
+                             this.jsPdfGenerator()
+                        }}   >PDF  <IoIcons.IoMdDownload /></Button>{' '}
                         <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
                             e.preventDefault();
                             this.props.history.push('/delivery/new');
                         }}
                         >Create New Delivery</Button>{' '}
+                        </div>
                     </div>
 
                     <div style={searchDiv} className="mb-4 mt-4   " >
@@ -94,7 +104,7 @@ export default class Delivery extends React.Component {
 
                     </div>
 
-                    <Table striped bordered hover className="mt-4">
+                    <Table id="table" striped bordered hover className="mt-4">
                         <thead>
                             <tr>
                                 <th style={{ width: '5%' }} className="col-1"  >#</th>
@@ -215,6 +225,23 @@ export default class Delivery extends React.Component {
     }
 
 
+//Report pdf generating
+jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l','pt', 'a3');
+
+    doc.text(600, 20 ,'Delivery Details Report', { align: 'center' });
+    doc.autoTable({  html:'#table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } }, 
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Delivery Details.pdf");
+  }
 
     componentDidMount() {
         // alert('hello')

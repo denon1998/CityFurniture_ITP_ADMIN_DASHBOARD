@@ -63,10 +63,16 @@ export default class Order extends React.Component {
 
                     <div style={searchDiv}>
                         <h2 style={{ textAlign: 'left' }}>Orders</h2>
+                        <div>
+                        <Button style={{ width: '100px' }} variant="danger" onClick={(e) => {
+                            e.preventDefault();
+                             this.jsPdfGenerator()
+                        }}   >PDF  <IoIcons.IoMdDownload /></Button>{' '}
                         <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
                             e.preventDefault();
                             this.props.history.push('/order-for-delivery/new');
                         }}   >Create New Order</Button>{' '}
+                        </div>
                     </div>
 
 
@@ -101,7 +107,7 @@ export default class Order extends React.Component {
                     <Table striped bordered hover className="mt-4">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th h style={{ width: '5%' }} className="col-1" >#</th>
                                 <th>orderID</th>
                                 <th>name</th>
                                 <th>postal number</th>
@@ -119,7 +125,7 @@ export default class Order extends React.Component {
                             {items.map(item => (
                                 <tr key={item._id} >
 
-                                    <td>{item._id} </td>
+<td><marquee scrollamount="2" behavior="scroll" ><p style={{ maxWidth: '100px' }}>{item._id} </p></marquee></td>
                                     <td>{item.orderID} </td>
                                     <td>{item.name} </td>
 
