@@ -47,7 +47,8 @@ class Driver extends React.Component {
             items: [],
 
             isOpen: false,
-            searchQuery: ''
+            searchQuery: '',
+            hideCTRL:false
 
         };
 
@@ -116,7 +117,7 @@ class Driver extends React.Component {
                                 <th>Vehicle ID</th>
                                 <th>Current Ongoing Order ID</th>
                                 <th>Contact Number</th>
-                                <th></th>
+                                <th hidden={this.state.hideCTRL} ></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,7 +131,7 @@ class Driver extends React.Component {
                                     <td>{item.vehicleID}</td>
                                     <td>{item.currentOrderID}</td>
                                     <td>{'('+String(item.contactNumber).substring(0,3)+')-'+String(item.contactNumber).substring(3,10)}</td>
-                                    <td>
+                                    <td  hidden={this.state.hideCTRL} >
 
 
                                         <Button variant="warning" onClick={() => {
@@ -258,22 +259,28 @@ class Driver extends React.Component {
 
 
   //Report pdf generating
-  jsPdfGenerator = () => {
-
-    //new document in jspdf
-    var doc = new jsPdf('l','pt', 'a3');
-
+  jsPdfGenerator = () => { 
+    var doc = new jsPdf('l','pt', 'a3'); 
     doc.text(600, 20 ,'Driver Details Report', { align: 'center' });
-    doc.autoTable({  html:'#table' })
-
-    doc.autoTable({
-      columnStyles: { europe: { halign: 'center' } }, 
-      margin: { top: 10 },
+    this.setState({
+        hideCTRL:true
+    },()=>{
+        doc.autoTable({  html:'#table' })
+        this.setState({
+            hideCTRL:false
+        },()=>{
+            doc.autoTable({
+                columnStyles: { europe: { halign: 'center' } }, 
+                margin: { top: 10 },
+              }) 
+              doc.save("Driver Details.pdf");
+        })
+       
     })
-
-    //save the pdf
-    doc.save("Driver Category Details.pdf");
+  
   }
+
+
 
 
 
