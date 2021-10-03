@@ -128,13 +128,7 @@ export default class ExercisesList extends Component {
             <div style = {
                 { float: 'none'}
             } > 
-            <Link to = "/main" >  <button type="button" title="You are now on the customer list" 
-            class="btn btn-secondary" variant = "primary"> Customer </button>
-            </Link >
             
-            <Link to = "/users/" > <Button variant = "info" title="Swith to the list of users" > User </Button>
-            </Link > 
-            </div>  <br/>
             
             <
             div className = "row" >
@@ -169,8 +163,7 @@ export default class ExercisesList extends Component {
             th > Birth Day </th> <
             th > Gender </th> <
             th > Email </th> <
-            th > Password </th> <
-            th > Actions </th> </
+            th > Password </th> </
             tr > </
             thead> <
             tbody > {
@@ -183,37 +176,21 @@ export default class ExercisesList extends Component {
                     td > { props.birthday.substring(0, 10) } </td>  < 
                     td > { props.Gender } </td> <
                     td > { props.Email } </td>  < 
-                    td > { props.password } </td>  <   
-
-                    td >
-                    <
-                    Link to = { "/csedit/" + props._id } >  <Button variant = "warning btn-sm"> Edit </Button> </Link>  
-                    <a href="" onClick={() => { this.deleteExercise(props._id) }}> <Button variant = "danger btn-sm"> Delete </Button> </a > 
-                    </
-                    td >
+                    td > { props.password } </td>  
 
                     </tr>
                 )
 
             }
 
-            </tbody> </
+            </tbody> 
+            </
             table >
             <button type="button" title="Report generation" class="btn btn-outline-primary btn-sm" 
             onClick={this.jsPdfGenerator} > Download as a PDF </button>
             
-            <
-            div style = {
-                { float: 'right' }
-            } >
-
-            <
-            Link to = "/create" >
-            <button type="button" class="btn btn-success" variant = "primary" > New Customer </button>
-            </
-            Link >
+            
             </div>
-
             </div>
         )
     }
