@@ -164,8 +164,8 @@ export default class VehicleEdit extends React.Component {
 
             !(this.state.vehicleID.length <= 0) *
             !(this.state.vehicleLicenseNO.length <= 0) *
-            (/[A-Z]{1}[0-9]{4}$/.exec(this.state.vehicleID))*
-            ((/[A-Z]{2,3}[0-9]{4}$/.exec(this.state.vehicleLicenseNO)) && !/[A-Z]/.exec(String(this.state.vehicleLicenseNO).charAt(3)))
+            (/[A-Z]{1}[0-9]{4}$/.test(this.state.vehicleID))*
+            ((/[A-Z]{2,3}[0-9]{4}$/.test(this.state.vehicleLicenseNO)) && !/[A-Z]/.test(String(this.state.vehicleLicenseNO).charAt(3)))
 
         ) === 0
         ) {

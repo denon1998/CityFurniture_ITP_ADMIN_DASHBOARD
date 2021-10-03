@@ -216,9 +216,9 @@ export default class DeliveryEdit extends React.Component {
                     </SweetAlert>
 
                 </div>
+ 
 
-
-
+{/* {  Number(/[a-zA-Z]{2}[0-9]{4}$/.exec(this.state.deliveryID))} */}
 
 
                 <Modal show={this.state.isOpen} onHide={this.closeModal} animation={false}>
@@ -286,7 +286,7 @@ export default class DeliveryEdit extends React.Component {
             !(this.state.receiverAddress.length <= 0) *
             !(this.state.assignedDriver.length <= 0) *
             !(this.state.orderID.length <= 0) *
-            (/[a-zA-Z]{2}[0-9]{4}$/.exec(this.state.deliveryID))
+            (/[a-zA-Z]{2}[0-9]{4}$/.test(this.state.deliveryID))
 
         ) === 0
         ) {
