@@ -1,7 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, withRouter, Switch, HashRouter } from "react-router-dom";
-
+import Footer from './components/shavinda_chanduni/Footer/Footer';
 import { Container, Nav } from 'react-bootstrap';
 
 import Navbar from "./components/navbar.component"
@@ -448,7 +448,7 @@ class App extends React.Component {
                     </Container>
           
                 </Router>
-
+<Footer></Footer>
 
             </div>
         );
