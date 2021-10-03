@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import Footer from '../Footer/Footer';
+import Footer from '../../shavinda_chanduni/Footer/Footer';
 //import SidebarCustomercare from '../customercare/SidebarCustomercare';
 
 
@@ -128,9 +128,11 @@ export default class suggestionList extends Component {
 
             <br/><br/><br/> <br/><br/><br/>
 
-            {/* <Footer /> */}
+           
 
             </div>
+
+             <Footer />
             </div>
         )
     }
