@@ -13,7 +13,8 @@ import { Link } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
-
+import jsPdf from 'jspdf'
+import 'jspdf-autotable'
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -116,19 +117,36 @@ function EmpDetails() {
       );
     }
 
+    //Report pdf generating
+    const jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l','pt', 'a3');
+
+    doc.text(600, 20 ,'Employee Details Report', { align: 'center' });
+    doc.autoTable({  html:'#EmpDetails-table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } }, 
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Employee Details.pdf");
+  }
+
     
-
-
     return (
         <div>
+
+
             <TextField  id="outlined-basic" label="Search by Employee ID" variant="outlined" value={search} onChange={handleChangeSearch} />
             
             <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
+      <Table id = "EmpDetails-table" className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>EMP ID</StyledTableCell>
-            <StyledTableCell>Image</StyledTableCell>
             <StyledTableCell align="right">First Name</StyledTableCell>
             <StyledTableCell align="right">Last Name</StyledTableCell>
             <StyledTableCell align="right">Address</StyledTableCell>
@@ -140,7 +158,6 @@ function EmpDetails() {
             <StyledTableCell align="right">Education</StyledTableCell>
             <StyledTableCell align="right">Position</StyledTableCell>
             <StyledTableCell align="right">Basic Salary Rs</StyledTableCell>
-            <StyledTableCell align="right">Actions</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -149,7 +166,6 @@ function EmpDetails() {
               <StyledTableCell component="th" scope="row">
                 {row.employeeId}
               </StyledTableCell>
-              <StyledTableCell align="right"><img src={row.empImage} width="100" /></StyledTableCell>
               <StyledTableCell align="right">{row.firstName}</StyledTableCell>
               <StyledTableCell align="right">{row.lastName}</StyledTableCell>
               <StyledTableCell align="right">{row.address}</StyledTableCell>
@@ -161,19 +177,14 @@ function EmpDetails() {
               <StyledTableCell align="right">{row.education}</StyledTableCell>
               <StyledTableCell align="right">{row.position}</StyledTableCell>
               <StyledTableCell align="right">{row.basicSalary}</StyledTableCell>
-              <StyledTableCell align="right" style={{display:"flex",flexDirection:"row"}}>
-                <Button variant="contained" color="secondary" size="small" onClick={()=>handleDelete(row._id)}><DeleteIcon/></Button>
-                <Link to={`../editemp/${row.employeeId}`}><Button size="small" variant="contained" color="primary"><EditIcon/> </Button></Link>
-              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
     <br/>
-    <br/>
-    
-        </div>
+    <Button variant="contained" color="secondary" onClick={jsPdfGenerator}>Generate Report PDF</Button>
+    </div>
     )
 }
 
