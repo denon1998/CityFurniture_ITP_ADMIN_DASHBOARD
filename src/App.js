@@ -154,7 +154,7 @@ class App extends React.Component {
     render() {
         const { error, isLoaded, items } = this.state;
         // Containers
-        
+
         const loading = (
             <div className="pt-3 text-center">
                 <div className="sk-spinner sk-spinner-pulse"></div>
@@ -165,7 +165,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Router  >
-                <SidebarStock></SidebarStock>
+                    <SidebarStock></SidebarStock>
 
                     {/* <HashRouter>
                         <React.Suspense fallback={loading}>
@@ -233,7 +233,7 @@ class App extends React.Component {
                                 <Route path="/order/post/:id" exact component={PostDetailsOrder}></Route>
 
 
-                                  {/* Shavinda    */}
+                                {/* Shavinda    */}
 
                                 <Route path="/stockHome" exact component={StockHome} />
 
@@ -254,14 +254,14 @@ class App extends React.Component {
                                 <Route path="/editS/:id" component={EditPostStockSup}></Route>
                                 <Route path="/postS/:id" component={PostDetailsStockSup}></Route>
 
-                                
-                                <Route path = "/homeStockP" component = {productStockHome}/>
-                                <Route path = "/homeStockC" component = {categoryStockHome}/>
-                                <Route path = "/homeStockS" component = {supplierStockHome}/>
 
-                                <Route path = "/stockProdRep" component={stockProductsReport}></Route>  
-                                <Route path = "/stockCatRep" component={stockCategoryReport}></Route>
-                                <Route path = "/stockSupRep" component={stockSuppliersReport}></Route>
+                                <Route path="/homeStockP" component={productStockHome} />
+                                <Route path="/homeStockC" component={categoryStockHome} />
+                                <Route path="/homeStockS" component={supplierStockHome} />
+
+                                <Route path="/stockProdRep" component={stockProductsReport}></Route>
+                                <Route path="/stockCatRep" component={stockCategoryReport}></Route>
+                                <Route path="/stockSupRep" component={stockSuppliersReport}></Route>
 
 
                                 <Route path="/req" component={RequestProducts}></Route>
@@ -349,7 +349,7 @@ class App extends React.Component {
                                     <VehicleEdit history={history} />
                                 )} />
                                 {/* vehicle routing end */}
- 
+
                                 {/* Anjali */}
 
                                 <Route exact path="/addemp" render={({ history }) => (
@@ -359,55 +359,55 @@ class App extends React.Component {
 
                                 <Route exact path="/staff-dashboard" render={({ history }) => (
                                     <Dashboard history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/attendence" render={({ history }) => (
                                     <Attendence history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/view/empdetails" render={({ history }) => (
                                     <EmpDetails history={history} />
-                                     
+
                                 )} />
 
-                                 <Route exact path="/view/ViewAEmp" render={({ history }) => (
+                                <Route exact path="/view/ViewAEmp" render={({ history }) => (
                                     <ViewAEmployee history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/attendence-history" render={({ history }) => (
                                     <AttendenceHistory history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/monthlysalarypaymentreport" render={({ history }) => (
                                     <MonthlySalaryPaymentReport history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/view/salary-detail" render={({ history }) => (
                                     <SalaryDetails history={history} />
-                                     
+
                                 )} />
                                 <Route exact path="/add-salary" render={({ history }) => (
                                     <AddSalary history={history} />
-                                     
+
                                 )} />
 
 
                                 <Route exact path="/LeavedEmp" render={({ history }) => (
                                     <LeavedEmp history={history} />
-                                )} />   
+                                )} />
 
                                 <Route exact path="/editemp/:id" render={({ history }) => (
                                     <EditEmp history={history} />
-                                )} />     
+                                )} />
 
                                 <Route exact path="/edit-salary/:id" render={({ history }) => (
                                     <EditSalary history={history} />
-                                )} />     
+                                )} />
 
 
 
@@ -446,9 +446,27 @@ class App extends React.Component {
 
                         </Switch>
                     </Container>
-          
+
                 </Router>
-<Footer></Footer>
+                {/* <Footer></Footer>
+ */}
+                <hr style={{ borderWidth: '12px', width: '100%' }} />
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'row', paddingLeft: '20px', paddingRight: '20px' }}>
+                    <div style={{ flex: '1 1 0 auto',width:'400px' }}>
+                        <p style={{textAlign:'center'}}>Designed and Developed with ❤ by <b>Team Scorpion</b></p>
+                    </div>
+                    <div style={{ flex: '1 1 0 auto', flexGrow: '1',display:'flex',flexDirection:'row',justifyContent:'center',gap:'10px' }}>
+                        <a href="#" style={{display:'flex'}} >HOME</a>
+                        <a href="#" style={{display:'flex'}} >SUPPORT</a>
+                        <a href="#" style={{display:'flex'}} >FAQ</a>
+                        <a href="#" style={{display:'flex'}} >ABOUT US</a>
+                    </div>
+                    <div style={{ flex: '1 1 0 auto',width:'400px' }}>
+                        <p style={{textAlign:'center'}}>SLIIT 20xx batch 20.1</p>
+                    </div>
+                </div>
+                <hr style={{ borderWidth: '7px', width: '100%' }} />
+
 
             </div>
         );
