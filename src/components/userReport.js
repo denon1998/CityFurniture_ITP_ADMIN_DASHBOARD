@@ -86,11 +86,6 @@ export default class UserList extends Component {
             <div style = {
                 { float: 'none' }
             } >
-            <Link to = "/main" > <Button variant = "info" title="Swith to the list of consumers" > Customer </Button>
-            </Link >
-            <Link to = "/users/" >  <button type="button" title="You are now on the user list" 
-            class="btn btn-secondary" variant = "primary"> User </button>
-            </Link >
             </div> <br/>
             <
             div className = "row" >
@@ -124,8 +119,7 @@ export default class UserList extends Component {
             <
             th scope = "col" > Name </th> <
             th scope = "col" > Type </th> <
-            th scope = "col" > Password </th> <
-            th scope = "col" > Action </th> </
+            th scope = "col" > Password </th> </
             tr > </
             thead> <
             tbody > {
@@ -135,13 +129,7 @@ export default class UserList extends Component {
                     <
                     td > { props.username } </td> <
                     td > { props.Type } </td>  < 
-                    td > { props.password } </td>  <  
-
-                    td >
-                    <
-                    Link to = { "/user/Edit/" + props._id } > <Button variant = "warning btn-sm"> Edit </Button>  </Link> 
-                    <a href="" onClick={() => { this.deleteUser(props._id) }}> <Button variant = "danger btn-sm"> Delete </Button></a > </
-                    td >
+                    td > { props.password } </td> 
 
                     </tr>
                 )
@@ -154,21 +142,9 @@ export default class UserList extends Component {
             <button type="button" title="Report generation" class="btn btn-outline-primary btn-sm" 
             onClick={this.jsPdfGenerator} > Download as a PDF </button>
             
-            <
-            div style = {
-                { float: 'right' }
-            } >
-            
-            <
-            Link to = "/user/add" >
-            <button type="button" class="btn btn-success" variant = "primary" > New User </button>
-            </
-            Link >
-            
             
             </div>
-
-            </div>
+            
         )
     }
 }

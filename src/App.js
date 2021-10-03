@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, withRouter, Switch, HashRouter } from "
 
 import { Container, Nav } from 'react-bootstrap';
 
+// Athapaththu
 import Navbar from "./components/navbar.component"
 import AdminDashboard from "./components/admin-dashboard.component"
 
@@ -15,9 +16,8 @@ import EditUser from "./components/edit-user.components";
 import ExercisesList from "./components/exercises-list.component";
 import main from "./components/main.component";
 import cuslog from "./components/cuslog.component";
-
-
-
+import customerReport from "./components/customerReport";
+import userReport from "./components/userReport";
 
 
 // chanduni
@@ -187,7 +187,7 @@ class App extends React.Component {
 
 
 
-                                <
+<
                                     Route path="/"
                                     exact component={main}
                                 // exact component = { ExercisesList }
@@ -197,7 +197,7 @@ class App extends React.Component {
                                     Route path="/admindashboard"
                                     exact component={AdminDashboard}
                                 /> <
-                                    Route path="/edit/:id"
+                                    Route path="/csedit/:id"
                                     component={EditExercise}
                                 /> <
                                     Route path="/main"
@@ -214,6 +214,12 @@ class App extends React.Component {
                                 />  <
                                     Route path="/user/Edit/:id"
                                     component={EditUser}
+                                /> <
+                                    Route path="/cReport"
+                                    component={customerReport}
+                                /> <
+                                    Route path="/uReport"
+                                    component={userReport}
                                 />
 
 

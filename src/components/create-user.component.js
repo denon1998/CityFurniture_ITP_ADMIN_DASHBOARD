@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import swal from '@sweetalert/with-react'
+import swal from '@sweetalert/with-react'
 import './myformStyle.css'
-import SweetAlert from 'sweetalert2-react';
 
 export default class CreateUser extends Component {
     constructor(props) {
@@ -42,7 +41,7 @@ export default class CreateUser extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-
+        const { username, password } = this.state;
         const user = {
             username: this.state.username,
             Type: this.state.Type,
@@ -51,97 +50,112 @@ export default class CreateUser extends Component {
 
         console.log(user);
 
-        axios.post('https://furniture-store-backend.herokuapp.com/api0/users/add', user)
-            .then(res => {console.log(res.data); this.setState({show:true})});
+        //validation
 
-        //window.location = '/users/';
+        if (username.length < 3) {
+            swal("User name invalid !", "length shuld be greater than 3", "error" );
+        } else if (password.length < 4)  {
+            swal("Password invalid !", "Password shuld be greater than 4", "error" );
+        } else {
 
-        // swal({
-        //     title: "Done!",
-        //     text: "Customer Successfully Added",
-        //     icon: "success",
-        //     button: "Okay!"
-        // })
-        //     .then((value) => {
-        //         swal(window.location = '/users/');
-        //     });
+            axios.post('https://furniture-store-backend.herokuapp.com/api/users/add', user)
+            .then((res) => console.log(res.data));
+    
+            swal({
+                title: "Done!",
+                text: "Customer Successfully Added",
+                icon: "success",
+                button: "Okay!",
+            }).then((value) => {
+                window.location = "/users/";
+            });
+        }
     }
 
+     //demo button method
+     demo =() => { 
+
+        //setState
+        this.setState ({
+            username: "Pasindu Shavinda"
+        })
+    
+        this.setState ({
+            Type: "Stock Management"
+        })
+    
+        this.setState ({
+            password: "56781234"
+        })
+    
+      }
+
     render() {
-        return (<
-            div > <br />
+        return ( <
+            div > <br/>
             <div class="row">
-                <div class="col-6">
-                    <br />
-                    <img src="https://cdn.dribbble.com/users/717092/screenshots/5887484/jingle-keys.gif" width="100%" height="100% " />
-                </div>
+            <div class="col-6">
+            <br/><br/>
+            <img src="https://cdn.dribbble.com/users/717092/screenshots/5887484/jingle-keys.gif" width="100%" height="80%" />
+            </div>
 
-                <div class="col-6">
-                    <div class="myformstyle">
-                        <div className="card-body">
-                            <div className="col-md-8 mt-4 mx-auto">
-                            </div>
+            <div class="col-6">
+            <div class="myformstyle">
+            <div className="card-body"> 
+            <div className="col-md-8 mt-4 mx-auto"> 
+            </div>
+            
+            <
+            h3 className="text-center" > <font face = "Comic sans MS" size ="6"> New User </font> </h3> <
+            form onSubmit = { this.onSubmit } >
+            <
+            div className = "form-group" >
+            <
+            label > User name: </label> <
+            input type = "text"
+            placeholder="Enter a user name"
+            required className = "form-control"
+            value = { this.state.username }
+            onChange = { this.onChangeUsername }
+            /> </
+            div >
 
-                            <
-                                h3 className="mb-3 font-weight-normal" > New User </h3> <
-                                    form onSubmit={this.onSubmit} >
-                                <
-                                    div className="form-group" >
-                                    <
-                                        label > Username: </label> <
-                                        input type="text"
-                                        required className="form-control"
-                                        value={this.state.username}
-                                        onChange={this.onChangeUsername}
-                                    /> </
-                                div >
+            <
+            div className = "form-group" >
+            <
+            label > Type: </label> <
+            input type = "text"
+            placeholder="Enter a type"
+            required className = "form-control"
+            value = { this.state.Type }
+            onChange = { this.onChangeType }
+            /> </
+            div >
 
-                                <
-                                    div className="form-group" >
-                                    <
-                                        label > Type: </label> <
-                                        input type="text"
-                                        required className="form-control"
-                                        value={this.state.Type}
-                                        onChange={this.onChangeType}
-                                    /> </
-                                div >
+            <
+            div className = "form-group" >
+            <
+            label > Password: </label>  <
+            input type = "text"
+            required className = "form-control"
+            placeholder = "Enter a password"
+            value = { this.state.password }
+            onChange = { this.onChangepassword }
+            /> <label > <p class="text-danger">*Password shuld be at least 4 words long</p></label>
+            </div >
 
-                                <
-                                    div className="form-group" >
-                                    <
-                                        label > Password: </label> <
-                                        input type="text"
-                                        required className="form-control"
-                                        value={this.state.password}
-                                        onChange={this.onChangepassword}
-                                    /> </
-                                div >
+            <
+            div className = "form-group" >
+            <input type = "submit" value = "Create User" className = "btn btn-primary" / >&nbsp;
 
-                                <
-                                    div className="form-group" >
-                                    <
-                                        input type="submit"
-                                        value="Create User"
-                                        className="btn btn-primary" />
-                                </
-                                div> </
-                            form > </
-                        div> </div> </div>
+            <a href="/users/"> <button type="button" class="btn btn-warning"> Cansal</button></a>
+            <br/><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <SweetAlert
-                    show={this.state.show}
-                    title="Done!"
-                    text="Customer Successfully Addedt"
-                    onConfirm={() => {
-                        this.setState({ show: false })
-                        window.location = '/main';
-                    }}
-                />
-
-
-
-            </div> </div>
+            <button type="button" class="btn btn-outline-dark btn-sm" onClick={this.demo} > Demo </button>
+            </div> 
+            </form >
+            </div> </div> </div> </div> <br/> </div>
         )
     }
 }
