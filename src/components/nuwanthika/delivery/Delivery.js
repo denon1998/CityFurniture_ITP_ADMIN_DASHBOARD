@@ -44,7 +44,8 @@ export default class Delivery extends React.Component {
             items: [],
 
             isOpen: false,
-            searchQuery: ''
+            searchQuery: '',
+            hideCTRL:false
 
         };
 
@@ -119,7 +120,7 @@ export default class Delivery extends React.Component {
                                 <th>map</th>
                                 <th>status</th>
                                 <th>remarks</th>
-                                <th></th>
+                                <th hidden={this.state.hideCTRL} ></th>
 
 
 
@@ -142,7 +143,7 @@ export default class Delivery extends React.Component {
                                     <td style={{ backgroundColor: (item['status'] === 'PENDING' ? 'orange' : (item['status'] === 'PROBLEM' ? 'red' : 'limegreen')),color:item['status'] === 'PROBLEM'?'white':'black' ,textAlign:'center',verticalAlign:'middle',borderRadius:'6px' }} > <h5 className="m-0 p-0">{item['status']}</h5> </td>
                                     <td> {item.remarks}  </td> 
 
-                                    <td>
+                                    <td  hidden={this.state.hideCTRL} >
                                         <Button variant="success" onClick={() => {
                                             this.props.history.push('/delivery/status?_id=' + item._id);
                                         }}>SET DELIVERED</Button>{' '}
@@ -226,22 +227,28 @@ export default class Delivery extends React.Component {
 
 
 //Report pdf generating
-jsPdfGenerator = () => {
-
-    //new document in jspdf
-    var doc = new jsPdf('l','pt', 'a3');
-
+jsPdfGenerator = () => { 
+    var doc = new jsPdf('l','pt', 'a3'); 
     doc.text(600, 20 ,'Delivery Details Report', { align: 'center' });
-    doc.autoTable({  html:'#table' })
-
-    doc.autoTable({
-      columnStyles: { europe: { halign: 'center' } }, 
-      margin: { top: 10 },
+    this.setState({
+        hideCTRL:true
+    },()=>{
+        doc.autoTable({  html:'#table' })
+        this.setState({
+            hideCTRL:false
+        },()=>{
+            doc.autoTable({
+                columnStyles: { europe: { halign: 'center' } }, 
+                margin: { top: 10 },
+              }) 
+              doc.save("Delivery Details.pdf");
+        })
+       
     })
-
-    //save the pdf
-    doc.save("Delivery Details.pdf");
+  
   }
+
+
 
     componentDidMount() {
         // alert('hello')
