@@ -10,7 +10,7 @@
 
 .cardU{
 
-background-image: url("D:\ITP NEW CONNECTED PROJECT\admin\src\components\images\updatebackblue.png");
+background-image: url(../../../../src/components/images/updatebackblue.png);
 border-width: thick;
 border-radius: 30px;
 background-size: cover;
