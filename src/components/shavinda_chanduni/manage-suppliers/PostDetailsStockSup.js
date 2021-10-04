@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import '../styles/formStyles.css';
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import swal from 'sweetalert';
 
 export default class EditPostStockPro extends Component{
@@ -290,7 +289,6 @@ export default class EditPostStockPro extends Component{
           <br/><br/><br/>
         
           </div>     
-          <Footer />
         </div>
 
     )
