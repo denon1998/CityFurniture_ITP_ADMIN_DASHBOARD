@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import swal from 'sweetalert';
 import mattress1 from "../../images/mattress1.png";
 import Sofa1 from "../../images/Sofa1.jpg";
@@ -255,8 +254,6 @@ export default class CreatePostStockCat extends Component {
       
 
         </div>
-
-        <Footer />
         </div>
     )
   }

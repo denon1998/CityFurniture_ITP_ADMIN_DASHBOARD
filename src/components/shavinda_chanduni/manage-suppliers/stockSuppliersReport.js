@@ -1,6 +1,5 @@
 import React ,{ Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import jsPdf from 'jspdf'
 import 'jspdf-autotable'
@@ -168,7 +167,6 @@ handleSearchArea = (e) =>{
         
          <br/><br/><br/>
       
-         <Footer />
        </div> 
        </div>
     )

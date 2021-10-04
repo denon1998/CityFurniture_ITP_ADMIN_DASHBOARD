@@ -1,6 +1,5 @@
 import React ,{ Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import swal from 'sweetalert';
 
@@ -180,7 +179,6 @@ handleSearchArea = (e) =>{
          <br/><br/><br/>
     
        </div> 
-       <Footer />
        </div>
     )
   }

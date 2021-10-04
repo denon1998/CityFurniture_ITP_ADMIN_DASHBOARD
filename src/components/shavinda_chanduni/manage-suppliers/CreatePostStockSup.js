@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import '../styles/formStyles.css';
 import swal from 'sweetalert';
 import mattress1 from "../../images/mattress1.png";
@@ -278,7 +277,6 @@ export default class CreatePostStockSup extends Component {
         <br/><br/><br/>
 
         </div>
-        <Footer />
         </div>
     )
   }

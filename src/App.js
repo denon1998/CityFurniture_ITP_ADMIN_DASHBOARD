@@ -62,7 +62,6 @@ import stockSuppliersReport from './components/shavinda_chanduni/manage-supplier
 
 import RequestProducts from './components/shavinda_chanduni/manage-suppliers/RequestProducts';
 
-import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminDashboard';
 
 //Nuwanthika
 

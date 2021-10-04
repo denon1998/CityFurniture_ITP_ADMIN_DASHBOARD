@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import swal from 'sweetalert';
 import mattress1 from "../../images/mattress1.png";
 import Sofa1 from "../../images/Sofa1.jpg";
 import cupboard1 from "../../images/cupboard1.jpg";
 import chair1 from "../../images/chair1.jpg";
-import SidebarStock from '../SidebarStock/SidebarStock';
+
 
 
 
@@ -329,7 +328,6 @@ export default class CreatePostStockPro extends Component {
           
           
         </div>
-        <Footer />
         </div>
     )
   }

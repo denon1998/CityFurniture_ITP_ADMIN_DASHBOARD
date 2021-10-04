@@ -1,6 +1,5 @@
 import React ,{ Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import jsPdf from 'jspdf'
 import 'jspdf-autotable'
@@ -157,7 +156,6 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
         
         
        </div> 
-       <Footer />
        </div>
     
     )

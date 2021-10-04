@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Footer from '../Footer/Footer';
 
 
 export default class StockHome extends Component {
@@ -34,7 +33,6 @@ export default class StockHome extends Component {
             <br/><br/><br/><br/>
 
             </div>
-        <Footer />
         </div>
 
         )

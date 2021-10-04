@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import '../styles/formStyles.css';
 import swal from 'sweetalert';
-import SidebarStock from '../SidebarStock/SidebarStock';
+
 
 
 export default class EditPostStockCat extends Component{
@@ -223,7 +222,7 @@ export default class EditPostStockCat extends Component{
             <br/><br/><br/>
            
             </div>
-            <Footer />
+        
             </div>
         )
       }

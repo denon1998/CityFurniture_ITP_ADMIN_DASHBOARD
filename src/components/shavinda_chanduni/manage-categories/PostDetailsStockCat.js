@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import '../styles/formStyles.css';
-import SidebarStock from '../SidebarStock/SidebarStock';
+
 
 export default class PostDetailsStockCat extends Component{
   constructor(props){
