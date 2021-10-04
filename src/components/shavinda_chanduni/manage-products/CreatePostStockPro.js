@@ -153,12 +153,12 @@ export default class CreatePostStockPro extends Component {
   
         <div class="row">
 
-        <div class="col-sm" style = {{marginTop:"4%"}}>
+        <div class="col-sm" style = {{marginTop:"10%"}}>
           
-          <img src = {mattress1} width="65%" />
-          <img src = {Sofa1} width="65%" />
-          <img src = {cupboard1} width="65%" />
-          <img src = {chair1} width="65%" />
+          <img src = {mattress1} width="75%" />
+          <img src = {Sofa1} width="75%" />
+          <img src = {cupboard1} width="75%" />
+          <img src = {chair1} width="75%" />
           </div>
           <div class="col-sm">
 

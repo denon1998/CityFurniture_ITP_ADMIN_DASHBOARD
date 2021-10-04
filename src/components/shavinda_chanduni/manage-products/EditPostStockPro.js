@@ -151,7 +151,7 @@ export default class EditPostStockPro extends Component{
         <div className="col-md-8 mt-4 mx-auto"></div>
 
           <center>
-          <h1 className="h3 mb-3 font-weight-normal" style = {{backgroundColor:'cyan',  margin:"0"}}><font face = "Comic sans MS" size ="6"><b>Update Product</b></font></h1><br/>
+          <h1 className="h3 mb-3 font-weight-normal" style = {{backgroundColor:'#d4eff9',  margin:"0"}}><font face = "Comic sans MS" size ="6"><b>Update Product</b></font></h1><br/>
           </center>
           <br/>
           <center>
