@@ -8,6 +8,9 @@ import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
  import { VehicleService } from '../_services/vehicle.service';
 import moment from 'moment';
+import jsPdf from 'jspdf'
+import 'jspdf-autotable'
+
 
 
 const searchDiv = {
@@ -43,7 +46,8 @@ export default class Vehicle extends React.Component {
             items: [],
 
             isOpen: false,
-            searchQuery: ''
+            searchQuery: '',
+            hideCTRL:false
 
         };
 
@@ -62,10 +66,17 @@ export default class Vehicle extends React.Component {
 
                     <div style={searchDiv}>
                         <h2 style={{ textAlign: 'left' }}>Vehicles</h2>
+
+                        <div>
+                        <Button style={{ width: '100px' }} variant="danger" onClick={(e) => {
+                            e.preventDefault();
+                             this.jsPdfGenerator()
+                        }}   >PDF  <IoIcons.IoMdDownload /></Button>{' '}
                         <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
                             e.preventDefault();
                             this.props.history.push('/vehicle/new');
                         }}   >Create New Vehicle</Button>{' '}
+                        </div>
                     </div>
 
 
@@ -98,7 +109,7 @@ export default class Vehicle extends React.Component {
 
                     </div>
 
-                    <Table striped bordered hover className="mt-4">
+                    <Table id="table" striped bordered hover className="mt-4">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -107,7 +118,7 @@ export default class Vehicle extends React.Component {
                                 <th>mileage</th>
                                 <th>nextServiceReminder</th>
 
-                                <th></th>
+                                <th hidden={this.state.hideCTRL} ></th>
 
 
 
@@ -121,7 +132,7 @@ export default class Vehicle extends React.Component {
                                     <td>{item.vehicleLicenseNO} </td>
                                     <td>{item.mileage} </td>
                                     <td>{moment(item.nextServiceReminder).format('yyyy-MM-DD')} </td>
-                                    <td>
+                                    <td hidden={this.state.hideCTRL}>
 
 
                                         <Button variant="warning" onClick={() => {
@@ -201,6 +212,28 @@ export default class Vehicle extends React.Component {
 
         )
     }
+
+ 
+  jsPdfGenerator = () => { 
+    var doc = new jsPdf('l','pt', 'a3'); 
+    doc.text(600, 20 ,'Vehicle Details Report', { align: 'center' });
+    this.setState({
+        hideCTRL:true
+    },()=>{
+        doc.autoTable({  html:'#table' })
+        this.setState({
+            hideCTRL:false
+        },()=>{
+            doc.autoTable({
+                columnStyles: { europe: { halign: 'center' } }, 
+                margin: { top: 10 },
+              }) 
+              doc.save("Vehicle Details.pdf");
+        })
+       
+    })
+  
+  }
 
 
 

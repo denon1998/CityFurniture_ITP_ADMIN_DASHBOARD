@@ -30,7 +30,7 @@ export default class EditExercise extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://furniture-store-backend.herokuapp.com/api0/exercises/' + this.props.match.params.id)
+        axios.get('https://furniture-store-backend.herokuapp.com/api/exercises/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     username: response.data.username,
@@ -46,7 +46,7 @@ export default class EditExercise extends Component {
                 console.log(error);
             })
 
-        axios.get('https://furniture-store-backend.herokuapp.com/api0/users/')
+        axios.get('https://furniture-store-backend.herokuapp.com/api/users/')
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
@@ -118,17 +118,32 @@ export default class EditExercise extends Component {
 
         console.log(exercise);
 
-        axios.post('https://furniture-store-backend.herokuapp.com/api0/exercises/update/' + this.props.match.params.id, exercise)
-            .then(res => console.log(res.data));
-
-        window.location = '/';
+        axios.post('https://furniture-store-backend.herokuapp.com/api/exercises/update/' + this.props.match.params.id, exercise)
+        .then(res => console.log(res.data));
+        alert("Edit Successfully")
+        
+        window.location = '/main';
     }
 
     render() {
         return ( <
-            div >
+            div > <br/>
+            <div class="row">
+            <div class="col-6">
+            <br/><br/><br/><br/><br/><br/><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <img src="https://iconarchive.com/download/i93800/custom-icon-design/silky-line-user/user2-setting.ico" width="50%" height="40%" />
+            </div>
+
+            <div class="col-6">
+            <div class="myformstyle">
+            <div className="card-body"> 
+            <div className="col-md-8 mt-4 mx-auto"> 
+            </div>
+            
             <
-            h3 > Edit Customer </h3> <
+            h3 className="text-center" > Edit Customer </h3> <
             form onSubmit = { this.onSubmit } >
             <
             div className = "form-group" >
@@ -211,8 +226,6 @@ export default class EditExercise extends Component {
 
 
 
-
-
             </div>
 
             <
@@ -222,7 +235,8 @@ export default class EditExercise extends Component {
             value = "Edit"
             className = "btn btn-primary" / >
             </div> </
-            form > </div>
+            form > </div> </div> </div> </div>
+            <br/><br/> </div> 
         )
     }
 }

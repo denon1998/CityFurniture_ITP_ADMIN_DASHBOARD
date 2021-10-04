@@ -6,6 +6,9 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
+import jsPdf from 'jspdf'
+import 'jspdf-autotable'
+
 
 import { DeliveryService } from '../_services/delivery.service'; 
 const searchDiv = {
@@ -41,7 +44,8 @@ export default class Delivery extends React.Component {
             items: [],
 
             isOpen: false,
-            searchQuery: ''
+            searchQuery: '',
+            hideCTRL:false
 
         };
 
@@ -60,11 +64,18 @@ export default class Delivery extends React.Component {
 
                     <div style={searchDiv}>
                         <h2 style={{ textAlign: 'left' }}>Deliveries</h2>
+
+                        <div>
+                        <Button style={{ width: '100px' }} variant="danger" onClick={(e) => {
+                            e.preventDefault();
+                             this.jsPdfGenerator()
+                        }}   >PDF  <IoIcons.IoMdDownload /></Button>{' '}
                         <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
                             e.preventDefault();
                             this.props.history.push('/delivery/new');
                         }}
                         >Create New Delivery</Button>{' '}
+                        </div>
                     </div>
 
                     <div style={searchDiv} className="mb-4 mt-4   " >
@@ -94,7 +105,7 @@ export default class Delivery extends React.Component {
 
                     </div>
 
-                    <Table striped bordered hover className="mt-4">
+                    <Table id="table" striped bordered hover className="mt-4">
                         <thead>
                             <tr>
                                 <th style={{ width: '5%' }} className="col-1"  >#</th>
@@ -109,7 +120,7 @@ export default class Delivery extends React.Component {
                                 <th>map</th>
                                 <th>status</th>
                                 <th>remarks</th>
-                                <th></th>
+                                <th hidden={this.state.hideCTRL} ></th>
 
 
 
@@ -132,7 +143,7 @@ export default class Delivery extends React.Component {
                                     <td style={{ backgroundColor: (item['status'] === 'PENDING' ? 'orange' : (item['status'] === 'PROBLEM' ? 'red' : 'limegreen')),color:item['status'] === 'PROBLEM'?'white':'black' ,textAlign:'center',verticalAlign:'middle',borderRadius:'6px' }} > <h5 className="m-0 p-0">{item['status']}</h5> </td>
                                     <td> {item.remarks}  </td> 
 
-                                    <td>
+                                    <td  hidden={this.state.hideCTRL} >
                                         <Button variant="success" onClick={() => {
                                             this.props.history.push('/delivery/status?_id=' + item._id);
                                         }}>SET DELIVERED</Button>{' '}
@@ -213,6 +224,29 @@ export default class Delivery extends React.Component {
 
         )
     }
+
+
+//Report pdf generating
+jsPdfGenerator = () => { 
+    var doc = new jsPdf('l','pt', 'a3'); 
+    doc.text(600, 20 ,'Delivery Details Report', { align: 'center' });
+    this.setState({
+        hideCTRL:true
+    },()=>{
+        doc.autoTable({  html:'#table' })
+        this.setState({
+            hideCTRL:false
+        },()=>{
+            doc.autoTable({
+                columnStyles: { europe: { halign: 'center' } }, 
+                margin: { top: 10 },
+              }) 
+              doc.save("Delivery Details.pdf");
+        })
+       
+    })
+  
+  }
 
 
 

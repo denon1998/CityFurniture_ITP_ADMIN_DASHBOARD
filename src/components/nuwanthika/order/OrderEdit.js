@@ -220,7 +220,24 @@ export default class OrderEdit extends React.Component {
 
                         <Button hidden={this.isView} disabled={!this.state.isValid} variant="primary" type="submit" >SAVE NOW</Button>{' '}
                         <Button variant="warning" onClick={() => this.props.history.push('/order-for-delivery')} >CANCEL</Button>{' '}
-
+                        <Button variant="danger" onClick={() => {
+                            this.setState({
+                                _id: undefined,
+                                orderID: '2426',
+                                name: 'John',
+                                postalNo: '360',
+                                street: 'Queens road',
+                                town: 'Malabe',
+                                contactNo: '0712426280',
+                                orderDate: '2021-10-06',
+                                status: 'Accepted',
+                                assignedDriver: 'Arjun'
+                            
+                            }, () => {
+                                this.isValid();
+                            });
+                          
+                        }} >SIMULATE</Button>{' '}
 
                     </form>
 

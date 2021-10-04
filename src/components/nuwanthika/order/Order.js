@@ -8,7 +8,10 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
  import { OrderService } from '../_services/order.service';
-
+ import jsPdf from 'jspdf'
+ import 'jspdf-autotable'
+ 
+ 
 
 const searchDiv = {
     display: 'flex',
@@ -43,7 +46,8 @@ export default class Order extends React.Component {
             items: [],
 
             isOpen: false,
-            searchQuery: ''
+            searchQuery: '',
+            hideCTRL:false
 
         };
 
@@ -63,10 +67,16 @@ export default class Order extends React.Component {
 
                     <div style={searchDiv}>
                         <h2 style={{ textAlign: 'left' }}>Orders</h2>
+                        <div>
+                        <Button style={{ width: '100px' }} variant="danger" onClick={(e) => {
+                            e.preventDefault();
+                             this.jsPdfGenerator()
+                        }}   >PDF  <IoIcons.IoMdDownload /></Button>{' '}
                         <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
                             e.preventDefault();
                             this.props.history.push('/order-for-delivery/new');
                         }}   >Create New Order</Button>{' '}
+                        </div>
                     </div>
 
 
@@ -98,10 +108,10 @@ export default class Order extends React.Component {
 
                     </div>
 
-                    <Table striped bordered hover className="mt-4">
+                    <Table id="table" striped bordered hover className="mt-4">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th h style={{ width: '5%' }} className="col-1" >#</th>
                                 <th>orderID</th>
                                 <th>name</th>
                                 <th>postal number</th>
@@ -111,7 +121,7 @@ export default class Order extends React.Component {
                                 <th>Order Date</th>
                                 <th>Status</th>
                                 <th>Assigned Driver</th>
-                                <th></th>
+                                <th hidden={this.state.hideCTRL} ></th>
 
                             </tr>
                         </thead>
@@ -119,7 +129,7 @@ export default class Order extends React.Component {
                             {items.map(item => (
                                 <tr key={item._id} >
 
-                                    <td>{item._id} </td>
+<td><marquee scrollamount="2" behavior="scroll" ><p style={{ maxWidth: '100px' }}>{item._id} </p></marquee></td>
                                     <td>{item.orderID} </td>
                                     <td>{item.name} </td>
 
@@ -135,7 +145,7 @@ export default class Order extends React.Component {
                                     <td>{item.assignedDriver} </td>
 
 
-                                    <td>
+                                    <td  hidden={this.state.hideCTRL} >
 
 
                                         <Button variant="warning" onClick={() => {
@@ -216,6 +226,30 @@ export default class Order extends React.Component {
 
         )
     }
+
+// report generation
+    jsPdfGenerator = () => { 
+        var doc = new jsPdf('l','pt', 'a3'); 
+        doc.text(600, 20 ,'Order Details Report', { align: 'center' });
+        this.setState({
+            hideCTRL:true
+        },()=>{
+            doc.autoTable({  html:'#table' })
+            this.setState({
+                hideCTRL:false
+            },()=>{
+                doc.autoTable({
+                    columnStyles: { europe: { halign: 'center' } }, 
+                    margin: { top: 10 },
+                  }) 
+                  doc.save("Order Details.pdf");
+            })
+           
+        })
+      
+      }
+    
+    
 
 
 

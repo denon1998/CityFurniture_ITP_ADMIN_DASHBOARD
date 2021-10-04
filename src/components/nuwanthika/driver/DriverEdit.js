@@ -35,7 +35,7 @@ export default class DriverEdit extends React.Component {
                 this.setState(d)
             });
         }
-        this.isValid();
+        // this.isValid();
     }
 
 
@@ -148,7 +148,7 @@ export default class DriverEdit extends React.Component {
 
                         <Form.Group className="mb-3" controlId="contactNumber">
                             <Form.Label>Contact Number</Form.Label>
-                            <Form.Control maxLength="10" required type="text" readOnly={this.isView} placeholder="Contact Number" value={this.state.contactNumber} onChange={(event) => {
+                            <Form.Control maxLength="10"   type="text" readOnly={this.isView} placeholder="Contact Number" value={this.state.contactNumber} onChange={(event) => {
                                 this.setState({
                                     contactNumber: event.target.value,
 
@@ -166,10 +166,24 @@ export default class DriverEdit extends React.Component {
 
                         <Button variant="warning" onClick={() => this.props.history.push('/driver')} >CANCEL</Button>{' '}
 
-
+                        <Button variant="danger" onClick={() => {
+                            this.setState({
+                                _id:undefined,
+                                empID:'008',
+                                empName:'Nimal',
+                                vehicleID:'T0006',
+                                currentOrderID:'2346',
+                                contactNumber:'0712323234'
+                            }, () => {
+                                this.isValid();
+                            });
+                         
+                        }} >SIMULATE</Button>{' '}
 
                     </form>
 
+{/* {Number(!(this.state.contactNumber.length < 10)) }* {Number(!(this.state.empID.length<= 0))} *{Number(this.state.vehicleID.length > 0 )}*{Number(!(this.state.empName.length <= 0))} * {   Number((/[A-Z]{1}[0-9]{4}$/.test(this.state.vehicleID ) )  )} */}
+                  
                     <SweetAlert
                         show={this.state.showSaved}
                         title={this.state.alertTitle}
@@ -192,8 +206,8 @@ export default class DriverEdit extends React.Component {
         if ((
 
             !(this.state.contactNumber.length < 10) *
-            !(this.state.empID.length <= 0) *
-            (this.state.vehicleID.length > 0 ? (/[A-Z]{1}[0-9]{4}$/.exec(this.state.vehicleID)) : true) *
+            !(this.state.empID.length<= 0) *
+            (this.state.vehicleID.length > 0 ? (/[A-Z]{1}[0-9]{4}$/.test(this.state.vehicleID)) : false) *
             !(this.state.empName.length <= 0)
 
         ) === 0

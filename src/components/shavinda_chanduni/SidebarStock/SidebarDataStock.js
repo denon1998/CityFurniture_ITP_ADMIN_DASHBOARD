@@ -13,6 +13,39 @@ export const SidebarDataStock = [
   },
 
   {
+    title: 'User Management', //Priyankara
+    path: '#',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Customer Details',
+        path: '/main',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'User Details',
+        path: '/users/',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'Customer Report',
+        path: '/cReport',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'User Report',
+        path: '/uReport',
+        icon: <IoIcons.IoIosPaper />
+      }
+    ]
+  },
+
+
+
+  {
     title: 'Stock Home',
     path: '/stockHome',
     icon: <AiIcons.AiFillHome />
@@ -439,6 +472,11 @@ export const SidebarDataStock = [
 
     ],
   },
+  {
+    title: 'Sign Out',
+    path: '/',
+    icon: <FaIcons.FaEnvelopeOpenText />
+  }
 
 
 
