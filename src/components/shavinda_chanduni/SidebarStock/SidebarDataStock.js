@@ -350,7 +350,7 @@ export const SidebarDataStock = [
 
 
   {
-    title: 'Staf Management',
+    title: 'Staff Management',
     path: '#',
     icon: <IoIcons.IoMdHelpCircle
 
@@ -385,7 +385,7 @@ export const SidebarDataStock = [
 
 
   {
-    title: 'Staf Management View',
+    title: 'Staff Management View',
     path: '#',
     icon: <IoIcons.IoMdHelpCircle
 
@@ -419,7 +419,7 @@ export const SidebarDataStock = [
 
 
   {
-    title: 'staff-History',
+    title: 'Staff-History',
     path: '/history',
     icon: <IoIcons.IoMdHelpCircle
 
@@ -438,11 +438,7 @@ export const SidebarDataStock = [
         path: '/LeavedEmp',
         icon: <IoIcons.IoMdHelpCircle />
       },
-      {
-        title: 'All Salary Details',
-        path: '/view/salary-detail',
-        icon: <IoIcons.IoMdHelpCircle />
-      },
+
     ],
   },
 
@@ -458,10 +454,21 @@ export const SidebarDataStock = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
-        title: 'Staff Report',
-        path: '/monthlysalarypaymentreport',
-        icon: <IoIcons.IoMdHelpCircle />
+        title: 'Employee Details Report',
+        path: '/empReport',
+        icon: <IoIcons.IoIosPaper />
       },
+      {
+        title: 'Sallary Report',
+        path: '/salaryReport',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'LeavedEmp Details Report',
+        path: '/leavedempReport',
+        icon: <IoIcons.IoIosPaper />
+      },
+      
 
     ],
   },

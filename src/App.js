@@ -138,6 +138,13 @@ import AddSalary from './components/anjali/views/salary/AddSalary';
 import LeavedEmp from './components/anjali/views/employee/LeavedEmp';
 import EditEmp from './components/anjali/views/employee/EditEmp';
 import EditSalary from './components/anjali/views/salary/EditSalary';
+import EmployeeReport from './components/anjali/views/employee/EmployeeReport';
+import LeavedempReport from './components/anjali/views/employee/LeavedempReport';
+import SalaryReport from './components/anjali/views/employee/SalaryReport';
+
+
+
+
 class App extends React.Component {
 
     constructor() {
@@ -413,7 +420,21 @@ class App extends React.Component {
 
                                 <Route exact path="/edit-salary/:id" render={({ history }) => (
                                     <EditSalary history={history} />
+
+                                )} />     
+                                
+                                <Route exact path="/empReport" render={({ history }) => (
+                                    <EmployeeReport history={history} />
                                 )} />
+
+                                <Route exact path="/salaryReport" render={({ history }) => (
+                                    <SalaryReport history={history} />
+
+                                )} />
+
+                                <Route exact path="/leavedempReport" render={({ history }) => (
+                                    <LeavedempReport history={history} />
+                                )} />     
 
 
 

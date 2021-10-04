@@ -287,7 +287,7 @@ function EditEmp() {
   },[])
     
     return (
-        <div style={{backgroundColor:"#ccc"}}>
+        <div style={{backgroundColor:"#c2dadd"}}>
             <div className={classes.rootGrid}>
       <Grid container spacing={3}>
         <Grid item xs={12}>

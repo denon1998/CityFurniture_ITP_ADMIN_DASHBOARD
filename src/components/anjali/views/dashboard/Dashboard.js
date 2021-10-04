@@ -3,6 +3,7 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import './slide.css';
 
+
 const slideImages = [
   'images/1.jpg',
   'images/2.jpg',
@@ -17,7 +18,7 @@ const slideImages = [
 ];
 function Dashboard() {
   return (
-    <div>
+    <div style={{margin:"80px"}}>
       <Slide easing="ease" infinite duration={1000}>
           <div className="each-slide">
             <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
@@ -60,6 +61,9 @@ function Dashboard() {
             </div>
           </div>
         </Slide>
+        <br/>
+        <br/>
+        
     </div>
   )
 }

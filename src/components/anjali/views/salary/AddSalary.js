@@ -165,8 +165,21 @@ function AddSalary() {
         }
     }
     const classes = useStyles();
+
+        //  //demo button method
+         const demo =() => {             
+    
+          //setState        
+          setMonth( "September" );
+          setAdvancePayment( "10000" );
+          setOvertimePayment( "5000" ); 
+          setPerDaySalary( "1000" );
+          setNumDays( "15" ); 
+              
+             
+        }
     return (
-        <div style={{backgroundColor:"#ccc"}}>
+        <div style={{backgroundColor:"#c2dadd"}}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Paper className={classes.paper} >
@@ -221,8 +234,9 @@ function AddSalary() {
                     <TextField className={classes.inputs} id="outlined-basic" label="Number of days" type="number" variant="outlined" value={numDays} onChange={handleChangeNumDays} />
                     
                     <h5>Net Salary {netSalary == NaN ? '': netSalary} </h5>
-                    <p>{error}</p>
+                    <p class={classes.errorMsg}>{error}</p>
 
+                    <Button className={classes.inputs}  variant="contained" color="secondary" onClick={demo}> Demo </Button>
                     <Button className={classes.inputs} variant="contained" color="primary" onClick={saveData}>
                         Save Salary
                     </Button>

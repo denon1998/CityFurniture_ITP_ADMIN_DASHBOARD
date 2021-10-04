@@ -11,7 +11,8 @@ import axios from 'axios';
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom';
-
+import jsPdf from 'jspdf'
+import 'jspdf-autotable'
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -89,12 +90,31 @@ function SalaryDetails() {
         });
       }
   }
-    return (
-        <div>
+
+      //Report pdf generating
+      const jsPdfGenerator = () => {
+
+        //new document in jspdf
+        var doc = new jsPdf('l','pt', 'a3');
+    
+        doc.text(600, 20 ,'Salary Details Report', { align: 'center' });
+        doc.autoTable({  html:'#SalaryDetails-table' })
+    
+        doc.autoTable({
+          columnStyles: { europe: { halign: 'center' } }, 
+          margin: { top: 10 },
+        })
+    
+        //save the pdf
+        doc.save("Salary Details.pdf");
+      }
+
+        return (
+          <div>
             <TextField  id="outlined-basic" label="Search by Employee ID" variant="outlined" value={search} onChange={handleChangeSearch} />
             
             <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
+      <Table id = "SalaryDetails-table" className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>EMP ID</StyledTableCell>
@@ -107,7 +127,6 @@ function SalaryDetails() {
             <StyledTableCell align="right">Number of Days</StyledTableCell>
             <StyledTableCell align="right">Net Salary</StyledTableCell>
             <StyledTableCell align="right">Month</StyledTableCell>
-            <StyledTableCell align="right">Actions</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -125,18 +144,13 @@ function SalaryDetails() {
               <StyledTableCell align="right">{row.totalDays}</StyledTableCell>
               <StyledTableCell align="right">{row.totalPayment}</StyledTableCell>
               <StyledTableCell align="right">{row.month}</StyledTableCell>
-              <StyledTableCell align="right">
-              <Link to={`../edit-salary/${row._id}`}><Button variant="contained" color="primary" size="small">Edit</Button></Link>
-                <Button variant="contained" color="secondary" size="small" onClick={()=>handleDelete(row._id)}>Delete</Button>
-              </StyledTableCell>
-            </StyledTableRow>
+              </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
     <br/>
-    <br/>
-    
+      <Button variant="contained" color="secondary" onClick={jsPdfGenerator}>Generate Report PDF</Button>
         </div>
     )
 }
