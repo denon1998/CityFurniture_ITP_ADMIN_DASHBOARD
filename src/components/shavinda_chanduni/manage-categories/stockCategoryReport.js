@@ -97,7 +97,7 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
       <div className = "container">
 
             <center>
-            <h3 style = {{marginTop:'5%'}}><font face = "Comic sans MS" size ="6"><b>Categories</b></font></h3>
+            <h3 style = {{marginTop:'5%'}}><font face = "Comic sans MS" size ="6"><b>Stock-Categories Report</b></font></h3>
           </center>
           <br/>
    

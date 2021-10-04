@@ -100,7 +100,7 @@ handleSearchArea = (e) =>{
       <div className = "container">
          
           <center>
-          <h3 style = {{marginTop:'5%'}}><font face = "Comic sans MS" size ="6"><b>Products</b></font></h3>
+          <h3 style = {{marginTop:'5%'}}><font face = "Comic sans MS" size ="6"><b>Stock-Products Report</b></font></h3>
           </center>
         
           <br/>
