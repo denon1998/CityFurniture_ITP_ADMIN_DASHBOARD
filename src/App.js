@@ -123,6 +123,7 @@ import contactList from "./components/kithmini/contact/contact-list";
 import FAQsList from "./components/kithmini/FAQs/FAQs-list";
 import suggestionList from "./components/kithmini/suggestion/suggestion-list";
 import CustomercareHome from './components/kithmini/customercare/customercare-home';
+import feedbackReport from "./components/kithmini/report/feedbackReport";
 
 // Anjali
 import AddEmployee from './components/anjali/views/employee/AddEmployee';
@@ -290,7 +291,7 @@ class App extends React.Component {
                                 <Route path="/FAQs" exact component={FAQsList} />
                                 <Route path="/suggestion/" exact component={suggestionList} />
                                 <Route path="/CustomercareHome" exact component={CustomercareHome} />
-
+                                <Route path="/feedbackReport" exact component={feedbackReport} />
 
 
 

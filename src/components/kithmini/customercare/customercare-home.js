@@ -23,7 +23,8 @@ export default class CustomercareHome extends Component {
                     <a className="btn btn-outline-light btn-lg" href="/FAQs/" role="button">FAQs</a>&nbsp;&nbsp;&nbsp;
                     <a className="btn btn-outline-light btn-lg" href="/suggestion/" role="button">Suggestions</a>&nbsp;&nbsp;&nbsp;
                     <a className="btn btn-outline-light btn-lg" href="/feedback/" role="button">Feedbacks</a>&nbsp;&nbsp;&nbsp;
-                    <a className="btn btn-outline-light btn-lg" href="/contact/" role="button">Contact Us</a>
+                    <a className="btn btn-outline-light btn-lg" href="/contact/" role="button">Contact Us</a>&nbsp;&nbsp;&nbsp;
+                    <a className="btn btn-outline-light btn-lg" href="/feedbackReport" role="button">Feedback Report</a>
                     <br/><br/><br/>
                     </div>
                 </div>
