@@ -285,7 +285,7 @@ class App extends React.Component {
 
 
                                 {/* Kithmini */}
-                                <Route path="/feedback/" exact component={feedbackList} />
+                                <Route path="/feedba ck/"exact component={feedbackList} />
                                 <Route path="/contact/" exact component={contactList} />
                                 <Route path="/cedit/:id" component={Editcontact} />
                                 <Route path="/FAQs" exact component={FAQsList} />

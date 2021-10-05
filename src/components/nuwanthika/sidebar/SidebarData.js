@@ -179,17 +179,9 @@ export const SidebarData = [
   },
 
   {
-    title: 'Customercare Home',
+    title: 'Customercare Management',
     path: '/CustomercareHome',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
-
-
-  {
-    title: 'Contact',
-    path: '#',
-    icon: <FaIcons.FaCartPlus />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconClosed: <FaIcons.FaEnvelopeOpenText />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
 
     subNav: [
@@ -199,57 +191,34 @@ export const SidebarData = [
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Edit Contact',
-        path: '/edit/:id',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
-  },
-  {
-    title: 'FAQs',
-    path: '/FAQs',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
+        title: 'FAQs',
+        path: '/FAQs',
+        icon: <IoIcons.IoIosPaper />,
+      },
       {
         title: 'View FAQs',
         path: '/FAQs',
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
       },
-    ]
-  },
-
-
-  {
-    title: 'Suggestions',
-    path: '#',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
       {
         title: 'View suggestions',
         path: '/suggestion/',
         icon: <IoIcons.IoIosPaper />
       },
+      {
+        title: 'View Ratings',
+        path: '/feedback/',
+        icon: <FaIcons.FaEnvelopeOpenText />
+      },
+      {
+       title: 'Report',
+       path: '/feedbackReport',
+       icon: <FaIcons.FaCartPlus />
+      },
     ]
   },
-  {
-    title: 'View Ratings',
-    path: '#',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
 
-  {
-    title: 'Report',
-    path: '#',
-    icon: <FaIcons.FaCartPlus />
-  },
 
 
 
