@@ -148,11 +148,7 @@ export const SidebarDataStock = [
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
       },  
-         {
-        title: 'Category Report',
-        path: '/category/report',
-        icon: <IoIcons.IoIosPaper />
-      },
+  
     ]
   },
 
@@ -213,6 +209,11 @@ export const SidebarDataStock = [
         path: '/category/home',
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
+      },
+      {
+        title: 'Category Report',
+        path: '/category/report',
+        icon: <IoIcons.IoIosPaper />
       },
     ]
   },
