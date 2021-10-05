@@ -255,73 +255,45 @@ export const SidebarDataStock = [
   },
 
   {
-    title: 'Customercare Home',
+    title: 'Customer care ',
     path: '/CustomercareHome',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
+    icon: <FaIcons.FaEnvelopeOpenText/>,
 
-
-  {
-    title: 'Contact',
-    path: '#',
-    icon: <FaIcons.FaCartPlus />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-
     subNav: [
       {
-        title: 'Contact List',
+        title: 'viwe Contact List',
         path: '/contact/',
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Edit Contact',
-        path: '/edit/:id',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
-  },
-  {
-    title: 'FAQs',
-    path: '/FAQs',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'View FAQs',
+        title: 'viwe FAQs',
         path: '/FAQs',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
+        icon: <IoIcons.IoIosPaper />
       },
-    ]
-  },
-
-
-  {
-    title: 'Suggestions',
-    path: '#',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
+      {
+        title: 'View Feedbacks',
+        path: "/feedback/",
+        icon: <IoIcons.IoIosPaper />
+      },
       {
         title: 'View suggestions',
         path: '/suggestion/',
         icon: <IoIcons.IoIosPaper />
       },
-
       {
         title: 'View Ratings',
         path: '#',
         icon: <FaIcons.FaEnvelopeOpenText />
       },
+      {
+       title: 'Report',
+       path: '/feedbackReport',
+       icon: <FaIcons.FaCartPlus />
+      },
     ]
   },
-
 
   {
     title: 'Delivery Management',
