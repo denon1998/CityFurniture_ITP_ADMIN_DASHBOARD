@@ -460,7 +460,7 @@ export const SidebarDataStock = [
     title: 'Staff Reports',
     path: '#',
     icon: <IoIcons.IoIosPaper />,
-
+  
 
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -471,7 +471,7 @@ export const SidebarDataStock = [
         icon: <IoIcons.IoIosPaper />
       },
 
-   
+   {
 
         title: 'Sallary Report',
         path: '/salaryReport',
