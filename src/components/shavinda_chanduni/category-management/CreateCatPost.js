@@ -106,9 +106,7 @@ demo =() => {
     type:"main"
   }) 
 
-  this.setState ({
-    cardname:"Visa"
-  }) 
+  
 
 } 
   render() {
