@@ -147,7 +147,12 @@ export const SidebarDataStock = [
         path: '/stockSupRep',
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
-      },      
+      },  
+         {
+        title: 'Category Report',
+        path: '/category/report',
+        icon: <IoIcons.IoIosPaper />
+      },
     ]
   },
 
@@ -165,6 +170,7 @@ export const SidebarDataStock = [
     path: '/category',
     icon: <AiIcons.AiFillHome />
   },
+    
 
   {
     title: 'Orders',
@@ -177,6 +183,12 @@ export const SidebarDataStock = [
       {
         title: 'All Order',
         path: '/order/home',
+        icon: <IoIcons.IoIosPaper />
+      },
+              {
+
+        title: 'Order Report',
+        path: '/order/report',
         icon: <IoIcons.IoIosPaper />
       },
 
@@ -208,7 +220,7 @@ export const SidebarDataStock = [
 
   {
     title: 'Email Conformation',
-    path: '#',
+    path: '/order/email',
     icon: <FaIcons.FaEnvelopeOpenText />
   },
 
@@ -458,7 +470,9 @@ export const SidebarDataStock = [
         path: '/empReport',
         icon: <IoIcons.IoIosPaper />
       },
-      {
+
+   
+
         title: 'Sallary Report',
         path: '/salaryReport',
         icon: <IoIcons.IoIosPaper />
@@ -468,9 +482,10 @@ export const SidebarDataStock = [
         path: '/leavedempReport',
         icon: <IoIcons.IoIosPaper />
       },
-      
+    
 
     ],
+    
   },
   {
     title: 'Sign Out',

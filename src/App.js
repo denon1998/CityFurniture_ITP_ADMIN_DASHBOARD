@@ -26,12 +26,14 @@ import EditCatPost from './components/shavinda_chanduni/category-management/Edit
 import CatHome from './components/shavinda_chanduni/category-management/CatHome';
 import PostDetailsCat from './components/shavinda_chanduni/category-management/PostDetailsCat';
 import HomeMainCategory from './components/shavinda_chanduni/category-management/HomeMainCategory';
-
+import emailer from './components/shavinda_chanduni/order-management/emailer';
 
 import OrderHome from './components/shavinda_chanduni/order-management/OrderHome';
 import EditOrderPost from './components/shavinda_chanduni/order-management/EditOrderPost';
 import PostDetailsOrder from './components/shavinda_chanduni/order-management/PostDetailsOrder';
 import HomeMainOrder from './components/shavinda_chanduni/order-management/HomeMainOrder';
+import orderreport from './components/shavinda_chanduni/order-management/orderreport';
+import categoryreport from './components/shavinda_chanduni/category-management/categoryreport';
 
 
 // Shavinda
@@ -240,12 +242,17 @@ class App extends React.Component {
                                 <Route path="/category/post/:id" exact component={PostDetailsCat}></Route>
                                 <Route path="/category/home" exact component={CatHome}></Route>
                                 <Route path="/category" exact component={HomeMainCategory}></Route>
+                                <Route path="/category/report" exact component={categoryreport}></Route>
 
 
                                 <Route path="/order" exact component={HomeMainOrder}></Route>
                                 <Route path="/order/home" exact component={OrderHome}></Route>
                                 <Route path="/order/edit/:id" exact component={EditOrderPost}></Route>
                                 <Route path="/order/post/:id" exact component={PostDetailsOrder}></Route>
+                                <Route path="/order/email" exact component={emailer}></Route>
+                                <Route path="/order/report" exact component={orderreport}></Route>
+                                
+
 
 
                                 {/* Shavinda    */}
