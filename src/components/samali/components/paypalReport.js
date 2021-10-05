@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import jsPdf from 'jspdf';
+import 'jspdf-autotable';
 
 
 class Home extends Component {
@@ -33,14 +34,14 @@ class Home extends Component {
     });
   }
 
-  //delete function 
-  onDelete = (id) => {
-    axios.delete(`https://furniture-store-backend.herokuapp.com/api/paypalpost/delete/${id}`).then((res) => {
-      alert("Deleted Successfully");
-      this.retrievePosts();
-    })
-    console.log("delete me")
-  }
+//   //delete function 
+//   onDelete = (id) => {
+//     axios.delete(`https://furniture-store-backend.herokuapp.com/api/paypalpost/delete/${id}`).then((res) => {
+//       alert("Deleted Successfully");
+//       this.retrievePosts();
+//     })
+//     console.log("delete me")
+//   }
 
 
 
@@ -72,6 +73,23 @@ class Home extends Component {
     });
   }
 
+  jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l', 'pt', 'a3');
+
+    doc.text(600, 20, 'Paypal Details Report', { align: 'center' },);
+    doc.autoTable({ html: '#paypal-table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } },
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Paypal Details.pdf");
+  }
+
   render() {
     return (
       <div className="container">
@@ -92,14 +110,14 @@ class Home extends Component {
         </div>
 
 
-        <table className="table">
+        <table id="paypal-table" className="table">
           <thead>
             <tr>
               <th scope="col"></th>
               <th scope="col"> Customer Name</th>
               <th scope="col">Customer Email</th>
               <th scope="col">Customer Password</th>
-              <th scope="col">Action</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -108,40 +126,22 @@ class Home extends Component {
                 <th scope="row">{index + 1}</th>
 
                 <td>
-                  <a href={`/palEdit/${posts._id}`} style={{ textDecoration: 'none' }} >
+               
                     {posts.cname}
-                  </a>
+                
                 </td>
                 <td>{posts.cemail}</td>
                 <td>{posts.cpassword}</td>
 
 
-                <td>
-                <a className="btn btn-primary" href="mail">
-                    <i className="fas fa-edit"></i>&nbsp;Request
-
-                  </a>
-                  &nbsp;
-                  &nbsp;
-                  <a className="btn btn-warning" href={`/palUpdate/${posts._id}`}>
-                    <i className="fas fa-edit"></i>&nbsp;Edit
-
-                  </a>
-                  &nbsp;
-
-                  <button className="btn btn-danger" onClick={() => { this.onDelete(posts._id) }}>
-                    <i className="fas fa-trash-alt"></i>&nbsp;Delete
-
-                  </button>
-
-                </td>
+               
               </tr>
             ))}
 
           </tbody>
 
         </table>
-        <button className="btn btn-success"><a href="/payment/paypal/report" style={{ textDecoration: 'none', color: 'white' }}>Create New Report Paypal</a> </button>
+        <button className="btn-primary" onClick={this.jsPdfGenerator}>Generate Report PDF</button>
 
       </div>
 

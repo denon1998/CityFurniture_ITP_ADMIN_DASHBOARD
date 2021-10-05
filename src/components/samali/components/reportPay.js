@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import jsPdf from 'jspdf';
+import 'jspdf-autotable';
 
 
 class PayHome extends Component {
@@ -33,14 +34,14 @@ class PayHome extends Component {
     });
   }
 
-  //delete function 
-  onDelete = (id) => {
-    axios.delete(`https://furniture-store-backend.herokuapp.com/api/cardpost/delete/${id}`).then((res) => {
-      alert("Deleted Successfully");
-      this.retrievePosts();
-    })
-    console.log("delete me")
-  }
+//   //delete function 
+//   onDelete = (id) => {
+//     axios.delete(`https://furniture-store-backend.herokuapp.com/api/cardpost/delete/${id}`).then((res) => {
+//       alert("Deleted Successfully");
+//       this.retrievePosts();
+//     })
+//     console.log("delete me")
+//   }
 
 
 
@@ -72,6 +73,23 @@ class PayHome extends Component {
     });
   }
 
+  jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l', 'pt', 'a3');
+
+    doc.text(600, 20, 'Payment Details Report', { align: 'center' },);
+    doc.autoTable({ html: '#payment-table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } },
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Payments Details.pdf");
+  }
+
   render() {
     return (
       <div className="container" >
@@ -92,14 +110,14 @@ class PayHome extends Component {
         </div>
 
 
-        <table className="table">
+        <table id ="payment-table" className="table">
           <thead>
             <tr>
               <th scope="col"></th>
               <th scope="col"> Card Number</th>
               <th scope="col">Customer Name</th>
               <th scope="col">Expire Date</th>
-              <th scope="col">Action</th>
+             
             </tr>
           </thead>
           <tbody>
@@ -108,9 +126,9 @@ class PayHome extends Component {
                 <th scope="row">{index + 1}</th>
 
                 <td>
-                  <a href={`/post/${posts._id}`} style={{ textDecoration: 'none' }} >
+                 
                     {posts.cardnumber}
-                  </a>
+                
                 </td>
                 <td>{posts.customerName}</td>
                 <td>{posts.expiry}</td>
@@ -118,32 +136,14 @@ class PayHome extends Component {
 
 
 
-                <td>
-                <a className="btn btn-primary" href="mail">
-                    <i className="fas fa-edit"></i>&nbsp;Request
-
-                  </a>
-                  &nbsp;
-                  &nbsp;
-                  <a className="btn btn-warning" href={`/edit/${posts._id}`}>
-                    <i className="fas fa-edit"></i>&nbsp;Edit
-
-                  </a>
-                  &nbsp;
-
-                  <button className="btn btn-danger" onClick={() => { this.onDelete(posts._id) }}>
-                    <i className="fas fa-trash-alt"></i>&nbsp;Delete
-
-                  </button>
-
-                </td>
+               
               </tr>
             ))}
 
           </tbody>
 
         </table>
-        <button className="btn btn-success"><a href="/payment/report" style={{ textDecoration: 'none', color: 'white' }}>Card Payment Report</a> </button>
+        <button className="btn-primary" onClick={this.jsPdfGenerator}>Generate Report PDF</button>
 
       </div>
 

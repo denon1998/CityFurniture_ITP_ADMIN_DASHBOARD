@@ -83,7 +83,7 @@ import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
 import SidebarStock from './components/shavinda_chanduni/SidebarStock/SidebarStock';
 
 
-
+//Shamali
 import EditPosts from './components/samali/components/AdminClientUpdateCard';
 import PayHome from './components/samali/components/CardPayHomeAdmin';
 import payHome from './components/samali/components/payHomeClient';
@@ -97,6 +97,8 @@ import PayDetails from './components/samali/components/PayDetailsAdmin';
 import PalUpdate from './components/samali/components/PalUpdateAdminClient';
 import paypalSuccess from './components/samali/components/paypalSuccessClient';
 import mailer from './components/samali/components/AdminMailer';
+import reportPay from './components/samali/components/reportPay';
+import paypalReport from './components/samali/components/paypalReport';
 
 
 
@@ -448,6 +450,8 @@ class App extends React.Component {
                                 <Route path="/palEdit/:id" component={PayDetails}></Route>
                                 <Route path="/palUpdate/:id" component={PalUpdate}></Route>
                                 <Route path="/mail" component={mailer}></Route>
+                                <Route path="/payment/report" component={reportPay}></Route>
+                                <Route path="/payment/paypal/report" component={paypalReport}></Route>
 
 
 
