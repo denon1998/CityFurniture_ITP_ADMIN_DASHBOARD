@@ -151,7 +151,7 @@ export const SidebarDataStock = [
 
   {
     title: 'Email Conformation',
-    path: '#',
+    path: '/order/email',
     icon: <FaIcons.FaEnvelopeOpenText />
   },
 
@@ -411,8 +411,19 @@ export const SidebarDataStock = [
         path: '/monthlysalarypaymentreport',
         icon: <IoIcons.IoMdHelpCircle />
       },
+      {
+        title: 'Order Report',
+        path: '/order/report',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'Category Report',
+        path: '/category/report',
+        icon: <IoIcons.IoIosPaper />
+      },
 
     ],
+    
   },
 
 

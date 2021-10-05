@@ -3,6 +3,8 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import SidebarOrder from '../Sidebar-Order/SidebarOrder';
 import Footer from '../Footer/Footer';
+import '../styles/formStyles.css';
+import carpenter2 from '../../images/carpenter2.jpg';
 
 export default class EditOrderPost extends Component {
 
@@ -104,15 +106,17 @@ export default class EditOrderPost extends Component {
         <div class="row">
         
     <div class="col-6">
+      <br/>
       
-      <img src="https://cdn.dribbble.com/users/77598/screenshots/6606509/dribbble2.gif"  className="rounded-circle" />
+      <img src={carpenter2}   />
+     
     </div>
           <div class="col-6">
             <br />
           
             {/* <div className="cardedit" style={{ width: "100%" }}> */}
             <div className = "cardmy">
-            <div className="card" style={{backgroundColor:"rgb(180, 211, 248)" }}>
+            <div className="card" style={{width:"100%"}}>
               <div className="card-body">
                 <div className="col-md-8 mt-4 mx-auto">
                   <h1 className="h3 mb-3 font-weight-normal adminletter text-center">Order Detail Edit Form </h1>

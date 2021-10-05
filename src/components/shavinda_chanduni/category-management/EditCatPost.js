@@ -102,7 +102,7 @@ export default class EditCatPost extends Component {
                   <li className="list-group-item" ><b>Sofa </b>- 613ce8a4e8e40c670078db6f </li>
                   <li className="list-group-item"><b>Indoor Furniture</b> - 613ce865e8e40c670078db6d</li>
                   <li className="list-group-item"><b>Outdoor Furniture</b> - 613cf25dc0492711981fd06a </li>
-                  <li className="list-group-item"><b>Mirrors and Hangers</b> - 613ce930e8e40c670078db73 </li>
+                  <li className="list-group-item"><b>Mirrors and Hangers</b> -  613ce930e8e40c670078db73 </li>
                   <li className="list-group-item"><b>Office Furniture</b>  - 613ce90ae8e40c670078db71</li>
                   <li className="list-group-item"><b>Stainless Steel and Plywood Furniture </b> - 613ce98ee8e40c670078db75</li>
                 </div>
