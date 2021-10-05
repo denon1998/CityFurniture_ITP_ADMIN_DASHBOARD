@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Footer from '../Footer/Footer';
-
 
 export default class supplierStockHome extends Component {
     render() {
@@ -32,7 +30,6 @@ export default class supplierStockHome extends Component {
             <br/><br/><br/><br/>
 
             </div>
-        <Footer />
         </div>
 
         )

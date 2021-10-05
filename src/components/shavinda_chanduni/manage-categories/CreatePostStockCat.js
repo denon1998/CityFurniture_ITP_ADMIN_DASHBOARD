@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import swal from 'sweetalert';
 import mattress1 from "../../images/mattress1.png";
 import Sofa1 from "../../images/Sofa1.jpg";
@@ -125,12 +124,12 @@ export default class CreatePostStockCat extends Component {
 
 
         <div className="row">
-        <div class="col-sm" style = {{marginTop:"3%"}}>
+        <div class="col-sm" style = {{marginTop:"5%"}}>
           
-          <img src = {mattress1} width="65%" />
-          <img src = {Sofa1} width="65%" />
-          <img src = {cupboard1} width="65%" />
-          <img src = {chair1} width="65%" />
+          <img src = {mattress1} width="73%" />
+          <img src = {Sofa1} width="73%" />
+          <img src = {cupboard1} width="73%" />
+          <img src = {chair1} width="73%" />
           </div>
           <div className="col-sm">
           
@@ -255,8 +254,6 @@ export default class CreatePostStockCat extends Component {
       
 
         </div>
-
-        <Footer />
         </div>
     )
   }

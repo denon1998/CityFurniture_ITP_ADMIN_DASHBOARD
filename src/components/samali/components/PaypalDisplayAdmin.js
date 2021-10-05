@@ -117,6 +117,12 @@ class Home extends Component {
 
 
                 <td>
+                <a className="btn btn-primary" href="mail">
+                    <i className="fas fa-edit"></i>&nbsp;Request
+
+                  </a>
+                  &nbsp;
+                  &nbsp;
                   <a className="btn btn-warning" href={`/palUpdate/${posts._id}`}>
                     <i className="fas fa-edit"></i>&nbsp;Edit
 
@@ -135,7 +141,7 @@ class Home extends Component {
           </tbody>
 
         </table>
-        <button className="btn btn-success"><a href="/payHome" style={{ textDecoration: 'none', color: 'white' }}>Add New Paypal</a> </button>
+        <button className="btn btn-success"><a href="/payment/paypal/report" style={{ textDecoration: 'none', color: 'white' }}>Create New Report Paypal</a> </button>
 
       </div>
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, withRouter, Switch, HashRouter } from "react-router-dom";
-
+import Footer from './components/shavinda_chanduni/Footer/Footer';
 import { Container, Nav } from 'react-bootstrap';
 
+// Athapaththu
 import Navbar from "./components/navbar.component"
 import AdminDashboard from "./components/admin-dashboard.component"
 
@@ -15,9 +16,8 @@ import EditUser from "./components/edit-user.components";
 import ExercisesList from "./components/exercises-list.component";
 import main from "./components/main.component";
 import cuslog from "./components/cuslog.component";
-
-
-
+import customerReport from "./components/customerReport";
+import userReport from "./components/userReport";
 
 
 // chanduni
@@ -58,9 +58,12 @@ import categoryStockHome from './components/shavinda_chanduni/manage-categories/
 import productStockHome from './components/shavinda_chanduni/manage-products/productStockHome';
 import supplierStockHome from './components/shavinda_chanduni/manage-suppliers/supplierStockHome';
 
+import stockCategoryReport from './components/shavinda_chanduni/manage-categories/stockCategoryReport';
+import stockProductsReport from './components/shavinda_chanduni/manage-products/stockProductsReport';
+import stockSuppliersReport from './components/shavinda_chanduni/manage-suppliers/stockSuppliersReport';
+
 import RequestProducts from './components/shavinda_chanduni/manage-suppliers/RequestProducts';
 
-import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminDashboard';
 
 //Nuwanthika
 
@@ -82,6 +85,7 @@ import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
 import SidebarStock from './components/shavinda_chanduni/SidebarStock/SidebarStock';
 
 
+//Shamali
 import EditPosts from './components/samali/components/AdminClientUpdateCard';
 import PayHome from './components/samali/components/CardPayHomeAdmin';
 import payHome from './components/samali/components/payHomeClient';
@@ -95,6 +99,8 @@ import PayDetails from './components/samali/components/PayDetailsAdmin';
 import PalUpdate from './components/samali/components/PalUpdateAdminClient';
 import paypalSuccess from './components/samali/components/paypalSuccessClient';
 import mailer from './components/samali/components/AdminMailer';
+import reportPay from './components/samali/components/reportPay';
+import paypalReport from './components/samali/components/paypalReport';
 
 
 
@@ -121,6 +127,7 @@ import contactList from "./components/kithmini/contact/contact-list";
 import FAQsList from "./components/kithmini/FAQs/FAQs-list";
 import suggestionList from "./components/kithmini/suggestion/suggestion-list";
 import CustomercareHome from './components/kithmini/customercare/customercare-home';
+import feedbackReport from "./components/kithmini/report/feedbackReport";
 
 // Anjali
 import AddEmployee from './components/anjali/views/employee/AddEmployee';
@@ -135,6 +142,13 @@ import AddSalary from './components/anjali/views/salary/AddSalary';
 import LeavedEmp from './components/anjali/views/employee/LeavedEmp';
 import EditEmp from './components/anjali/views/employee/EditEmp';
 import EditSalary from './components/anjali/views/salary/EditSalary';
+import EmployeeReport from './components/anjali/views/employee/EmployeeReport';
+import LeavedempReport from './components/anjali/views/employee/LeavedempReport';
+import SalaryReport from './components/anjali/views/employee/SalaryReport';
+
+
+
+
 class App extends React.Component {
 
     constructor() {
@@ -151,7 +165,7 @@ class App extends React.Component {
     render() {
         const { error, isLoaded, items } = this.state;
         // Containers
-        
+
         const loading = (
             <div className="pt-3 text-center">
                 <div className="sk-spinner sk-spinner-pulse"></div>
@@ -162,7 +176,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Router  >
-                <SidebarStock></SidebarStock>
+                    <SidebarStock></SidebarStock>
 
                     {/* <HashRouter>
                         <React.Suspense fallback={loading}>
@@ -184,7 +198,7 @@ class App extends React.Component {
 
 
 
-                                <
+<
                                     Route path="/"
                                     exact component={main}
                                 // exact component = { ExercisesList }
@@ -194,7 +208,7 @@ class App extends React.Component {
                                     Route path="/admindashboard"
                                     exact component={AdminDashboard}
                                 /> <
-                                    Route path="/edit/:id"
+                                    Route path="/csedit/:id"
                                     component={EditExercise}
                                 /> <
                                     Route path="/main"
@@ -211,6 +225,12 @@ class App extends React.Component {
                                 />  <
                                     Route path="/user/Edit/:id"
                                     component={EditUser}
+                                /> <
+                                    Route path="/cReport"
+                                    component={customerReport}
+                                /> <
+                                    Route path="/uReport"
+                                    component={userReport}
                                 />
 
 
@@ -235,7 +255,8 @@ class App extends React.Component {
 
 
 
-                                  {/* Shavinda    */}
+                                {/* Shavinda    */}
+
                                 <Route path="/stockHome" exact component={StockHome} />
 
                                 <Route path="/homeP" component={HomeStockPro} />
@@ -255,10 +276,15 @@ class App extends React.Component {
                                 <Route path="/editS/:id" component={EditPostStockSup}></Route>
                                 <Route path="/postS/:id" component={PostDetailsStockSup}></Route>
 
-                                
-                                <Route path = "/homeStockP" component = {productStockHome}/>
-                                <Route path = "/homeStockC" component = {categoryStockHome}/>
-                                <Route path = "/homeStockS" component = {supplierStockHome}/>
+
+                                <Route path="/homeStockP" component={productStockHome} />
+                                <Route path="/homeStockC" component={categoryStockHome} />
+                                <Route path="/homeStockS" component={supplierStockHome} />
+
+                                <Route path="/stockProdRep" component={stockProductsReport}></Route>
+                                <Route path="/stockCatRep" component={stockCategoryReport}></Route>
+                                <Route path="/stockSupRep" component={stockSuppliersReport}></Route>
+
 
                                 <Route path="/req" component={RequestProducts}></Route>
 
@@ -274,16 +300,7 @@ class App extends React.Component {
                                 <Route path="/FAQs" exact component={FAQsList} />
                                 <Route path="/suggestion/" exact component={suggestionList} />
                                 <Route path="/CustomercareHome" exact component={CustomercareHome} />
-
-
-
-
-
-
-
-
-
-
+                                <Route path="/feedbackReport" exact component={feedbackReport} />
 
 
 
@@ -354,7 +371,7 @@ class App extends React.Component {
                                     <VehicleEdit history={history} />
                                 )} />
                                 {/* vehicle routing end */}
- 
+
                                 {/* Anjali */}
 
                                 <Route exact path="/addemp" render={({ history }) => (
@@ -364,54 +381,68 @@ class App extends React.Component {
 
                                 <Route exact path="/staff-dashboard" render={({ history }) => (
                                     <Dashboard history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/attendence" render={({ history }) => (
                                     <Attendence history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/view/empdetails" render={({ history }) => (
                                     <EmpDetails history={history} />
-                                     
+
                                 )} />
 
-                                 <Route exact path="/view/ViewAEmp" render={({ history }) => (
+                                <Route exact path="/view/ViewAEmp" render={({ history }) => (
                                     <ViewAEmployee history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/attendence-history" render={({ history }) => (
                                     <AttendenceHistory history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/monthlysalarypaymentreport" render={({ history }) => (
                                     <MonthlySalaryPaymentReport history={history} />
-                                     
+
                                 )} />
 
                                 <Route exact path="/view/salary-detail" render={({ history }) => (
                                     <SalaryDetails history={history} />
-                                     
+
                                 )} />
                                 <Route exact path="/add-salary" render={({ history }) => (
                                     <AddSalary history={history} />
-                                     
+
                                 )} />
 
 
                                 <Route exact path="/LeavedEmp" render={({ history }) => (
                                     <LeavedEmp history={history} />
-                                )} />   
+                                )} />
 
                                 <Route exact path="/editemp/:id" render={({ history }) => (
                                     <EditEmp history={history} />
-                                )} />     
+                                )} />
 
                                 <Route exact path="/edit-salary/:id" render={({ history }) => (
                                     <EditSalary history={history} />
+
+                                )} />     
+                                
+                                <Route exact path="/empReport" render={({ history }) => (
+                                    <EmployeeReport history={history} />
+                                )} />
+
+                                <Route exact path="/salaryReport" render={({ history }) => (
+                                    <SalaryReport history={history} />
+
+                                )} />
+
+                                <Route exact path="/leavedempReport" render={({ history }) => (
+                                    <LeavedempReport history={history} />
                                 )} />     
 
 
@@ -426,6 +457,8 @@ class App extends React.Component {
                                 <Route path="/palEdit/:id" component={PayDetails}></Route>
                                 <Route path="/palUpdate/:id" component={PalUpdate}></Route>
                                 <Route path="/mail" component={mailer}></Route>
+                                <Route path="/payment/report" component={reportPay}></Route>
+                                <Route path="/payment/paypal/report" component={paypalReport}></Route>
 
 
 
@@ -451,14 +484,13 @@ class App extends React.Component {
 
                         </Switch>
                     </Container>
-
-
-
-
+                  <div style={{paddingTop:'100px',width:'100%'}}>
+                  <Footer></Footer>
+                  </div>
 
                 </Router>
 
-
+              
 
             </div>
         );

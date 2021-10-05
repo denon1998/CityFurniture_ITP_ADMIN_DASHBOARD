@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import '../styles/formStyles.css';
 import swal from 'sweetalert';
-import SidebarStock from '../SidebarStock/SidebarStock';
+
 
 
 export default class EditPostStockCat extends Component{
@@ -133,12 +132,12 @@ export default class EditPostStockCat extends Component{
 
             <div className="col-md-8 mt-4 mx-auto">
               <center>
-              <h1 className="h3 mb-3 font-weight-normal" style = {{backgroundColor:'cyan',  margin:"0"}}><font face = "Comic sans MS" size ="6"><b>Update Category</b></font></h1><br/>
+              <h1 className="h3 mb-3 font-weight-normal" style = {{backgroundColor:'#d4eff9', marginTop:'40px'}}><font face = "Comic sans MS" size ="6"><b>Update Category</b></font></h1><br/>
               </center>
               <br/>
               <form className="needs-validation" noValidate >
                 <div className="form-group" style={{marginBottom:'15px'}}>
-                  <label style={{marginBottom:'5px'}} >Category ID</label>
+                  <label style={{marginBottom:'5px'}}><b>Category ID</b></label>
                   <input type="text"
                   className="form-control"
                   name="catID"
@@ -148,7 +147,7 @@ export default class EditPostStockCat extends Component{
                 </div>
     
                 <div className="form-group" style={{marginBottom:'15px'}}>
-                  <label style={{marginBottom:'5px'}}>Name</label>
+                  <label style={{marginBottom:'5px'}}><b>Name</b></label>
                   <input type="text"
                   className="form-control"
                   name="catName"
@@ -199,7 +198,7 @@ export default class EditPostStockCat extends Component{
             </div>
     
                 <div className="form-group" style={{marginBottom:'15px'}}>
-                  <label style={{marginBottom:'5px'}}>Date</label>
+                  <label style={{marginBottom:'5px'}}><b>Date</b></label>
                   <input type="Date"
                   className="form-control"
                   name="catDate"
@@ -223,7 +222,7 @@ export default class EditPostStockCat extends Component{
             <br/><br/><br/>
            
             </div>
-            <Footer />
+        
             </div>
         )
       }

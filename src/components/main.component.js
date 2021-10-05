@@ -21,7 +21,7 @@ export default function Login() {
         //   const email = this.state.email
         //   const password = this.state.password
 
-        if (email === 'admin@gmail.com' && password === 'admin') {
+        if (email === 'admin@gmail.com' && password === 'admin'|| email === 'chamidu@gmail.com' && password === 'chamidu') {
             window.location = '/admindashboard';
         }
 
@@ -58,8 +58,8 @@ export default function Login() {
         }
         /> 
         </
-        Form.Group > <
-        Button block size = "lg"
+        Form.Group > <br/> <
+        Button block size = "lg btn-block"
         type = "submit"
         disabled = {!validateForm() }
         onClick = { onSubmit() } >

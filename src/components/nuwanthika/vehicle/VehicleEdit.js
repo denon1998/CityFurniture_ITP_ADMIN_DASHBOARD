@@ -136,6 +136,21 @@ export default class VehicleEdit extends React.Component {
 
                         <Button hidden={this.isView} disabled={!this.state.isValid} variant="primary" type="submit" >SAVE NOW</Button>{' '}
                         <Button variant="warning" onClick={() => this.props.history.push('/vehicle')} >CANCEL</Button>{' '}
+                        <Button variant="danger" onClick={() => {
+                           
+
+                            this.setState({
+                                vehicleID: 'J0002',
+                                vehicleLicenseNO: 'MAD2428',
+                                mileage : 60,
+                                nextServiceReminder : '2021-10-06',
+                                _id:undefined
+                            
+                            }, () => {
+                                this.isValid();
+                            });
+                         
+                        }} >SIMULATE</Button>{' '}
 
 
                     </form>
@@ -164,8 +179,8 @@ export default class VehicleEdit extends React.Component {
 
             !(this.state.vehicleID.length <= 0) *
             !(this.state.vehicleLicenseNO.length <= 0) *
-            (/[A-Z]{1}[0-9]{4}$/.exec(this.state.vehicleID))*
-            ((/[A-Z]{2,3}[0-9]{4}$/.exec(this.state.vehicleLicenseNO)) && !/[A-Z]/.exec(String(this.state.vehicleLicenseNO).charAt(3)))
+            (/[A-Z]{1}[0-9]{4}$/.test(this.state.vehicleID))*
+            ((/[A-Z]{2,3}[0-9]{4}$/.test(this.state.vehicleLicenseNO)) && !/[A-Z]/.test(String(this.state.vehicleLicenseNO).charAt(3)))
 
         ) === 0
         ) {

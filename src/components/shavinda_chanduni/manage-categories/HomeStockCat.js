@@ -1,9 +1,7 @@
 import React ,{ Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import swal from 'sweetalert';
-
 
 
 export default class HomeStockCat extends Component{
@@ -88,6 +86,8 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
 })
 }
 
+
+
   render(){
 
     return(
@@ -97,7 +97,7 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
       <div className = "container">
 
             <center>
-          <h3><font face = "Comic sans MS" size ="6"><b>Categories</b></font></h3>
+            <h3 style = {{marginTop:'5%'}}><font face = "Comic sans MS" size ="6"><b>Categories</b></font></h3>
           </center>
           <br/>
    
@@ -159,6 +159,7 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
             ))}
           </tbody>
          </table>
+
          <br/><br/>
         
          <SlideShow/>
@@ -167,7 +168,6 @@ axios.get("https://furniture-store-backend.herokuapp.com/api/catposts").then(res
         
         
        </div> 
-       <Footer />
        </div>
     
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Footer from '../Footer/Footer';
+
 
 
 
@@ -36,7 +36,6 @@ export default class categoryStockHome extends Component {
             <br/><br/><br/><br/>
 
             </div>
-        <Footer />
         </div>
 
         )

@@ -37,31 +37,46 @@ class PayDetails extends Component {
         const { cname, cemail, cpassword } = this.state.post;
 
         return (
-            <div style={{ marginTop: '20px', fontSize:'medium'}}>
-                <br></br>
-                <h4 >{cname}</h4>
-                <hr />
+            <div className="container border"
 
-                <d1 className="row" style={{ marginTop: '10px'}}>
-                    <dt className="col-sm-3">Customer Name</dt>
-                    <dd className="col-sm-9">{cname}</dd>
+                style={{
+                    marginTop: "50px",
+                    width: '50%',
+                    backgroundImage: `url('https://image.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg')`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                }}>
+                <div style={{ marginTop: '20px', fontSize: 'medium' }}>
 
-                    <dt className="col-sm-3">Customer Email</dt>
-                    <dd className="col-sm-9">{cemail}</dd>
-
-                    <dt className="col-sm-3">Customer Password</dt>
-                    <dd className="col-sm-9">{cpassword}</dd>
-
-
-
-
-                </d1>
-
-                <div className="form-group">
-                    <br />
-                    <button className="btn btn-primary"><a href="/mail" style={{ textDecoration: 'none', color: 'white' }}>Request to client</a> </button>
+                    <br></br>
+                    <center>
+                        <h3>CUSTOMER PAYPAL DETAILS</h3>
+                    </center>
+                    <br></br>
+                    <h4 ><b>{cname}</b></h4>
+                    <hr />
 
 
+                    <d1 className="row" style={{ marginTop: '10px' }}>
+                        <dt className="col-sm-3">Customer Name</dt>
+                        <dd className="col-sm-9">{cname}</dd>
+
+                        <dt className="col-sm-3">Customer Email</dt>
+                        <dd className="col-sm-9">{cemail}</dd>
+
+                        <dt className="col-sm-3">Customer Password</dt>
+                        <dd className="col-sm-9">{cpassword}</dd>
+
+
+
+
+                    </d1>
+
+                    <div className="form-group">
+                        <br />
+                      
+
+                    </div>
                 </div>
 
 

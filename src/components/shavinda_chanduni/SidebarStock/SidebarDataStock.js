@@ -13,6 +13,39 @@ export const SidebarDataStock = [
   },
 
   {
+    title: 'User Management', //Priyankara
+    path: '#',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Customer Details',
+        path: '/main',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'User Details',
+        path: '/users/',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'Customer Report',
+        path: '/cReport',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'User Report',
+        path: '/uReport',
+        icon: <IoIcons.IoIosPaper />
+      }
+    ]
+  },
+
+
+
+  {
     title: 'Stock Home',
     path: '/stockHome',
     icon: <AiIcons.AiFillHome />
@@ -61,7 +94,6 @@ export const SidebarDataStock = [
     ]
   },
 
-
   {
     title: 'Stock Suppliers',
     path: '/homeStockS',
@@ -90,10 +122,40 @@ export const SidebarDataStock = [
   },
 
   {
-    title: 'Stock -Report',
+    title: 'Stock-Reports',
     path: '#',
-    icon: <FaIcons.FaCartPlus />
+    icon: <FaIcons.FaCartPlus />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Products Report',
+        path: '/stockProdRep',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Categories Report',
+        path: '/stockCatRep',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Suppliers Report',
+        path: '/stockSupRep',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },  
+         {
+        title: 'Category Report',
+        path: '/category/report',
+        icon: <IoIcons.IoIosPaper />
+      },
+    ]
   },
+
 
 
  {
@@ -108,6 +170,7 @@ export const SidebarDataStock = [
     path: '/category',
     icon: <AiIcons.AiFillHome />
   },
+    
 
   {
     title: 'Orders',
@@ -120,6 +183,12 @@ export const SidebarDataStock = [
       {
         title: 'All Order',
         path: '/order/home',
+        icon: <IoIcons.IoIosPaper />
+      },
+              {
+
+        title: 'Order Report',
+        path: '/order/report',
         icon: <IoIcons.IoIosPaper />
       },
 
@@ -244,25 +313,19 @@ export const SidebarDataStock = [
         path: '/suggestion/',
         icon: <IoIcons.IoIosPaper />
       },
+
+      {
+        title: 'View Ratings',
+        path: '#',
+        icon: <FaIcons.FaEnvelopeOpenText />
+      },
     ]
   },
-  {
-    title: 'View Ratings',
-    path: '#',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
-
-  {
-    title: 'Report',
-    path: '#',
-    icon: <FaIcons.FaCartPlus />
-  },
-
 
 
   {
     title: 'Delivery Management',
-    path: '#t',
+    path: '#',
     icon: <IoIcons.IoMdHelpCircle
 
 
@@ -299,7 +362,7 @@ export const SidebarDataStock = [
 
 
   {
-    title: 'Staf Management',
+    title: 'Staff Management',
     path: '#',
     icon: <IoIcons.IoMdHelpCircle
 
@@ -334,7 +397,7 @@ export const SidebarDataStock = [
 
 
   {
-    title: 'Staf Management View',
+    title: 'Staff Management View',
     path: '#',
     icon: <IoIcons.IoMdHelpCircle
 
@@ -368,7 +431,7 @@ export const SidebarDataStock = [
 
 
   {
-    title: 'staff-History',
+    title: 'Staff-History',
     path: '/history',
     icon: <IoIcons.IoMdHelpCircle
 
@@ -387,18 +450,14 @@ export const SidebarDataStock = [
         path: '/LeavedEmp',
         icon: <IoIcons.IoMdHelpCircle />
       },
-      {
-        title: 'All Salary Details',
-        path: '/view/salary-detail',
-        icon: <IoIcons.IoMdHelpCircle />
-      },
+
     ],
   },
 
 
 
   {
-    title: 'Reports',
+    title: 'Staff Reports',
     path: '#',
     icon: <IoIcons.IoIosPaper />,
 
@@ -407,24 +466,32 @@ export const SidebarDataStock = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
-        title: 'Staff Report',
-        path: '/monthlysalarypaymentreport',
-        icon: <IoIcons.IoMdHelpCircle />
+        title: 'Employee Details Report',
+        path: '/empReport',
+        icon: <IoIcons.IoIosPaper />
       },
-      {
-        title: 'Order Report',
-        path: '/order/report',
+
+   
+
+        title: 'Sallary Report',
+        path: '/salaryReport',
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Category Report',
-        path: '/category/report',
+        title: 'LeavedEmp Details Report',
+        path: '/leavedempReport',
         icon: <IoIcons.IoIosPaper />
       },
+    
 
     ],
     
   },
+  {
+    title: 'Sign Out',
+    path: '/',
+    icon: <FaIcons.FaEnvelopeOpenText />
+  }
 
 
 

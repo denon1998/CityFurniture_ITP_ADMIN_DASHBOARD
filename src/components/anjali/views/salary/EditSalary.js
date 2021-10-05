@@ -176,7 +176,7 @@ function EditSalary() {
     
     const classes = useStyles();
     return (
-        <div style={{backgroundColor:"#ccc"}}>
+        <div style={{backgroundColor:"#c2dadd"}}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Paper className={classes.paper} >

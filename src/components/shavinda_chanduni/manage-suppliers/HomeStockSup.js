@@ -1,6 +1,5 @@
 import React ,{ Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import swal from 'sweetalert';
 
@@ -91,6 +90,7 @@ handleSearchArea = (e) =>{
   })
 }
 
+
   render(){
 
     return(
@@ -100,7 +100,7 @@ handleSearchArea = (e) =>{
       <div className = "container">
 
           <center>
-          <h3><font face = "Comic sans MS" size ="6"><b>Suppliers</b></font></h3>
+          <h3 style = {{marginTop:'5%'}}><font face = "Comic sans MS" size ="6"><b>Suppliers</b></font></h3>
           </center>
           <br/>
      
@@ -171,14 +171,13 @@ handleSearchArea = (e) =>{
             ))}
           </tbody>
          </table>
+
          <br/><br/>
-          
-         
+                   
         <SlideShow />
         
          <br/><br/><br/>
-      
-         <Footer />
+    
        </div> 
        </div>
     )
