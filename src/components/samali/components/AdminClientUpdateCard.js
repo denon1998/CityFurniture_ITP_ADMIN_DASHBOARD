@@ -1,7 +1,9 @@
 import 'react-credit-cards/es/styles-compiled.css';
 import Cards from 'react-credit-cards';
 import React, { Component } from 'react';
+
 import axios from 'axios';
+
 
 class EditPosts extends Component {
 
@@ -62,11 +64,59 @@ class EditPosts extends Component {
 
         console.log(data)
 
+        //validation start here
+        const name = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/;
+        const card = /^[0-9\b]+$/;
+
+        if (cardnumber.length === 0 || customerName.length === 0 || expiry.length === 0 || cvc.length === 0) {
+            alert("Fields can not be empty!", "Please fill all the information!", "error");
+
+        } else if ((!card.test(Number(cardnumber)))) {
+            alert("Invalid Card Number", "Card Number cannot contain any Characters!", "error");
+
+        }
+        else if ((!name.test(String(customerName)))) {
+            alert("Invalid Customer Name", "Customer name cannot contain any Numbers!", "error");
+
+        }
+        else if (cardnumber.length > 16) {
+            alert("Invalid Card Number!", "Do not enter more than 16 Numbers!", "error");
+        }
+
+        else if (cardnumber.length < 16) {
+            alert("Invalid Card Number!", "Do not enter less than 16 Numbers!", "error");
+        }
+
+
+        else if (customerName.length > 20) {
+            alert("Invalid Customer Name!", "Do not enter more than 20 letters!", "error");
+        }
+
+        else if (customerName.length < 3) {
+            alert("Invalid Customer Name!", "Please check your name again!", "error");
+        }
+
+        else if ((!card.test(Number(cvc)))) {
+            alert("Invalid CVC Number", "CVC cannot contain any Characters!", "error");
+
+        }
+
+        else if (cvc.length < 3) {
+            alert("Invalid CVC Number", "CVC should contain 3 numbers only!", "error");
+        }
+        else if (cvc.length > 3) {
+            alert("Invalid CVC Number", "CVC should contain 3 numbers only!", "error");
+        }
+
+
+        else {
+
+
         axios.put(`https://furniture-store-backend.herokuapp.com/api/cardpost/update/${id}`, data).then((res) => {
 
             if (res.data.success) {
 
-                alert("post updated successfully")
+                alert("Paymet updated successfully")
 
                 this.setState(
                     {
@@ -80,6 +130,7 @@ class EditPosts extends Component {
             }
         })
     }
+}
 
     componentDidMount() {
 
