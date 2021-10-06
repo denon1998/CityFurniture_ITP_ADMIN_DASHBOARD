@@ -54,34 +54,41 @@ export default class PostDetailsOffer extends Component {
           <div style={{marginTop:'20px'}}>
 
             <h1>{saleProductName}</h1>
-
+            <hr/>
           <dl className="row">
-            <dt className="col-sm-3">Sale Product Name</dt>
-            <dd className="col-sm-9">{saleProductName}</dd>
+            <dt className="col-sm-3">Sale Product Name</dt> <br></br><br></br>
+            <dd className="col-sm-9">{saleProductName}</dd> <br></br><br></br>
 
-            <dt className="col-sm-3">Discount Amount</dt>
-            <dd className="col-sm-9">{discountAmount}</dd>
+            <dt className="col-sm-3">Discount Amount</dt> <br></br><br></br>
+            <dd className="col-sm-9">{discountAmount}</dd> <br></br><br></br>
 
-            <dt className="col-sm-3">Discount Percentage</dt>
-            <dd className="col-sm-9">{discountAsAPercentage}</dd>
+            <dt className="col-sm-3">Discount Percentage</dt> <br></br><br></br>
+            <dd className="col-sm-9">{discountAsAPercentage}</dd> <br></br><br></br>
 
-            <dt className="col-sm-3">Previous Price</dt>
-            <dd className="col-sm-9">{previousPrice}</dd>
+            <dt className="col-sm-3">Previous Price</dt> <br></br><br></br>
+            <dd className="col-sm-9">{previousPrice}</dd> <br></br><br></br>
 
-            <dt className="col-sm-3">New Price</dt>
-            <dd className="col-sm-9">{newPrice}</dd>
+            <dt className="col-sm-3">New Price</dt> <br></br><br></br>
+            <dd className="col-sm-9">{newPrice}</dd> <br></br><br></br>
 
-            <dt className="col-sm-3">Description</dt>
-            <dd className="col-sm-9">{description}</dd>
+            <dt className="col-sm-3">Description</dt> <br></br><br></br>
+            <dd className="col-sm-9">{description}</dd> <br></br><br></br>
 
           </dl>
 
           <div className="text-center">
-          <button className="btn btn-success" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
-            <i className="far fa-check-square"></i>
-            &nbsp; 
-          </button>
-                 
+          
+          <div>
+          
+            <img src="https://i.pinimg.com/originals/e4/e6/89/e4e689332b6aa0d9d427f5883d4c3d53.gif" width="50%" height="80%" style={{width: 300,
+            height: 300,
+            //Below lines will help to set the border radius
+            borderBottomLeftRadius: 30,
+            borderBottomRightRadius: 15,
+            borderTopRightRadius: 30,
+            borderTopLeftRadius: 15,
+            overflow: 'hidden'}}/>
+           </div>      
           </div>
         </div> 
         </div>

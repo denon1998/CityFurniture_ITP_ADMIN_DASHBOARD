@@ -26,12 +26,14 @@ import EditCatPost from './components/shavinda_chanduni/category-management/Edit
 import CatHome from './components/shavinda_chanduni/category-management/CatHome';
 import PostDetailsCat from './components/shavinda_chanduni/category-management/PostDetailsCat';
 import HomeMainCategory from './components/shavinda_chanduni/category-management/HomeMainCategory';
-
+import emailer from './components/shavinda_chanduni/order-management/emailer';
 
 import OrderHome from './components/shavinda_chanduni/order-management/OrderHome';
 import EditOrderPost from './components/shavinda_chanduni/order-management/EditOrderPost';
 import PostDetailsOrder from './components/shavinda_chanduni/order-management/PostDetailsOrder';
 import HomeMainOrder from './components/shavinda_chanduni/order-management/HomeMainOrder';
+import orderreport from './components/shavinda_chanduni/order-management/orderreport';
+import categoryreport from './components/shavinda_chanduni/category-management/categoryreport';
 
 
 // Shavinda
@@ -105,14 +107,20 @@ import CreatePostProducts from './components/supi/components/CreatePostProducts'
 import EditPostProducts from './components/supi/components/EditPostProducts';
 import HomeProducts from './components//supi/components/HomeProducts';
 import PostDetailsProducts from './components/supi/components/PostDetailsProducts';
+
 import CreatePostCategory from './components/supi/components/CreatePostCategory';
 import EditPostCategory from './components/supi/components/EditPostCategory';
 import HomeCategories from './components/supi/components/HomeCategories';
 import PostDetailsCategories from './components/supi/components/PostDetailsCategories';
+
 import CreatePostOffers from './components/supi/components/CreatePostOffers';
 import EditPostOffers from './components/supi/components/EditPostOffers';
 import HomeOffer from './components//supi/components/HomeOffer';
 import PostDetailsOffer from './components/supi/components/PostDetailsOffer';
+
+import productDetailsReport from './components/supi/components/productDetailsReport';
+import categoryDetailsReport from './components//supi/components/categoryDetailsReport';
+import offersReport from './components/supi/components/offersReport';
 
 
 //kithmini
@@ -237,12 +245,17 @@ class App extends React.Component {
                                 <Route path="/category/post/:id" exact component={PostDetailsCat}></Route>
                                 <Route path="/category/home" exact component={CatHome}></Route>
                                 <Route path="/category" exact component={HomeMainCategory}></Route>
+                                <Route path="/category/report" exact component={categoryreport}></Route>
 
 
                                 <Route path="/order" exact component={HomeMainOrder}></Route>
                                 <Route path="/order/home" exact component={OrderHome}></Route>
                                 <Route path="/order/edit/:id" exact component={EditOrderPost}></Route>
                                 <Route path="/order/post/:id" exact component={PostDetailsOrder}></Route>
+                                <Route path="/order/email" exact component={emailer}></Route>
+                                <Route path="/order/report" exact component={orderreport}></Route>
+                                
+
 
 
                                 {/* Shavinda    */}
@@ -284,7 +297,7 @@ class App extends React.Component {
 
 
                                 {/* Kithmini */}
-                                <Route path="/feedback/" exact component={feedbackList} />
+                                <Route path="/feedback/"exact component={feedbackList} />
                                 <Route path="/contact/" exact component={contactList} />
                                 <Route path="/cedit/:id" component={Editcontact} />
                                 <Route path="/FAQs" exact component={FAQsList} />
@@ -437,7 +450,10 @@ class App extends React.Component {
 
 
 
+ payment-management
                                   {/* Shamali */}
+
+ main
                                 <Route path="/pay-home" exact component={PayHome}></Route>
                                 <Route path="/edit/:id" component={EditPosts}></Route>
                                 <Route path="/post/:id" component={PostDetails}></Route>
@@ -449,11 +465,7 @@ class App extends React.Component {
                                 <Route path="/payment/paypal/report" component={paypalReport}></Route>
 
 
-
-
-
-
-
+                                {/* Supi */}
                                 <Route path="/home-products" exact component={HomeProducts}></Route>
                                 <Route path="/addProducts" component={CreatePostProducts}></Route>
                                 <Route path="/editProducts/:id" component={EditPostProducts}></Route>
@@ -465,7 +477,10 @@ class App extends React.Component {
                                 <Route path="/HomeOffer" exact component={HomeOffer}></Route>
                                 <Route path="/addOffers" component={CreatePostOffers}></Route>
                                 <Route path="/editOffers/:id" component={EditPostOffers}></Route>
-                                <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>
+                                <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>                                                           
+                                <Route path="/productDetailsReport" component={productDetailsReport}></Route>                                
+                                <Route path="/offersReport" component={offersReport}></Route>                                  
+                                <Route path="/categoryDetailsReport" component={categoryDetailsReport}></Route>  
 
 
                             </React.Fragment>
@@ -477,8 +492,7 @@ class App extends React.Component {
                   </div>
 
                 </Router>
-
-              
+         
 
             </div>
         );

@@ -92,10 +92,45 @@ class CreatePostOffers extends Component {
   })
 }
   }
+
+  //Demo button
+      demo =() => { 
+       
+        this.setState( {
+          ...this.state,
+          saleProductName:"Coffee Table",
+          discountAmount:"Rs.6575.00",
+          discountAsAPercentage:"20%",
+          previousPrice:"Rs.32,875.00",
+          newPrice:"Rs.26,300.00",
+          description:"Clearance Deals"
+          })
+        }
+
     render() {
       return (
+
+        <div className="container border"
+
+        style={{
+  
+            marginTop: "50px",
+  
+            width: '50%',
+  
+            backgroundImage: `url('https://images.unsplash.com/photo-1614850523060-8da1d56ae167?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29sb3JmdWwlMjBsaWdodGluZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80')`,
+  
+            backgroundPosition: 'center',
+  
+            backgroundSize: 'cover',
+  
+        }}>
+
+        <div className="row">
         <div className="col-md-8 mt-4 mx-auto">
-        <h1 className="h3 mb-3 font-weight-normal">Add new Offer</h1>
+
+        <center>
+        <h1 className="h3 mb-3 font-weight-normal" style={{ color: 'purple'}}>Add new Offer</h1></center>
         <form className="needs-validation" noValidate>
           <div className="form-group" style={{marginBottom:'15px'}}>
             <label style={{marginBottom:'5px'}} ><b>Sale Product Name</b></label>
@@ -158,11 +193,26 @@ class CreatePostOffers extends Component {
               onChange={this.handleInputChange}/>
             </div>
 
-              <button className="btn btn-success" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
+              <button className="btn btn-primary" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
               <i className="far fa-check-square"></i>
               &nbsp; Save
             </button>          
             </form>
+            <br></br>
+            <button className ="btn btn-danger" onClick={() => {
+              this.setState( {                
+                  ...this.state,
+                  saleProductName:"Coffee Table",
+                  discountAmount:"Rs.6575.00",
+                  discountAsAPercentage:"20%",
+                  previousPrice:"Rs.32,875.00",
+                  newPrice:"Rs.26,300.00",
+                  description:"Clearance Deals"
+                    })           
+            }}>Demo</button> 
+      </div>
+      </div>
+        
         </div>
       )
     }
