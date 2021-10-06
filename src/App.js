@@ -88,16 +88,13 @@ import SidebarStock from './components/shavinda_chanduni/SidebarStock/SidebarSto
 //Shamali
 import EditPosts from './components/samali/components/AdminClientUpdateCard';
 import PayHome from './components/samali/components/CardPayHomeAdmin';
-import payHome from './components/samali/components/payHomeClient';
-import CardPay from './components/samali/components/CardPayClient';
+
+
 import NavBar from './components/samali/components/AdminNavbar';
 import PostDetails from './components/samali/components/CardDetailsAdmin';
-import CardPaySuccess from './components/samali/components/CardPaySuccessClient';
-import payPal from './components/samali/components/payPalClient';
 import PaypalDisplay from './components/samali/components/PaypalDisplayAdmin';
 import PayDetails from './components/samali/components/PayDetailsAdmin';
 import PalUpdate from './components/samali/components/PalUpdateAdminClient';
-import paypalSuccess from './components/samali/components/paypalSuccessClient';
 import mailer from './components/samali/components/AdminMailer';
 import reportPay from './components/samali/components/reportPay';
 import paypalReport from './components/samali/components/paypalReport';
@@ -453,9 +450,11 @@ class App extends React.Component {
 
 
 
-                                <Route path="/pay-home" exact component={PayHome}></Route>
+ payment-management
+                                  {/* Shamali */}
 
-                                <Route path="/payHome" component={payHome}></Route>
+ main
+                                <Route path="/pay-home" exact component={PayHome}></Route>
                                 <Route path="/edit/:id" component={EditPosts}></Route>
                                 <Route path="/post/:id" component={PostDetails}></Route>
                                 <Route path="/payDisplay" component={PaypalDisplay}></Route>
