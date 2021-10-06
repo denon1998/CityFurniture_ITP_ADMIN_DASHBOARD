@@ -375,6 +375,10 @@ class App extends React.Component {
                                 )} />
                                 {/* vehicle routing end */}
 
+
+
+
+
                                 {/* Anjali */}
 
                                 <Route exact path="/addemp" render={({ history }) => (
@@ -450,10 +454,10 @@ class App extends React.Component {
 
 
 
- payment-management
+ 
                                   {/* Shamali */}
 
- main
+ 
                                 <Route path="/pay-home" exact component={PayHome}></Route>
                                 <Route path="/edit/:id" component={EditPosts}></Route>
                                 <Route path="/post/:id" component={PostDetails}></Route>

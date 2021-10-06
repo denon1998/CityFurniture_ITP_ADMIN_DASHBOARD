@@ -230,7 +230,7 @@ export default class Order extends React.Component {
 // report generation
     jsPdfGenerator = () => { 
         var doc = new jsPdf('l','pt', 'a3'); 
-        doc.text(600, 20 ,'Order Details Report', { align: 'center' });
+        doc.text(600, 20 ,'Order Details Report | Page ' + this.active + ' | Size ' + this.size, { align: 'center' });
         this.setState({
             hideCTRL:true
         },()=>{
@@ -242,7 +242,7 @@ export default class Order extends React.Component {
                     columnStyles: { europe: { halign: 'center' } }, 
                     margin: { top: 10 },
                   }) 
-                  doc.save("Order Details.pdf");
+                  doc.save('Order Details'+ '| Page ' + this.active + ' | Size ' + this.size+'.pdf');
             })
            
         })
