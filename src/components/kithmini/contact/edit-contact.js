@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../../shavinda_chanduni/Footer/Footer';
-//import SidebarCustomercare from '../customercare/SidebarCustomercare';
+
 
 
 
@@ -87,7 +86,7 @@ export default class Editcontact extends Component {
     render() {
         return ( 
             <div > 
-                 {/* <SidebarCustomercare/> */}
+                
             <br >
          </br>
   
@@ -137,7 +136,7 @@ export default class Editcontact extends Component {
             </div >
             </div >
           </div > 
-          <Footer />
+         
             </div>
         )
     }

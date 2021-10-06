@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
+
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -114,6 +116,8 @@ function EmpDetails() {
       );
     }
 
+    
+
 
     return (
         <div>
@@ -124,6 +128,7 @@ function EmpDetails() {
         <TableHead>
           <TableRow>
             <StyledTableCell>EMP ID</StyledTableCell>
+            <StyledTableCell>Image</StyledTableCell>
             <StyledTableCell align="right">First Name</StyledTableCell>
             <StyledTableCell align="right">Last Name</StyledTableCell>
             <StyledTableCell align="right">Address</StyledTableCell>
@@ -144,6 +149,7 @@ function EmpDetails() {
               <StyledTableCell component="th" scope="row">
                 {row.employeeId}
               </StyledTableCell>
+              <StyledTableCell align="right"><img src={row.empImage} width="100" /></StyledTableCell>
               <StyledTableCell align="right">{row.firstName}</StyledTableCell>
               <StyledTableCell align="right">{row.lastName}</StyledTableCell>
               <StyledTableCell align="right">{row.address}</StyledTableCell>
@@ -164,6 +170,9 @@ function EmpDetails() {
         </TableBody>
       </Table>
     </TableContainer>
+    <br/>
+    <br/>
+    
         </div>
     )
 }

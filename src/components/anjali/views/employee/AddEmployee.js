@@ -14,6 +14,7 @@ import { Button } from '@material-ui/core';
 import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { render } from 'react-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -45,13 +46,11 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
 }));
+
+
 function AddEmployee() {
     const classes = useStyles();
     
-
-
-
-  
   const [selectedFile,setSelectedFile] = React.useState(null);
   
   const [profileImage, setProfileImage] = React.useState(null);
@@ -278,9 +277,29 @@ function AddEmployee() {
     takeANewEmpId();
     
 
+ 
+    //  //demo button method
+     const demo =() => {             
     
+      //setState        
+      setFirstName( "Jhone" );
+      setLastName( "Haris" );
+      setAddress( "No:502 Yasasiripura,Anuradhapura" ); 
+      setAge( "24" ); 
+      setEmail( "jhone@gmail.com" ); 
+      setGender( "male" ); 
+      setPhone( "0761234567" ); 
+      setDateOfEntery( "2021-10-10" ); 
+      setEducation( "BCom" );
+      setPosition( "Manager" ); 
+      setBasicSalary( "15000" );               
+         
+    }
+
+
+  
     return (
-        <div style={{backgroundColor:"#ccc"}}>
+        <div style={{backgroundColor:"#c2dadd"}}>
             
             <div className={classes.rootGrid} >
       <Grid container spacing={3}>
@@ -358,11 +377,20 @@ function AddEmployee() {
                   </FormControl>
                     <TextField className={classes.inputs} id="outlined-basic" type="number" label="Basic Salary" variant="outlined" value={basicSalary}  onChange={handleChangeBasicSalary}/>
                     <p className={classes.errorMsg}>{error}</p>
+                    <Button type="button"  variant="contained" color="secondary" onClick={demo}> Demo </Button>
+                    <br/>
                     <Button variant="contained" color="primary" onClick={handleSubmit}>
                       Save
-                    </Button>                   
+                    </Button>     
+
+
+                     
+                             
           </Paper>
+          
         </Grid>
+
+
 
         <Grid item xs={6}>
           <Paper className={classes.paper}  style={{display: 'flex',flexDirection:'column'}}>
@@ -376,21 +404,31 @@ function AddEmployee() {
         
         
       </Grid>
+                    
+
     </div>
                 
                 
 
                 <form className={classes.root} noValidate autoComplete="off">
                     
-                    
+
                    
                     {/* Select education */}
+
+                    
                     
                 </form>
+
+
+              
+
         </div>
         
+        
     )
-}
+ }
+
 
  
 export default AddEmployee

@@ -37,11 +37,22 @@ class CardDetailsAdmin extends Component {
 
         return (
          
+            <div className="container border"
+            
+            style={{
+                marginTop: "50px",
+                width: '50%',
+                backgroundImage: `url('https://image.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg')`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+            }}>
+           
             <div style={{marginTop : '20px', fontSize:'mediem',}}>
+            
                 <br></br>
+               
                 <h4>{cardnumber}</h4>
                 <hr/>
-
                 <d1 className ="row">
                     <dt className="col-sm-3">Card Number</dt>
                     <dd className="col-sm-9">{cardnumber}</dd>
@@ -58,7 +69,8 @@ class CardDetailsAdmin extends Component {
                 
                 </d1>
                 <br></br>
-                <button className="btn btn-primary"><a href="/mail" style={{ textDecoration: 'none', color: 'white' }}>Request to client</a> </button>
+                
+            </div>
             </div>
         );
     }

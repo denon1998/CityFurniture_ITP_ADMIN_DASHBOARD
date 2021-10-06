@@ -26,12 +26,14 @@ import EditCatPost from './components/shavinda_chanduni/category-management/Edit
 import CatHome from './components/shavinda_chanduni/category-management/CatHome';
 import PostDetailsCat from './components/shavinda_chanduni/category-management/PostDetailsCat';
 import HomeMainCategory from './components/shavinda_chanduni/category-management/HomeMainCategory';
-
+import emailer from './components/shavinda_chanduni/order-management/emailer';
 
 import OrderHome from './components/shavinda_chanduni/order-management/OrderHome';
 import EditOrderPost from './components/shavinda_chanduni/order-management/EditOrderPost';
 import PostDetailsOrder from './components/shavinda_chanduni/order-management/PostDetailsOrder';
 import HomeMainOrder from './components/shavinda_chanduni/order-management/HomeMainOrder';
+import orderreport from './components/shavinda_chanduni/order-management/orderreport';
+import categoryreport from './components/shavinda_chanduni/category-management/categoryreport';
 
 
 // Shavinda
@@ -62,7 +64,6 @@ import stockSuppliersReport from './components/shavinda_chanduni/manage-supplier
 
 import RequestProducts from './components/shavinda_chanduni/manage-suppliers/RequestProducts';
 
-import adminDashboard from './components/shavinda_chanduni/AdminDashboard/adminDashboard';
 
 //Nuwanthika
 
@@ -84,20 +85,19 @@ import Vehicle from "./components/nuwanthika/vehicle/Vehicle";
 import SidebarStock from './components/shavinda_chanduni/SidebarStock/SidebarStock';
 
 
-
+//Shamali
 import EditPosts from './components/samali/components/AdminClientUpdateCard';
 import PayHome from './components/samali/components/CardPayHomeAdmin';
-import payHome from './components/samali/components/payHomeClient';
-import CardPay from './components/samali/components/CardPayClient';
+
+
 import NavBar from './components/samali/components/AdminNavbar';
 import PostDetails from './components/samali/components/CardDetailsAdmin';
-import CardPaySuccess from './components/samali/components/CardPaySuccessClient';
-import payPal from './components/samali/components/payPalClient';
 import PaypalDisplay from './components/samali/components/PaypalDisplayAdmin';
 import PayDetails from './components/samali/components/PayDetailsAdmin';
 import PalUpdate from './components/samali/components/PalUpdateAdminClient';
-import paypalSuccess from './components/samali/components/paypalSuccessClient';
 import mailer from './components/samali/components/AdminMailer';
+import reportPay from './components/samali/components/reportPay';
+import paypalReport from './components/samali/components/paypalReport';
 
 
 
@@ -107,14 +107,20 @@ import CreatePostProducts from './components/supi/components/CreatePostProducts'
 import EditPostProducts from './components/supi/components/EditPostProducts';
 import HomeProducts from './components//supi/components/HomeProducts';
 import PostDetailsProducts from './components/supi/components/PostDetailsProducts';
+
 import CreatePostCategory from './components/supi/components/CreatePostCategory';
 import EditPostCategory from './components/supi/components/EditPostCategory';
 import HomeCategories from './components/supi/components/HomeCategories';
 import PostDetailsCategories from './components/supi/components/PostDetailsCategories';
+
 import CreatePostOffers from './components/supi/components/CreatePostOffers';
 import EditPostOffers from './components/supi/components/EditPostOffers';
 import HomeOffer from './components//supi/components/HomeOffer';
 import PostDetailsOffer from './components/supi/components/PostDetailsOffer';
+
+import productDetailsReport from './components/supi/components/productDetailsReport';
+import categoryDetailsReport from './components//supi/components/categoryDetailsReport';
+import offersReport from './components/supi/components/offersReport';
 
 
 //kithmini
@@ -124,6 +130,7 @@ import contactList from "./components/kithmini/contact/contact-list";
 import FAQsList from "./components/kithmini/FAQs/FAQs-list";
 import suggestionList from "./components/kithmini/suggestion/suggestion-list";
 import CustomercareHome from './components/kithmini/customercare/customercare-home';
+import feedbackReport from "./components/kithmini/report/feedbackReport";
 
 // Anjali
 import AddEmployee from './components/anjali/views/employee/AddEmployee';
@@ -138,6 +145,13 @@ import AddSalary from './components/anjali/views/salary/AddSalary';
 import LeavedEmp from './components/anjali/views/employee/LeavedEmp';
 import EditEmp from './components/anjali/views/employee/EditEmp';
 import EditSalary from './components/anjali/views/salary/EditSalary';
+import EmployeeReport from './components/anjali/views/employee/EmployeeReport';
+import LeavedempReport from './components/anjali/views/employee/LeavedempReport';
+import SalaryReport from './components/anjali/views/employee/SalaryReport';
+
+
+
+
 class App extends React.Component {
 
     constructor() {
@@ -231,12 +245,17 @@ class App extends React.Component {
                                 <Route path="/category/post/:id" exact component={PostDetailsCat}></Route>
                                 <Route path="/category/home" exact component={CatHome}></Route>
                                 <Route path="/category" exact component={HomeMainCategory}></Route>
+                                <Route path="/category/report" exact component={categoryreport}></Route>
 
 
                                 <Route path="/order" exact component={HomeMainOrder}></Route>
                                 <Route path="/order/home" exact component={OrderHome}></Route>
                                 <Route path="/order/edit/:id" exact component={EditOrderPost}></Route>
                                 <Route path="/order/post/:id" exact component={PostDetailsOrder}></Route>
+                                <Route path="/order/email" exact component={emailer}></Route>
+                                <Route path="/order/report" exact component={orderreport}></Route>
+                                
+
 
 
                                 {/* Shavinda    */}
@@ -278,13 +297,13 @@ class App extends React.Component {
 
 
                                 {/* Kithmini */}
-                                <Route path="/feedback/" exact component={feedbackList} />
+                                <Route path="/feedback/"exact component={feedbackList} />
                                 <Route path="/contact/" exact component={contactList} />
                                 <Route path="/cedit/:id" component={Editcontact} />
                                 <Route path="/FAQs" exact component={FAQsList} />
                                 <Route path="/suggestion/" exact component={suggestionList} />
                                 <Route path="/CustomercareHome" exact component={CustomercareHome} />
-
+                                <Route path="/feedbackReport" exact component={feedbackReport} />
 
 
 
@@ -417,27 +436,40 @@ class App extends React.Component {
 
                                 <Route exact path="/edit-salary/:id" render={({ history }) => (
                                     <EditSalary history={history} />
+
+                                )} />     
+                                
+                                <Route exact path="/empReport" render={({ history }) => (
+                                    <EmployeeReport history={history} />
                                 )} />
 
+                                <Route exact path="/salaryReport" render={({ history }) => (
+                                    <SalaryReport history={history} />
+
+                                )} />
+
+                                <Route exact path="/leavedempReport" render={({ history }) => (
+                                    <LeavedempReport history={history} />
+                                )} />     
 
 
 
+ payment-management
+                                  {/* Shamali */}
+
+ main
                                 <Route path="/pay-home" exact component={PayHome}></Route>
-
-                                <Route path="/payHome" component={payHome}></Route>
                                 <Route path="/edit/:id" component={EditPosts}></Route>
                                 <Route path="/post/:id" component={PostDetails}></Route>
                                 <Route path="/payDisplay" component={PaypalDisplay}></Route>
                                 <Route path="/palEdit/:id" component={PayDetails}></Route>
                                 <Route path="/palUpdate/:id" component={PalUpdate}></Route>
                                 <Route path="/mail" component={mailer}></Route>
+                                <Route path="/payment/report" component={reportPay}></Route>
+                                <Route path="/payment/paypal/report" component={paypalReport}></Route>
 
 
-
-
-
-
-
+                                {/* Supi */}
                                 <Route path="/home-products" exact component={HomeProducts}></Route>
                                 <Route path="/addProducts" component={CreatePostProducts}></Route>
                                 <Route path="/editProducts/:id" component={EditPostProducts}></Route>
@@ -449,7 +481,10 @@ class App extends React.Component {
                                 <Route path="/HomeOffer" exact component={HomeOffer}></Route>
                                 <Route path="/addOffers" component={CreatePostOffers}></Route>
                                 <Route path="/editOffers/:id" component={EditPostOffers}></Route>
-                                <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>
+                                <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>                                                           
+                                <Route path="/productDetailsReport" component={productDetailsReport}></Route>                                
+                                <Route path="/offersReport" component={offersReport}></Route>                                  
+                                <Route path="/categoryDetailsReport" component={categoryDetailsReport}></Route>  
 
 
                             </React.Fragment>
@@ -461,8 +496,7 @@ class App extends React.Component {
                   </div>
 
                 </Router>
-
-              
+         
 
             </div>
         );

@@ -57,7 +57,7 @@ class HomeCategories extends Component {
   render() {    
     return (
 
-<div className="container">
+<div className="">
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
             <br></br>
@@ -123,9 +123,8 @@ class HomeCategories extends Component {
           <br />
           </table>
           <div className="text-center">
-            <button className="btn btn-success"><a href="/addCategory" style={{ textDecoration: 'none', color: 'white' }}>Create new post</a></button>
-          </div>
-        
+            <button className="btn btn-success"><a href="/addCategory" style={{ textDecoration: 'none', color: 'white' }}>Add new Category</a></button>
+          </div>       
 
       </div>
     )

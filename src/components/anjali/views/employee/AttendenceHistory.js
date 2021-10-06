@@ -59,12 +59,12 @@ function AttendenceHistory() {
     return (
         <div>
             <h3>Attendance History</h3>
-            <h4>Mark Attendence {today}</h4>
+            <h4>Attendence of {today}</h4>
             <TextField
                     value={today}
                     onChange={handleChangeToday}
                     id="date"
-                    label="Date of Entry"
+                    label="Select Date"
                     type="date"
                     defaultValue="2021-10-10"
                     className={classes.inputs}

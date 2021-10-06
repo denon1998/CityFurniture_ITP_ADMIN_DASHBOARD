@@ -11,6 +11,8 @@ import axios from 'axios';
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom';
+
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -132,6 +134,9 @@ function SalaryDetails() {
         </TableBody>
       </Table>
     </TableContainer>
+    <br/>
+    <br/>
+    
         </div>
     )
 }

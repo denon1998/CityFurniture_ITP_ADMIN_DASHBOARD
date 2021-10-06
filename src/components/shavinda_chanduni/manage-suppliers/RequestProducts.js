@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../Footer/Footer";
 import emailjs from 'emailjs-com';
 import emailgif from "../../images/emailgif.gif";
 import swal from 'sweetalert';
@@ -108,7 +107,6 @@ const RequestProducts = () => {
       </div> 
       </div>
       <br/><br/><br/><br/>
-      <Footer />
       </div>    
         
     );

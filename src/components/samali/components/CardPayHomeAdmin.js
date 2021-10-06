@@ -119,6 +119,12 @@ class PayHome extends Component {
 
 
                 <td>
+                <a className="btn btn-primary" href="mail">
+                    <i className="fas fa-edit"></i>&nbsp;Request
+
+                  </a>
+                  &nbsp;
+                  &nbsp;
                   <a className="btn btn-warning" href={`/edit/${posts._id}`}>
                     <i className="fas fa-edit"></i>&nbsp;Edit
 
@@ -137,7 +143,7 @@ class PayHome extends Component {
           </tbody>
 
         </table>
-        <button className="btn btn-success"><a href="/payHome" style={{ textDecoration: 'none', color: 'white' }}>Create New Payment</a> </button>
+        <button className="btn btn-success"><a href="/payment/report" style={{ textDecoration: 'none', color: 'white' }}>Card Payment Report</a> </button>
 
       </div>
 

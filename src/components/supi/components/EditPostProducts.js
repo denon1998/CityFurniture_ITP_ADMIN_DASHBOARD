@@ -59,7 +59,7 @@ export default class EditPostProducts extends Component {
 
     axios.put(`https://furniture-store-backend.herokuapp.com/api/postProducts/update/${id}`, data).then((res) => {
       if (res.data.success) {
-        swal("Post Updated Successfully")
+        swal("Product Details Updated Successfully")
         this.setState(
           {
         productName:"",
@@ -134,6 +134,9 @@ export default class EditPostProducts extends Component {
         <form className="needs-validation" noValidate>
           <div className="form-group" style={{ marginBottom: '15px' }}>
             <label style={{ marginBottom: '5px'}} ><b>Product Name: </b></label>
+
+            <div class="row">
+            <div class="col">
             <input type="text"
               className="form-control"
               name="productName"
@@ -141,7 +144,7 @@ export default class EditPostProducts extends Component {
               value={this.state.productName}
               onChange={this.handleInputChange} />
           </div>
-
+          </div></div>
 
           <label style={{ marginBottom: '5px' }} ><b>Item Model Number: </b></label>
           <div class="row">

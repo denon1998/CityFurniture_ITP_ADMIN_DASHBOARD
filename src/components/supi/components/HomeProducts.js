@@ -26,10 +26,28 @@ class HomeProducts extends Component {
   }
 
   onDelete = (id) => {
+
+    swal({
+      title: "You clicked the delete button",
+      text: "If you want to proceed click OK button!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
     axios.delete(`https://furniture-store-backend.herokuapp.com/api/postProducts/delete/${id}`).then((res) => {
-      swal("delete successfully");
+      
       this.retrievePosts();
     })
+      swal("Product Deleted Successfully",{
+      
+      });
+
+    }else {
+      swal("Hasn't deleted ! ");
+    }
+  });
   }
 
   filterData(posts, searchKey) {
@@ -55,7 +73,7 @@ class HomeProducts extends Component {
   render() {
     return (
 
-      <div className="container" >
+      <div className="" >
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
             <br></br>
@@ -105,7 +123,6 @@ class HomeProducts extends Component {
                       {posts.productName}
                     </a>
                   </td>
-                  <td>{posts.productName}</td>
                   <td>{posts.itemModelNumber}</td>
                   <td>{posts.itemHeight}</td>
                   <td>{posts.itemLength}</td>
@@ -119,13 +136,12 @@ class HomeProducts extends Component {
 
                   <td>
                     <a className="btn btn-warning" href={`/editProducts/${posts._id}`}>
-                      <i className="fas fa-edit"></i>&nbsp; Edit
+                      <i className="fas fa-edit"></i> Edit
                     </a>
-
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;
                     <a className="btn btn-danger" href="#" onClick={() => this.onDelete(posts._id)}>
                       <i className="fas fa-trash-alt"></i>&nbsp;Delete
-                    </a>
+                    </a>&nbsp;
                   </td>
                 </tr>
               ))}
@@ -133,8 +149,9 @@ class HomeProducts extends Component {
           <br />
 
         </table>
-
-        <button className="btn btn-success"><a href="/addProducts" style={{ textDecoration: 'none', color: 'white', }}>Create new post</a></button>
+        <center>
+        <button className="btn btn-success"><a href="/addProducts" style={{ textDecoration: 'none', color: 'white', }}>Add new product</a></button>
+       </center>
       </div>
 
     )

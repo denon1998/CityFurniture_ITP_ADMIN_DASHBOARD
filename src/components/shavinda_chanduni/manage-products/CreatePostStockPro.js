@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import swal from 'sweetalert';
 import mattress1 from "../../images/mattress1.png";
 import Sofa1 from "../../images/Sofa1.jpg";
 import cupboard1 from "../../images/cupboard1.jpg";
 import chair1 from "../../images/chair1.jpg";
-import SidebarStock from '../SidebarStock/SidebarStock';
+
 
 
 
@@ -154,12 +153,12 @@ export default class CreatePostStockPro extends Component {
   
         <div class="row">
 
-        <div class="col-sm" style = {{marginTop:"4%"}}>
+        <div class="col-sm" style = {{marginTop:"10%"}}>
           
-          <img src = {mattress1} width="65%" />
-          <img src = {Sofa1} width="65%" />
-          <img src = {cupboard1} width="65%" />
-          <img src = {chair1} width="65%" />
+          <img src = {mattress1} width="75%" />
+          <img src = {Sofa1} width="75%" />
+          <img src = {cupboard1} width="75%" />
+          <img src = {chair1} width="75%" />
           </div>
           <div class="col-sm">
 
@@ -329,7 +328,6 @@ export default class CreatePostStockPro extends Component {
           
           
         </div>
-        <Footer />
         </div>
     )
   }

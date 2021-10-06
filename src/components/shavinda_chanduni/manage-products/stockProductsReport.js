@@ -1,6 +1,5 @@
 import React ,{ Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import SlideShow from '../SlideShow/SlideShow';
 import jsPdf from 'jspdf'
 import 'jspdf-autotable'
@@ -101,7 +100,7 @@ handleSearchArea = (e) =>{
       <div className = "container">
          
           <center>
-          <h3 style = {{marginTop:'5%'}}><font face = "Comic sans MS" size ="6"><b>Products</b></font></h3>
+          <h3 style = {{marginTop:'5%'}}><font face = "Comic sans MS" size ="6"><b>Stock-Products Report</b></font></h3>
           </center>
         
           <br/>
@@ -172,7 +171,7 @@ handleSearchArea = (e) =>{
 
          <br/><br/><br/>
        </div> 
-       <Footer />   
+         
        </div>
     )
   }

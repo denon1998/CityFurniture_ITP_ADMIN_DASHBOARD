@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
 import swal from 'sweetalert';
 
 export default class EditPostStockSup extends Component{
@@ -133,7 +132,7 @@ export default class EditPostStockSup extends Component{
 
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-          <h1 className="h3 mb-3 font-weight-normal" style = {{backgroundColor:'cyan',  margin:"0"}}><font face = "Comic sans MS" size ="6"><b>Update Supplier</b></font></h1><br/>
+          <h1 className="h3 mb-3 font-weight-normal" style = {{backgroundColor:'#d4eff9',  margin:"0"}}><font face = "Comic sans MS" size ="6"><b>Update Supplier</b></font></h1><br/>
           </center> 
           <br/>
           <center>
@@ -243,7 +242,6 @@ export default class EditPostStockSup extends Component{
         </div>
         <br/><br/><br/>
 
-        <Footer />
         </div>
         </div>
    

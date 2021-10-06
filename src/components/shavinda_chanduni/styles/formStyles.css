@@ -10,10 +10,11 @@
 
 .cardU{
 
-background-color: rgb(209, 227, 248);
+background-image: url(../../../../src/components/images/updatebackblue.png);
 border-width: thick;
 border-radius: 30px;
-border-color:black;
+background-size: cover;
+
 
 
 }
@@ -28,4 +29,14 @@ align-content: center;
 margin-left: 100px;
 
 
+}
+.cardmy{
+  border-style: solid;
+  border-color: black;
+  border-width: 8px;
+  box-shadow: 0 80px 150px 0 rgba(0, 0, 0, 0.5);
+
+}
+.adminletter{
+  font-family: 'Abril Fatface', cursive;
 }

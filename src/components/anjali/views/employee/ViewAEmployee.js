@@ -254,7 +254,7 @@ function ViewAEmployee() {
     }
     const classes = useStyles();
     return (
-        <div>
+        <div style={{backgroundColor:"#c2dadd"}}>
         <Grid container spacing={3}>
             <Grid item xs={12}>
             <Paper className={classes.paper} >
@@ -303,9 +303,12 @@ function ViewAEmployee() {
                       onChange={handleChangeEducation}
                       disabled={true}
                     >
-                      <MenuItem value={"AL"}>AL</MenuItem>
-                      <MenuItem value={"OL"}>OL</MenuItem>
-                      <MenuItem value={"University"}>University</MenuItem>
+                       <MenuItem value={"BCom"}>BCom</MenuItem>
+                      <MenuItem value={"BA"}>BA</MenuItem>
+                      <MenuItem value={"Diploma"}>Diploma</MenuItem>
+                      <MenuItem value={"AL"}>A/L</MenuItem>
+                      <MenuItem value={"OL"}>O/L</MenuItem>
+                      <MenuItem value={"Other"}>Other</MenuItem>
                     </Select>
                   </FormControl>
                     {/* Select position */}
@@ -318,9 +321,12 @@ function ViewAEmployee() {
                       onChange={handleChangePosition}
                       disabled
                     >
-                      <MenuItem value={"Accountant"}>Accountant</MenuItem>
+                      <MenuItem value={"Account"}>Account</MenuItem>
                       <MenuItem value={"Manager"}>Manager</MenuItem>
                       <MenuItem value={"Driver"}>Driver</MenuItem>
+                      <MenuItem value={"FurnitureDesigner"}>Furniture Designer</MenuItem>
+                      <MenuItem value={"Carpenter"}>Carpenter</MenuItem>
+                      <MenuItem value={"Other"}>Other</MenuItem>
                     </Select>
                   </FormControl>
                     <TextField disabled className={classes.inputs} id="outlined-basic" label="Basic Salary" variant="outlined" value={basicSalary}  onChange={handleChangeBasicSalary}/>

@@ -74,7 +74,7 @@ handleSearchArea = (e) =>{
 
     return(
 
-      <div className = "container">
+      <div className = "">
         <div className = "row">
           <div className ="col-lg-9 mt-2 mb-2">
           <br></br> <center>
@@ -136,7 +136,7 @@ handleSearchArea = (e) =>{
           </tbody>
          </table>
 
-          <button className="btn btn-success"><a href="/addOffers" style={{textDecoration:'none',color:'white'}}>Create New Post</a></button>
+          <button className="btn btn-success"><a href="/addOffers" style={{textDecoration:'none',color:'white'}}>Add New Offer</a></button>
           
         </div>
              
