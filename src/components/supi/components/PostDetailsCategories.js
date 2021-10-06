@@ -44,20 +44,39 @@ class PostDetailsCategories extends Component{
           <h1>{categoryName}</h1>
           <hr/>
           <dl className="row">
-            <dt className="col-sm-3">Category Name</dt>
-            <dd className="col-sm-9">{categoryName}</dd>
-            <dt className="col-sm-3">Category Id</dt>
-            <dd className="col-sm-9">{categoryId}</dd>
-            <dt className="col-sm-3">Subcategory Type</dt>
-            <dd className="col-sm-9">{subcategoryType}</dd>
-            <dt className="col-sm-3">Subcategory Id</dt>
-            <dd className="col-sm-9">{subcategoryId}</dd>
-            <dt className="col-sm-3">Included Components</dt>
-            <dd className="col-sm-9">{includedComponents}</dd>
-            <dt className="col-sm-3">Description</dt>
-            <dd className="col-sm-9">{description}</dd>
+            <dt className="col-sm-3">Category Name</dt> <br></br><br></br>
+            <dd className="col-sm-9">{categoryName}</dd> <br></br><br></br>
+
+            <dt className="col-sm-3">Category Id</dt> <br></br><br></br>
+            <dd className="col-sm-9">{categoryId}</dd> <br></br><br></br>
+
+            <dt className="col-sm-3">Subcategory Type</dt> <br></br><br></br>
+            <dd className="col-sm-9">{subcategoryType}</dd> <br></br><br></br>
+
+            <dt className="col-sm-3">Subcategory Id</dt> <br></br><br></br>
+            <dd className="col-sm-9">{subcategoryId}</dd> <br></br><br></br>
+
+            <dt className="col-sm-3">Included Components</dt> <br></br><br></br>
+            <dd className="col-sm-9">{includedComponents}</dd> <br></br><br></br>
+
+            <dt className="col-sm-3">Description</dt> <br></br><br></br>
+            <dd className="col-sm-9">{description}</dd> <br></br><br></br>
           </dl>
          <div>
+         <div className="text-center">
+         <div>
+          
+          <img src="https://i.pinimg.com/originals/e4/e6/89/e4e689332b6aa0d9d427f5883d4c3d53.gif" width="50%" height="80%" style={{width: 300,
+          height: 300,
+          //Below lines will help to set the border radius
+          borderBottomLeftRadius: 30,
+          borderBottomRightRadius: 15,
+          borderTopRightRadius: 30,
+          borderTopLeftRadius: 15,
+          overflow: 'hidden'}}/>
+
+        </div>
+        </div>
         </div>
         </div>
         </div>

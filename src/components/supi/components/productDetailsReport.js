@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+import jsPdf from 'jspdf';
+import 'jspdf-autotable';
 
 class HomeProducts extends Component {
   constructor(props) {
@@ -25,30 +27,12 @@ class HomeProducts extends Component {
     });
   }
 
-  onDelete = (id) => {
-
-    swal({
-      title: "You clicked the delete button",
-      text: "If you want to proceed click OK button!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-    axios.delete(`https://furniture-store-backend.herokuapp.com/api/postProducts/delete/${id}`).then((res) => {
-      
-      this.retrievePosts();
-    })
-      swal("Product Deleted Successfully",{
-      
-      });
-
-    }else {
-      swal("Hasn't deleted ! ");
-    }
-  });
-  }
+  // onDelete = (id) => {
+  //   axios.delete(`https://furniture-store-backend.herokuapp.com/api/postProducts/delete/${id}`).then((res) => {
+  //     swal("delete successfully");
+  //     this.retrievePosts();
+  //   })
+  // }
 
   filterData(posts, searchKey) {
     const result = posts.filter((post) =>
@@ -70,10 +54,30 @@ class HomeProducts extends Component {
       }
     });
   }
+
+  jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l', 'pt', 'a3');
+
+    doc.text(600, 20, 'Product Details Report', { align: 'center' },);
+    doc.autoTable({ html: '#productDetails-table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } },
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Product Details Summary.pdf");
+  }
+
   render() {
+
+
     return (
 
-      <div className="" >
+      <div className="container" >
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
             <br></br>
@@ -88,14 +92,14 @@ class HomeProducts extends Component {
               className="form-control"
               type="search"
               placeholder="Search by Product Name"
-              name="search by sale product name"
+              name="search by product name"
               onChange={this.handleSearchArea}>
 
             </input>
           </div>
         </div>
 
-        <table className="table table-hover" style={{ marginTop: '40px' }} style={{ marginLeft: '1px' }}>
+        <table Id = "productDetails-table" className="table table-hover" style={{ marginTop: '40px' }} style={{ marginLeft: '1px' }}>
           <thead>
             <tr>
               <th scope="col">Id</th>
@@ -110,7 +114,7 @@ class HomeProducts extends Component {
               <th scope="col">Model Type</th>
               <th scope="col">Included Components</th>
               <th scope="col">Description</th>
-              <th scope="col">Action</th>
+
             </tr>
           </thead>
           <tbody>
@@ -119,9 +123,9 @@ class HomeProducts extends Component {
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
                   <td>
-                    <a href={`/postProducts/${posts._id}`} style={{ textDecoration: 'none' }}>
+                    
                       {posts.productName}
-                    </a>
+                  
                   </td>
                   <td>{posts.itemModelNumber}</td>
                   <td>{posts.itemHeight}</td>
@@ -134,24 +138,15 @@ class HomeProducts extends Component {
                   <td>{posts.includedComponents}</td>
                   <td>{posts.description}</td>
 
-                  <td>
-                    <a className="btn btn-warning" href={`/editProducts/${posts._id}`}>
-                      <i className="fas fa-edit"></i> Edit
-                    </a>
-                    &nbsp;
-                    <a className="btn btn-danger" href="#" onClick={() => this.onDelete(posts._id)}>
-                      <i className="fas fa-trash-alt"></i>&nbsp;Delete
-                    </a>&nbsp;
-                  </td>
+                  
                 </tr>
               ))}
           </tbody>
           <br />
 
         </table>
-        <center>
-        <button className="btn btn-success"><a href="/addProducts" style={{ textDecoration: 'none', color: 'white', }}>Add new product</a></button>
-       </center>
+
+        <button className="btn-primary" onClick={this.jsPdfGenerator}>Generate Report PDF</button>
       </div>
 
     )

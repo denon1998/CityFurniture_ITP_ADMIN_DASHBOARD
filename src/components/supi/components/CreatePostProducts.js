@@ -64,20 +64,20 @@ export default class CreatePostProducts extends Component {
      swal("Fields cannot be empty !", "Plese fill all the information!", "error");
    }else if((!name.test(String(productName)))){
      swal("Invalid Product Name !", "Product Name cannot contain numbers ! Please enter a valid product name !", "error");   
-   }else if(productName.length > 20 ){
-     swal("Invalid product Name!", "Do not enter more than 20 letters !", "error");
+   }else if(productName.length > 50 ){
+     swal("Invalid product Name!", "Do not enter more than 50 letters !", "error");
    }else if(productName.length < 3){
      swal("Invalid Product Name !", "Do not enter less than 3 letters !", "error");
    }else if(itemModelNumber.length < 4){
      swal("Invalid Model Number !", "Do not enter less than 4 letters !", "error");
-   }else if(itemHeight.length > 10 ){
-     swal("Invalid Item Height!", "Do not enter more than 10 letters or numbers !", "error");
-   }else if(itemLength.length > 10 ){
-     swal("Invalid Item Length!", "Do not enter more than 10 letters or numbers !", "error");
-   }else if(itemWidth.length > 10 ){
-     swal("Invalid Item Width!", "Do not enter more than 10 letters or numbers !", "error");
-   }else if(materialsUsed.length > 10 ){
-     swal("Invalid input!", "Do not enter more than 10 letters or numbers !", "error");
+   }else if(itemHeight.length < 2 ){
+     swal("Invalid Item Height!", "Do not enter less than 2 letters or numbers !", "error");
+   }else if(itemLength.length < 2 ){
+     swal("Invalid Item Length!", "Do not enter less than 2 letters or numbers !", "error");
+   }else if(itemWidth.length < 2 ){
+     swal("Invalid Item Width!", "Do not enter less than 2 letters or numbers !", "error");
+   }else if(materialsUsed.length > 30 ){
+     swal("Invalid input!", "Do not enter more than 30 letters or numbers !", "error");
    }else if((!name.test(String(colours)))){
      swal("Invalid Colour !", "Colour cannot contain Numbers ! Please enter valid colour name !", "error");
    }else if((!name.test(String(modelType)))){
@@ -86,8 +86,8 @@ export default class CreatePostProducts extends Component {
      swal("Invalid Price!", "Do not enter more than 20 letters or numbers !", "error");
    }else if((!name.test(String(includedComponents)))){
      swal("Invalid Input !", "Components cannot contain numbers ! Please enter valid input !", "error");
-   }else if(description.length > 50 ){
-     swal("Invalid Description!", "Do not enter more than 50 letters !", "error"); 
+   }else if(description.length > 100 ){
+     swal("Invalid Description!", "Do not enter more than 100 letters !", "error"); 
         
    }else{
 
@@ -117,11 +117,52 @@ export default class CreatePostProducts extends Component {
 
   }
  }
+
+      //Demo button
+      demo =() => { 
+       
+      this.setState( {
+        ...this.state,
+        productName:"Wardrobe",
+        itemModelNumber:"AP05120",
+        itemHeight:"210cm",
+        itemLength:"160cm",
+        itemWidth:"152cm",
+        materialsUsed:"Teak",
+        colours:"Brown",
+        price:"Rs.105,000.00",
+        modelType:"Antique",
+        includedComponents:"A wardrobe with two keys",
+        description:"Opulent Bed Room Furniture"
+        })
+      }
+
+
   render() {
     return (
+
+      <div className="container border"
+
+        style={{
+  
+            marginTop: "50px",
+  
+            width: '50%',
+  
+            backgroundImage: `url('https://i.pinimg.com/originals/b5/f0/1d/b5f01d69d348ab40a5d68e4feb48f28e.jpg')`,
+  
+            backgroundPosition: 'center',
+  
+            backgroundSize: 'cover',
+  
+        }}>
+
+        <div className="row">
+
+
         <div className="col-md-8 mt-4 mx-auto">
-           
-          <h1 className="h3 mb-3 font-weight-normal ">Products Details Form</h1>
+           <center>
+          <h1 className="h3 mb-3 font-weight-normal " style = {{backgroundColor:'peachpuff'}} style={{ color: 'purple'}}>Products Details Form</h1></center>
           <form className="needs-validation" noValidate>
             <div className="form" style={{marginBottom:'15px'}} >
            
@@ -236,15 +277,39 @@ export default class CreatePostProducts extends Component {
             </div>
 
           </form>
-
-            <button className="btn btn-success" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
+          </div>
+            <center>
+            <button className="btn btn-primary" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
               <i className="far fa-check-square"></i>  
-              &nbsp; Save
+              &nbsp; &nbsp; Save &nbsp;
             </button>
-            <br/>
-           
-            
+            </center>
+            <br></br> <br></br> <br></br>
+            <center>
+
+            <button className ="btn btn-danger" onClick={() => {
+              this.setState( {                
+                  ...this.state,
+                  productName:"Wardrobe",
+                  itemModelNumber:"AP05120",
+                  itemHeight:"210cm",
+                  itemLength:"160cm",
+                  itemWidth:"152cm",
+                  materialsUsed:"Teak",
+                  colours:"Brown",
+                  price:"Rs.105,000.00",
+                  modelType:"Antique",
+                  includedComponents:"A wardrobe with two keys",
+                  description:"Opulent Bed Room Furniture"
+                  })            
+            }}>  &nbsp; Demo</button> &nbsp;
+          
+          </center>
+          <br></br>
         </div>
+        </div>
+              
+          
                
     )
   }

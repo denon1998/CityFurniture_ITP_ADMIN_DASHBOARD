@@ -238,21 +238,131 @@ export const SidebarDataStock = [
   },
 
   {
-    title: 'Products',
+    title: 'Products in webpages',
     path: '/home-products',
-    icon: <FaIcons.FaEnvelopeOpenText />
+    icon: <FaIcons.FaEnvelopeOpenText />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Insert Products',
+        path: '/addProducts',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+      {
+        title: 'Retrieve Products',
+        path: '/home-products',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+      {
+        title: 'Web Products Report',
+        path: '/productDetailsReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+
+    ], 
+  },
+  {
+    title: 'Web Products Report',
+    path: '#',
+    icon: <IoIcons.IoIosPaper />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Web Products Report',
+        path: '/productDetailsReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+    ],
   },
 
   {
-    title: 'Category',
+    title: 'Categories in webpages',
     path: '/HomeCategory',
-    icon: <FaIcons.FaEnvelopeOpenText />
+    icon: <FaIcons.FaEnvelopeOpenText />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Insert Categories',
+        path: '/addCategory',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+      {
+        title: 'Retrieve Categories',
+        path: '/HomeCategory',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+      {
+        title: 'Web Categories Report',
+        path: '/categoryDetailsReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+    ]
   },
 
+  {
+    title: 'Web Categories Report',
+    path: '#',
+    icon: <IoIcons.IoIosPaper />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Web Categories Report',
+        path: '/categoryDetailsReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+
+    ]
+  },
+  
   {
     title: 'Offers',
     path: '/HomeOffer',
-    icon: <FaIcons.FaEnvelopeOpenText />
+    icon: <FaIcons.FaEnvelopeOpenText />,
+
+
+  iconClosed: <RiIcons.RiArrowDownSFill />,
+  iconOpened: <RiIcons.RiArrowUpSFill />,
+  subNav: [
+    {
+      title: 'Add Offers',
+      path: '/addOffers',
+      icon: <IoIcons.IoMdHelpCircle />
+    },
+    {
+      title: 'Retrieve Offers',
+      path: '/HomeOffer',
+      icon: <IoIcons.IoMdHelpCircle />
+    },
+    {
+      title: 'Offers Report',
+      path: '/offersReport',
+      icon: <IoIcons.IoMdHelpCircle />
+    },
+  ]
+},
+  {
+    title: 'Offers Report',
+    path: '#',
+    icon: <IoIcons.IoIosPaper />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Offer Report',
+        path: '/offersReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+
+    ]
   },
 
   {
