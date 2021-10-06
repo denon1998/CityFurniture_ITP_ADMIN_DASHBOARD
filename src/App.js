@@ -107,14 +107,20 @@ import CreatePostProducts from './components/supi/components/CreatePostProducts'
 import EditPostProducts from './components/supi/components/EditPostProducts';
 import HomeProducts from './components//supi/components/HomeProducts';
 import PostDetailsProducts from './components/supi/components/PostDetailsProducts';
+
 import CreatePostCategory from './components/supi/components/CreatePostCategory';
 import EditPostCategory from './components/supi/components/EditPostCategory';
 import HomeCategories from './components/supi/components/HomeCategories';
 import PostDetailsCategories from './components/supi/components/PostDetailsCategories';
+
 import CreatePostOffers from './components/supi/components/CreatePostOffers';
 import EditPostOffers from './components/supi/components/EditPostOffers';
 import HomeOffer from './components//supi/components/HomeOffer';
 import PostDetailsOffer from './components/supi/components/PostDetailsOffer';
+
+import productDetailsReport from './components/supi/components/productDetailsReport';
+import categoryDetailsReport from './components//supi/components/categoryDetailsReport';
+import offersReport from './components/supi/components/offersReport';
 
 
 //kithmini
@@ -417,7 +423,6 @@ class App extends React.Component {
 
 
 
-
                                 <Route path="/pay-home" exact component={PayHome}></Route>
 
                                 <Route path="/payHome" component={payHome}></Route>
@@ -429,11 +434,7 @@ class App extends React.Component {
                                 <Route path="/mail" component={mailer}></Route>
 
 
-
-
-
-
-
+                                {/* Supi */}
                                 <Route path="/home-products" exact component={HomeProducts}></Route>
                                 <Route path="/addProducts" component={CreatePostProducts}></Route>
                                 <Route path="/editProducts/:id" component={EditPostProducts}></Route>
@@ -445,7 +446,10 @@ class App extends React.Component {
                                 <Route path="/HomeOffer" exact component={HomeOffer}></Route>
                                 <Route path="/addOffers" component={CreatePostOffers}></Route>
                                 <Route path="/editOffers/:id" component={EditPostOffers}></Route>
-                                <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>
+                                <Route path="/postOffer/:id" component={PostDetailsOffer}></Route>                                                           
+                                <Route path="/productDetailsReport" component={productDetailsReport}></Route>                                
+                                <Route path="/offersReport" component={offersReport}></Route>                                  
+                                <Route path="/categoryDetailsReport" component={categoryDetailsReport}></Route>  
 
 
                             </React.Fragment>
@@ -457,8 +461,7 @@ class App extends React.Component {
                   </div>
 
                 </Router>
-
-              
+         
 
             </div>
         );

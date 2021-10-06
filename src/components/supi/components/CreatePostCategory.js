@@ -10,8 +10,8 @@ export default class CreatePostCategory extends Component {
       categoryName: "",
       categoryId: "",
       subcategoryType: "",
+      subcategoryId: "",
       includedComponents: "",
-      categoryName: "",
       description: ""
 
     }
@@ -97,10 +97,43 @@ export default class CreatePostCategory extends Component {
 
     }
   }
+
+      //Demo button
+      demo =() => { 
+       
+        this.setState( {
+          ...this.state,
+          categoryName:"Antiques",
+          categoryId:"AP05120",
+          subcategoryType:"Dining Table",
+          subcategoryId:"SC024",
+          includedComponents:"Dining Tables With Chairs",
+          description:"Opulent Decorative Furniture"
+          })
+        }
+
   render() {
     return (
+    
+          <div className="container border"
+    
+          style={{
+    
+              marginTop: "50px",
+    
+              width: '50%',
+    
+              backgroundImage: `url('https://images.unsplash.com/photo-1614850523060-8da1d56ae167?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29sb3JmdWwlMjBsaWdodGluZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80')`,
+    
+              backgroundPosition: 'center',
+    
+              backgroundSize: 'cover',
+    
+          }}>
+
       <div className="col-md-8 mt-4 mx-auto">
-        <h1 className="h3 mb-3 font-weight-normal">Category Details Form</h1>
+        <center>
+        <h1 className="h3 mb-3 font-weight-normal" style={{ color: 'purple'}}>Category Details Form</h1></center>
         <form className="needs-validation" noValidate>
           <div className="form" style={{ marginBottom: '15px' }} >
             <label style={{ marginBottom: '5px' }} ><b>Category Name: </b></label>
@@ -161,18 +194,31 @@ export default class CreatePostCategory extends Component {
                 value={this.state.description}
                 onChange={this.handleInputChange} />
             </div>
-
-        </form>
-
-        <button className="btn btn-success" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
+            
+        </form>        
+        </div>
+          <center>
+        <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
           <i className="far fa-check-square"></i>
           &nbsp; Submit
         </button>
         <br />
+        <br></br>
+        <button className ="btn btn-danger" onClick={() => {
+              this.setState( {                
+                  ...this.state,
 
-
+                    categoryName:"Antiques",
+                    categoryId:"AP05120",
+                    subcategoryType:"Dining Table",
+                    subcategoryId:"SC024",
+                    includedComponents:"Dining Tables With Chairs",
+                    description:"Opulent Decorative Furniture"
+                    })           
+            }}>Demo</button> 
+          </center>
+          <br></br>
       </div>
-
 
     )
   }

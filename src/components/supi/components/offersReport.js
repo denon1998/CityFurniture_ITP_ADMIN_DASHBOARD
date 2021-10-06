@@ -1,6 +1,8 @@
 import React ,{ Component } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+import jsPdf from 'jspdf';
+import 'jspdf-autotable';
 
 export default class HomeOffer extends Component {
 
@@ -30,14 +32,14 @@ retrievePosts(){
 
 }
 
-onDelete = (id) =>{
+// onDelete = (id) =>{
 
-  axios.delete(`https://furniture-store-backend.herokuapp.com/api/postOffers/delete/${id}`).then((res)=>{
-    swal("Deleted Successfully")
-  this.retrievePosts();
+//   axios.delete(`https://furniture-store-backend.herokuapp.com/api/postOffers/delete/${id}`).then((res)=>{
+//     swal("Deleted Successfully")
+//   this.retrievePosts();
 
-  })
-}
+//   })
+// }
 
 filterData(posts, searchKey){
 
@@ -70,11 +72,29 @@ handleSearchArea = (e) =>{
   })
 }
 
+
+jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l', 'pt', 'a3');
+
+    doc.text(600, 20, 'Offers Details Report', { align: 'center' },);
+    doc.autoTable({ html: '#offers-table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } },
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Offer Details.pdf");
+  }
+
   render(){
 
     return(
 
-      <div className = "">
+      <div className = "container">
         <div className = "row">
           <div className ="col-lg-9 mt-2 mb-2">
           <br></br> <center>
@@ -92,7 +112,7 @@ handleSearchArea = (e) =>{
         </div>
 
    </div>
-        <table className = "table table-hover" style = {{marginTop:'40px'}}>
+        <table Id = "offers-table" className = "table table-hover" style = {{marginTop:'40px'}}>
           <thead>
            <tr>
              <th scope="col">Id</th>
@@ -102,7 +122,6 @@ handleSearchArea = (e) =>{
              <th scope="col">Previous Price</th>
              <th scope="col">New Price</th>
              <th scope="col">Description</th>
-             <th scope = "col">Action</th>
 
              </tr>
           </thead>
@@ -112,9 +131,9 @@ handleSearchArea = (e) =>{
                   <th scope="row">{index+1}</th>
                   <td>
 
-                    <a href={`/postOffer/${posts._id}`} style={{textDecoration:'none'}}>
+                   
                     {posts.saleProductName}
-                    </a>
+                    
                       </td>                      
                   
                   <td>{posts.discountAmount}</td>
@@ -122,21 +141,14 @@ handleSearchArea = (e) =>{
                   <td>{posts.previousPrice}</td>
                   <td>{posts.newPrice}</td>
                   <td>{posts.description}</td>
-                  <td>
-                  <a className = "btn btn-warning" href = {`/editOffers/${posts._id}`}>
-                    <i className = "fas fa-edit"></i>&nbsp;Edit
-                  </a>
-                &nbsp;
-                  <a className = "btn btn-danger" href = "#" onClick ={() => this.onDelete(posts._id)}>
-                    <i className = "fas fa-trash-alt"></i>&nbsp;Delete
-                  </a>
-              </td>
+                                 
+              
             </tr>
             ))}
           </tbody>
          </table>
 
-          <button className="btn btn-success"><a href="/addOffers" style={{textDecoration:'none',color:'white'}}>Add New Offer</a></button>
+         <button className="btn-primary" onClick={this.jsPdfGenerator}>Generate Report PDF</button>
           
         </div>
              

@@ -161,13 +161,13 @@ export const SidebarData = [
   },
 
   {
-    title: 'Products',
+    title: 'Products Web Page',
     path: '/home-products',
     icon: <FaIcons.FaEnvelopeOpenText />
   },
 
   {
-    title: 'Category',
+    title: 'Categories Web Page',
     path: '/HomeCategory',
     icon: <FaIcons.FaEnvelopeOpenText />
   },
