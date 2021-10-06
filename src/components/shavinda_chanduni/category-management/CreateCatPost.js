@@ -90,7 +90,28 @@ export default class CreatCatePost extends Component {
   } 
 
 
-}   
+}  
+
+// adding demo button
+
+demo =() => { 
+
+  //setState
+  this.setState ({
+    name:"Sofa"
+  })
+
+  this.setState ({
+    parentId:"613ce8a4e8e40c670078db6f"
+  })
+
+  this.setState ({
+    type:"main"
+  }) 
+
+  
+
+} 
   render() {
     return (
 
@@ -142,11 +163,18 @@ export default class CreatCatePost extends Component {
             </div>
           </form>
           </div>
+          <br/>
               <div className="text-center">
+                {/* calling demo button */}
+              
+
             <button className="btn btn-primary" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
               <i className="far fa-check-square"></i>  
               &nbsp; Submit
             </button>
+            <br/>
+            <button type="button" class="btn btn-outline-dark btn-sm" onClick={this.demo} > Demo </button>
+              <br/>
             </div>
             <br/>
             </div>

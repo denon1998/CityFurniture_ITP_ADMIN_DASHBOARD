@@ -81,6 +81,25 @@ export default class EditCatPost extends Component {
     })
 
   }
+  demo =() => { 
+
+    //setState
+    this.setState ({
+      name:"Sofa"
+    })
+  
+    this.setState ({
+      parentId:"613ce8a4e8e40c670078db6f"
+    })
+  
+    this.setState ({
+      type:"main"
+    }) 
+  
+    
+  
+  } 
+    
 
   render() {
     return (
@@ -158,7 +177,10 @@ export default class EditCatPost extends Component {
                  
                   <br />
                   <br />
+
                     <div className="text-center">
+                    <button type="button" class="btn btn-outline-dark btn-sm" onClick={this.demo} > Demo </button>
+                    <br/>
                     <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
                       <i className="far fa-check-square"></i>
                       &nbsp; Update

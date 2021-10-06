@@ -97,6 +97,31 @@ export default class EditOrderPost extends Component {
     })
 
   }
+ 
+
+  demo =() => { 
+
+    //setState
+    this.setState ({
+      name :"Chanduni Nethmini"
+    })
+  
+    this.setState ({
+      postalNo:"259"
+    })
+  
+    this.setState ({
+      street:"Lake road"
+    }) 
+  
+    this.setState ({
+      town:"Colombo2"
+    })
+    this.setState({
+      contactNo:"0710000000"
+    }) 
+  
+  }
 
   render() {
     return (
@@ -198,6 +223,9 @@ export default class EditOrderPost extends Component {
                     <br />
                     <br />
                     <div className="text-center">
+                      
+                    <button type="button" class="btn btn-outline-dark btn-sm" onClick={this.demo} > Demo </button>
+                      <br/>
                       <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
                         <i className="far fa-check-square"></i>
                         &nbsp; Update
