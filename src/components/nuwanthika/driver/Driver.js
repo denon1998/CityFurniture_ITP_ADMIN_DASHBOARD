@@ -9,11 +9,11 @@ import * as RiIcons from 'react-icons/ri';
 import { useHistory, history } from "react-router-dom";
 import { withRouter } from 'react-router';
 import { Redirect, } from 'react-router-dom';
- import { DriverService } from '../_services/driver.service';
- import jsPdf from 'jspdf'
- import 'jspdf-autotable'
- 
- 
+import { DriverService } from '../_services/driver.service';
+import jsPdf from 'jspdf'
+import 'jspdf-autotable'
+
+
 const searchDiv = {
     display: 'flex',
     flexDirection: 'row',
@@ -33,7 +33,7 @@ class Driver extends React.Component {
     items = [];
     length = 0;
     size = 5;
-     dataToDelete = {};
+    dataToDelete = {};
 
     openModal = () => this.setState({ isOpen: true });
     closeModal = () => this.setState({ isOpen: false });
@@ -48,7 +48,7 @@ class Driver extends React.Component {
 
             isOpen: false,
             searchQuery: '',
-            hideCTRL:false
+            hideCTRL: false
 
         };
 
@@ -71,16 +71,16 @@ class Driver extends React.Component {
                         <h2 style={{ textAlign: 'left' }}>Drivers</h2>
 
                         <div>
-                        <Button style={{ width: '100px' }} variant="danger" onClick={(e) => {
-                            e.preventDefault();
-                             this.jsPdfGenerator()
-                        }}   >PDF  <IoIcons.IoMdDownload /></Button>{' '}
-                        <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
-                            e.preventDefault();
-                            this.props.history.push('/driver/new');
-                        }}   >Create New Driver</Button>{' '}
+                            <Button style={{ width: '100px' }} variant="danger" onClick={(e) => {
+                                e.preventDefault();
+                                this.jsPdfGenerator()
+                            }}   >PDF  <IoIcons.IoMdDownload /></Button>{' '}
+                            <Button style={{ width: '300px' }} variant="success" onClick={(e) => {
+                                e.preventDefault();
+                                this.props.history.push('/driver/new');
+                            }}   >Create New Driver</Button>{' '}
                         </div>
-                       
+
                     </div>
                     <div style={searchDiv} className="mb-4 mt-4   " >
                         <InputGroup className="mr-2 " style={{ marginRight: '5px' }}  >
@@ -130,8 +130,8 @@ class Driver extends React.Component {
                                     <td>{item.empName} </td>
                                     <td>{item.vehicleID}</td>
                                     <td>{item.currentOrderID}</td>
-                                    <td>{'('+String(item.contactNumber).substring(0,3)+')-'+String(item.contactNumber).substring(3,10)}</td>
-                                    <td  hidden={this.state.hideCTRL} >
+                                    <td>{'(' + String(item.contactNumber).substring(0, 3) + ')-' + String(item.contactNumber).substring(3, 10)}</td>
+                                    <td hidden={this.state.hideCTRL} >
 
 
                                         <Button variant="warning" onClick={() => {
@@ -162,7 +162,7 @@ class Driver extends React.Component {
 
                             }} />
                             <Pagination>{this.items}</Pagination>
-                            <Pagination.Next disabled={Math.round((this.length / this.size) + (this.length%this.size)) === this.active} onClick={() => {
+                            <Pagination.Next disabled={Math.round((this.length / this.size) + (this.length % this.size)) === this.active} onClick={() => {
                                 this.active++;
                                 this.fetchData(this.active, this.size);
 
@@ -174,7 +174,7 @@ class Driver extends React.Component {
                     </div>
 
                     <div className={centerDiv}>
-                    <p style={{textAlign:'center'}}>   {(this.active*this.size)-(this.size-1) } - {this.active*this.size } of {this.length} records total</p>
+                        <p style={{ textAlign: 'center' }}>   {(this.active * this.size) - (this.size - 1)} - {this.active * this.size} of {this.length} records total</p>
                     </div>
                 </div>
 
@@ -222,7 +222,7 @@ class Driver extends React.Component {
         this.fetchData(this.active, this.size);
     }
 
- 
+
 
 
 
@@ -258,37 +258,37 @@ class Driver extends React.Component {
 
 
 
-  //Report pdf generating
-  jsPdfGenerator = () => { 
-    var doc = new jsPdf('l','pt', 'a3'); 
-    doc.text(600, 20 ,'Driver Details Report', { align: 'center' });
-    this.setState({
-        hideCTRL:true
-    },()=>{
-        doc.autoTable({  html:'#table' })
+    //Report pdf generating
+    jsPdfGenerator = () => {
+        var doc = new jsPdf('l', 'pt', 'a3');
+        doc.text(600, 20, 'Driver Details Report | Page ' + this.active + ' | Size ' + this.size, { align: 'center' });
         this.setState({
-            hideCTRL:false
-        },()=>{
-            doc.autoTable({
-                columnStyles: { europe: { halign: 'center' } }, 
-                margin: { top: 10 },
-              }) 
-              doc.save("Driver Details.pdf");
+            hideCTRL: true
+        }, () => {
+            doc.autoTable({ html: '#table' })
+            this.setState({
+                hideCTRL: false
+            }, () => {
+                doc.autoTable({
+                    columnStyles: { europe: { halign: 'center' } },
+                    margin: { top: 10 },
+                })
+                doc.save("Driver Details | Page " + this.active + " | Size:" + this.size + ".pdf");
+            })
+
         })
-       
-    })
-  
-  }
+
+    }
 
 
 
 
 
-// pagination
+    // pagination
 
     paginationUpdate() {
         this.items = []
-        for (let number = 1; number <= (this.length / this.size) + (this.length%this.size); number++) {
+        for (let number = 1; number <= (this.length / this.size) + (this.length % this.size); number++) {
             this.items.push(
                 <Pagination.Item key={number} active={number === this.active} onClick={() => {
                     this.active = number;

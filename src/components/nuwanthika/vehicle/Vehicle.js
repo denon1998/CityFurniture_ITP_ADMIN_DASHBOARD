@@ -216,7 +216,7 @@ export default class Vehicle extends React.Component {
  
   jsPdfGenerator = () => { 
     var doc = new jsPdf('l','pt', 'a3'); 
-    doc.text(600, 20 ,'Vehicle Details Report', { align: 'center' });
+    doc.text(600, 20 ,'Vehicle Details Report | Page ' + this.active + ' | Size ' + this.size, { align: 'center' });
     this.setState({
         hideCTRL:true
     },()=>{
@@ -228,7 +228,7 @@ export default class Vehicle extends React.Component {
                 columnStyles: { europe: { halign: 'center' } }, 
                 margin: { top: 10 },
               }) 
-              doc.save("Vehicle Details.pdf");
+              doc.save('Vehicle Details'+ '| Page ' + this.active + ' | Size ' + this.size+'.pdf');
         })
        
     })

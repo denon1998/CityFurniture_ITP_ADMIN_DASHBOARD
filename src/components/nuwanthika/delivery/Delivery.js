@@ -229,7 +229,7 @@ export default class Delivery extends React.Component {
 //Report pdf generating
 jsPdfGenerator = () => { 
     var doc = new jsPdf('l','pt', 'a3'); 
-    doc.text(600, 20 ,'Delivery Details Report', { align: 'center' });
+    doc.text(600, 20 ,'Delivery Details Report | Page ' + this.active + ' | Size ' + this.size, { align: 'center' });
     this.setState({
         hideCTRL:true
     },()=>{
@@ -241,7 +241,7 @@ jsPdfGenerator = () => {
                 columnStyles: { europe: { halign: 'center' } }, 
                 margin: { top: 10 },
               }) 
-              doc.save("Delivery Details.pdf");
+              doc.save('Delivery Details'+ '| Page ' + this.active + ' | Size ' + this.size+'.pdf');
         })
        
     })
