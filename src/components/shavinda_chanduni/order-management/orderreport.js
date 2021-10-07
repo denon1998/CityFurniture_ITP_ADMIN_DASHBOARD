@@ -189,14 +189,13 @@ class OrderHomeOrder extends Component {
                     <br />
                     <br />
                     <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    
+                    
 
 
                 </div>
-                <Footer />
+              
+              
             </div>
         )
     }

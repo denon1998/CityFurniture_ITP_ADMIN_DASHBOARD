@@ -244,7 +244,8 @@ export default class EditOrderPost extends Component {
         
         <br />
         <br />
-        <Footer />
+     
+     
       </div>
       </div>
     )

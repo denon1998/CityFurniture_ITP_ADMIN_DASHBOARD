@@ -56,7 +56,7 @@ export default class CreatCatePost extends Component {
 
       swal({
         title: "Are you sure?",
-        text: `Name: ${this.state.name} | Postal No.: ${this.state.postalNo} | Street: ${this.state.street} | Town: ${this.state.town} | Contact No: ${this.state.contactNo} | Status: ${this.state.status} | Total: ${this.state.cartTotal}` ,
+        text: `Name: ${this.state.name} | Postal No.: ${this.state.parentId} | Street: ${this.state.type} ` ,
         icon: "info",
         buttons: true,
         dangerMode: true,
@@ -82,7 +82,7 @@ export default class CreatCatePost extends Component {
           icon: "success",
         });
       } else {
-        swal("Your Order is not completed!");
+        swal("Category addition is not completed!");
       }
     });
 
@@ -173,6 +173,7 @@ demo =() => {
               &nbsp; Submit
             </button>
             <br/>
+            <br/>
             <button type="button" class="btn btn-outline-dark btn-sm" onClick={this.demo} > Demo </button>
               <br/>
             </div>
@@ -205,7 +206,8 @@ demo =() => {
       </div> 
       <br/>
       <br/>
-      <Footer />
+ 
+ 
       
         </div>
     )

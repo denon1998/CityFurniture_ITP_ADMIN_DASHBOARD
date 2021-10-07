@@ -23,16 +23,20 @@ const emailer = () => {
     
     }}>
         <h1 style={{marginTop:"25px"}} className="text-center">Contact Form- Order management</h1>
+      
         <form className="row" 
-        style={{margin:"25px 85px 75px 100px"}}
+        style={{margin:"55px 85px 75px 100px"}}
         onSubmit={sendEmail}>
-            <label>Name of the Customer</label>
+             <img src="https://thumbs.dreamstime.com/b/process-writing-new-letter-email-marketing-concept-people-stand-near-envelope-paper-document-modern-flat-vector-177557968.jpg" style={{height:"100%", width:"100%"}}/>
+             <br/>
+             <br/>
+            <label><b>Name of the Customer</b></label>
             <input type="text" name="name" className="form-control"/>
 
-            <label>Email</label>
+            <label><b>Email</b></label>
             <input type="email" name="user_email" className="form-control"></input>
 
-            <label>Message</label>
+            <label><b>Message</b></label>
             <textarea name="message" rows="4" className="form-control"/>
             <input type="submit"
              value="Send" 
