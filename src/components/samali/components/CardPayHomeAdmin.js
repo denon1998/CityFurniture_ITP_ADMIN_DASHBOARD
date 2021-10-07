@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 
 
@@ -35,10 +36,28 @@ class PayHome extends Component {
 
   //delete function 
   onDelete = (id) => {
-    axios.delete(`https://furniture-store-backend.herokuapp.com/api/cardpost/delete/${id}`).then((res) => {
-      alert("Deleted Successfully");
-      this.retrievePosts();
-    })
+
+    swal({
+      title: "Are you Sure?",
+      text: "Once deleted, you will not be able to recover this Payment details !",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios.delete(`https://furniture-store-backend.herokuapp.com/api/cardpost/delete/${id}`).then((res) => {
+          swal("Deleted Successfully");
+          this.retrievePosts();
+        })
+        swal("Done! Payment Details has been Deleted!", {
+          icon: "sucess",
+        });
+      } else {
+        swal("Not Deleted! Your Payment Details are Safe!");
+      }
+
+    });
     console.log("delete me")
   }
 
@@ -50,9 +69,9 @@ class PayHome extends Component {
   filterData(posts, searchKey) {
 
     const result = posts.filter((post) =>
-      post.customerName.toLowerCase().includes(searchKey)||
+      post.customerName.toLowerCase().includes(searchKey) ||
       post.expiry.toLowerCase().includes(searchKey)
-     
+
     )
 
     this.setState({ posts: result })
@@ -114,12 +133,12 @@ class PayHome extends Component {
                 </td>
                 <td>{posts.customerName}</td>
                 <td>{posts.expiry}</td>
-                
+
 
 
 
                 <td>
-                <a className="btn btn-primary" href="mail">
+                  <a className="btn btn-primary" href="mail">
                     <i className="fas fa-edit"></i>&nbsp;Request
 
                   </a>
@@ -143,7 +162,7 @@ class PayHome extends Component {
           </tbody>
 
         </table>
-        <button className="btn btn-success"><a href="/payment/report" style={{ textDecoration: 'none', color: 'white' }}>Card Payment Report</a> </button>
+        <button className="btn btn-primary"><a href="/payment/report" style={{ textDecoration: 'none', color: 'white' }}>Card Payment Report</a> </button>
 
       </div>
 

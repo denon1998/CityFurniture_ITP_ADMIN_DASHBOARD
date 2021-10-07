@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 class PalUpdate extends Component {
 
@@ -65,35 +66,35 @@ class PalUpdate extends Component {
  
  
          if (cname.length === 0 || cemail.length === 0 || cpassword.length === 0) {
-            alert("Fields can not be empty!", "Please fill all the information!", "error");
+            swal("Fields can not be empty!", "Please fill all the information!", "error");
  
          } else if ((!name.test(String(cname)))) {
-            alert("Invalid Customer Name", "Customer name cannot contain any Numbers!", "error");
+            swal("Invalid Customer Name", "Customer name cannot contain any Numbers!", "error");
  
          }
          else if (cname.length > 20) {
-            alert("Invalid Customer Name!", "Do not enter more than 20 letters!", "error");
+            swal("Invalid Customer Name!", "Do not enter more than 20 letters!", "error");
          }
  
          else if (cname.length < 3) {
-            alert("Invalid Customer Name!", "Please check your name again!", "error");
+            swal("Invalid Customer Name!", "Please check your name again!", "error");
          }
          else if ((!email.test(String(cemail)))) {
-            alert("Invalid Customer email", "Customer email should contain @ sign!", "error");
+            swal("Invalid Customer email", "Customer email should contain @ sign!", "error");
  
          }
          else if (cemail.length > 20) {
-            alert("Invalid Customer Email!", "Please recheck your Email address!");
+            swal("Invalid Customer Email!", "Please recheck your Email address!");
          }
  
          else if (cemail.length < 3) {
-            alert("Invalid Customer Email!", "Please enter Correct Email Address!", "error");
+            swal("Invalid Customer Email!", "Please enter Correct Email Address!", "error");
          }
          else if (cpassword.length > 8) {
-            alert("Invalid Customer Password!", "Please enter Correct Password!", "error");
+            swal("Invalid Customer Password!", "Please enter Correct Password!", "error");
          }
          else if (cpassword.length < 8) {
-            alert("Invalid Customer Password!", "Please recheck your password", "error");
+            swal("Invalid Customer Password!", "Please recheck your password", "error");
          }
  
          else {
@@ -102,7 +103,7 @@ class PalUpdate extends Component {
 
             if (res.data.success) {
 
-                alert("Payment updated successfully")
+                swal("Payment updated successfully")
 
                 this.setState(
                     {
