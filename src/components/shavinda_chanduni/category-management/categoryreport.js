@@ -29,31 +29,9 @@ class categoryreport extends Component {
       }
     });
   }
-  //   onDelete=(id)=>{
-  //     swal({
-  //       title: "Are you sure?",
-  //       text: "Once deleted, you will not be able to recover this imaginary file!",
-  //       icon: "warning",
-  //       buttons: true,
-  //       dangerMode: true,
-  //     })
-  //     .then((willDelete) => {
-
-  //       if (willDelete) {
-  //         axios.delete(`https://furniture-store-backend.herokuapp.com/api/admincat/delete/${id}`).then((res)=>{
-  //       swal("Deleted Successful", "Category is removed", "success");
-  //       this.retrievePosts();
-  //     })
-  //         // swal("Poof! Your imaginary file has been deleted!", {
-  //         //   icon: "success",
-  //         // });
-  //       } else {
-  //         swal("Your imaginary file is safe!");
-  //       }
-  //     });
-
-
-  //   }
+ 
+  
+//search function 
 
   filterData(admincat, searchKey) {
     const result = admincat.filter((post) =>
@@ -76,6 +54,7 @@ class categoryreport extends Component {
       }
     });
   }
+
   //Report pdf generating
   jsPdfGenerator = () => {
 
@@ -145,7 +124,7 @@ class categoryreport extends Component {
               <div class="col">    <h5>Generated on: ....-....-....</h5></div>
               <div class="w-100"></div>
               <div class="col"> <h5>Checked by: ........................ </h5></div>
-              <div class="col"><h5>Checked on: ....-....-....-</h5></div>
+              <div class="col"> <h5>Checked on: ....-....-....-</h5></div>
             </div>
           </div>
           <br />
@@ -155,7 +134,8 @@ class categoryreport extends Component {
         </div>
 
 
-        <Footer />
+      
+      
       </div>
     )
   }

@@ -61,7 +61,8 @@ class PostDetailsCat extends Component {
        
        
         
-        <Footer />
+   
+   
         </div>
         
       )

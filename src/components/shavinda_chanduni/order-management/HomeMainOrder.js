@@ -18,7 +18,8 @@ class HomeMainOrder extends Component {
      
      <br/>
      <br/>
-     <Footer/>
+  
+  
    </div>
    </div>
     )

@@ -206,7 +206,8 @@ export default class EditCatPost extends Component {
       <br/>
       <br/>
 
-      <Footer />
+  
+  
       </div>
 
 

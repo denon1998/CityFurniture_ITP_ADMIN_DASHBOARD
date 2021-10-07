@@ -53,6 +53,7 @@ class CatHome extends Component {
 
     
   }
+  //search
 
   filterData(admincat,searchKey){
     const result =admincat.filter((post)=>
@@ -134,7 +135,8 @@ class CatHome extends Component {
       </div>
       <br/>
       <br/>
-      <Footer />
+     
+     
       </div>
     )
   }
