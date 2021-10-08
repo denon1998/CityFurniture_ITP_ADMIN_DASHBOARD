@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+import jsPdf from 'jspdf';
+import 'jspdf-autotable';
 
 
 class HomeCategories extends Component {
@@ -26,12 +28,12 @@ class HomeCategories extends Component {
     });
   }
 
-  onDelete = (id) => {
-    axios.delete(`https://furniture-store-backend.herokuapp.com/api/postCategory/delete/${id}`).then((res) => {
-      swal("Deleted successfully");
-      this.retrievePosts();
-    })
-  }
+  // onDelete = (id) => {
+  //   axios.delete(`https://furniture-store-backend.herokuapp.com/api/postCategory/delete/${id}`).then((res) => {
+  //     swal("Deleted successfully");
+  //     this.retrievePosts();
+  //   })
+  // }
 
   filterData(posts, searchKey) {
 
@@ -54,10 +56,28 @@ class HomeCategories extends Component {
       }
     });
   }
+
+  jsPdfGenerator = () => {
+
+    //new document in jspdf
+    var doc = new jsPdf('l', 'pt', 'a3');
+
+    doc.text(600, 20, 'Category Details Report', { align: 'center' },);
+    doc.autoTable({ html: '#categoryDetails-table' })
+
+    doc.autoTable({
+      columnStyles: { europe: { halign: 'center' } },
+      margin: { top: 10 },
+    })
+
+    //save the pdf
+    doc.save("Category Details Summary.pdf");
+  }
+
   render() {    
     return (
 
-<div className="">
+<div className="container">
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
             <br></br>
@@ -79,7 +99,7 @@ class HomeCategories extends Component {
         </div>
 
 
-        <table class="table">
+        <table Id = "categoryDetails-table" className="table">
           <thead>
             <tr>
               <th scope="col">Id</th>
@@ -89,7 +109,7 @@ class HomeCategories extends Component {
               <th scope="col">Subcategory Id</th>
               <th scope="col">Included Components</th>
               <th scope="col">Description</th>
-              <th scope="col">Action</th>
+
             </tr>
           </thead>
           <tbody>
@@ -97,9 +117,9 @@ class HomeCategories extends Component {
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
                 <td>
-                  <a href={`/postCategory/${posts._id}`} style={{ textDecoration: 'none' }}>
+
                     {posts.categoryName}
-                  </a>
+                  
                 </td>
 
                 <td>{posts.categoryId}</td>
@@ -108,23 +128,14 @@ class HomeCategories extends Component {
                 <td>{posts.includedComponents}</td>
                 <td>{posts.description}</td>
 
-                <td>
-                  <a className="btn btn-warning" href={`/editCategory/${posts._id}`}>
-                    <i className="fas fa-edit"></i>&nbsp;Edit
-                  </a>
-                  &nbsp;
-                  <a className="btn btn-danger" href="#" onClick={() => this.onDelete(posts._id)}>
-                    <i className="fas fa-trash-alt"></i>&nbsp;Delete
-                  </a>
-                </td>
               </tr>
             ))}
           </tbody>
           <br />
           </table>
-          <div className="text-center">
-            <button className="btn btn-success"><a href="/addCategory" style={{ textDecoration: 'none', color: 'white' }}>Add new Category</a></button>
-          </div>       
+
+          <button className="btn-primary" onClick={this.jsPdfGenerator}>Generate Report PDF</button>
+          
 
       </div>
     )

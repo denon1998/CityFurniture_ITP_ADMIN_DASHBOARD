@@ -21,7 +21,8 @@ class HomeMainCategory extends Component {
                 <br />
                 <br />
                 <br />
-                <Footer />
+            
+            
             </div>
             </div>
         )

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Footer from '../../shavinda_chanduni/Footer/Footer';
 //import SidebarCustomercare from '../customercare/SidebarCustomercare';
+//import Footer from '../../shavinda_chanduni/Footer/Footer';
 
 
 const Customer = props => (
@@ -134,7 +134,7 @@ export default class contactList extends Component {
 
             </div>
             
-            <Footer />
+
             </div>
         )
     }

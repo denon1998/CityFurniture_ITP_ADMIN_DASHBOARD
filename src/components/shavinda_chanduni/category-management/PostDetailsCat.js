@@ -37,9 +37,7 @@ class PostDetailsCat extends Component {
     <div className="container">
         <div style={{marginTop:'20px'}}>
           <h1>{name}</h1>
-          <div className="imageprofile">
-          <img src="https://cdn.dribbble.com/users/180658/screenshots/5333299/02_.gif "alt="..." className="rounded-circle" style={{marginLeft:"20%"}}/>
-          </div>
+         
           <hr/>
           <dl className="row">
             <dt className="col-sm-3">Parent ID </dt>
@@ -53,26 +51,18 @@ class PostDetailsCat extends Component {
         </div>
 
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         
-        <Footer />
+        
+         <div className="imageprofile">
+          <img src="https://cdn.dribbble.com/users/180658/screenshots/5333299/02_.gif "alt="..." className="rounded-circle" style={{marginLeft:"20%"}}/>
+          </div>
+        
+       
+       
+       
+        
+   
+   
         </div>
         
       )

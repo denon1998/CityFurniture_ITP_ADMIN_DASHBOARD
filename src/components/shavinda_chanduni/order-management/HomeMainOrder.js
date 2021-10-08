@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer';
 import SidebarOrder from '../Sidebar-Order/SidebarOrder';
+import '../styles/formStyles.css';
 
 
 class HomeMainOrder extends Component {
@@ -17,7 +18,8 @@ class HomeMainOrder extends Component {
      
      <br/>
      <br/>
-     <Footer/>
+  
+  
    </div>
    </div>
     )

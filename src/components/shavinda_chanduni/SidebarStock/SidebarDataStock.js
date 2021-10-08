@@ -147,7 +147,8 @@ export const SidebarDataStock = [
         path: '/stockSupRep',
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
-      },      
+      },  
+  
     ]
   },
 
@@ -165,6 +166,7 @@ export const SidebarDataStock = [
     path: '/category',
     icon: <AiIcons.AiFillHome />
   },
+    
 
   {
     title: 'Orders',
@@ -177,6 +179,12 @@ export const SidebarDataStock = [
       {
         title: 'All Order',
         path: '/order/home',
+        icon: <IoIcons.IoIosPaper />
+      },
+              {
+
+        title: 'Order Report',
+        path: '/order/report',
         icon: <IoIcons.IoIosPaper />
       },
 
@@ -202,13 +210,18 @@ export const SidebarDataStock = [
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
       },
+      {
+        title: 'Category Report',
+        path: '/category/report',
+        icon: <IoIcons.IoIosPaper />
+      },
     ]
   },
 
 
   {
     title: 'Email Conformation',
-    path: '#',
+    path: '/order/email',
     icon: <FaIcons.FaEnvelopeOpenText />
   },
 
@@ -225,91 +238,173 @@ export const SidebarDataStock = [
   },
 
   {
-    title: 'Products',
+    title: 'Products in webpages',
     path: '/home-products',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
-
-  {
-    title: 'Category',
-    path: '/HomeCategory',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
-
-  {
-    title: 'Offers',
-    path: '/HomeOffer',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
-
-  {
-    title: 'Customercare Home',
-    path: '/CustomercareHome',
-    icon: <FaIcons.FaEnvelopeOpenText />
-  },
-
-
-  {
-    title: 'Contact',
-    path: '#',
-    icon: <FaIcons.FaCartPlus />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Contact List',
-        path: '/contact/',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Edit Contact',
-        path: '/edit/:id',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
-  },
-  {
-    title: 'FAQs',
-    path: '/FAQs',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'View FAQs',
-        path: '/FAQs',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-    ]
-  },
-
-
-  {
-    title: 'Suggestions',
-    path: '#',
     icon: <FaIcons.FaEnvelopeOpenText />,
 
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-
     subNav: [
+      {
+        title: 'Insert Products',
+        path: '/addProducts',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+      {
+        title: 'Retrieve Products',
+        path: '/home-products',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+      {
+        title: 'Web Products Report',
+        path: '/productDetailsReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+
+    ], 
+  },
+  {
+    title: 'Web Products Report',
+    path: '#',
+    icon: <IoIcons.IoIosPaper />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Web Products Report',
+        path: '/productDetailsReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+    ],
+  },
+
+  {
+    title: 'Categories in webpages',
+    path: '/HomeCategory',
+    icon: <FaIcons.FaEnvelopeOpenText />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Insert Categories',
+        path: '/addCategory',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+      {
+        title: 'Retrieve Categories',
+        path: '/HomeCategory',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+      {
+        title: 'Web Categories Report',
+        path: '/categoryDetailsReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+    ]
+  },
+
+  {
+    title: 'Web Categories Report',
+    path: '#',
+    icon: <IoIcons.IoIosPaper />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Web Categories Report',
+        path: '/categoryDetailsReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+
+    ]
+  },
+  
+  {
+    title: 'Offers',
+    path: '/HomeOffer',
+    icon: <FaIcons.FaEnvelopeOpenText />,
+
+
+  iconClosed: <RiIcons.RiArrowDownSFill />,
+  iconOpened: <RiIcons.RiArrowUpSFill />,
+  subNav: [
+    {
+      title: 'Add Offers',
+      path: '/addOffers',
+      icon: <IoIcons.IoMdHelpCircle />
+    },
+    {
+      title: 'Retrieve Offers',
+      path: '/HomeOffer',
+      icon: <IoIcons.IoMdHelpCircle />
+    },
+    {
+      title: 'Offers Report',
+      path: '/offersReport',
+      icon: <IoIcons.IoMdHelpCircle />
+    },
+  ]
+},
+  {
+    title: 'Offers Report',
+    path: '#',
+    icon: <IoIcons.IoIosPaper />,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Offer Report',
+        path: '/offersReport',
+        icon: <IoIcons.IoMdHelpCircle />
+      },
+
+    ]
+  },
+
+  {
+    title: 'Customer care ',
+    path: '/CustomercareHome',
+    icon: <FaIcons.FaEnvelopeOpenText/>,
+
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'viwe Contact List',
+        path: '/contact/',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'viwe FAQs',
+        path: '/FAQs',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'View Feedbacks',
+        path: "/feedback/",
+        icon: <IoIcons.IoIosPaper />
+      },
       {
         title: 'View suggestions',
         path: '/suggestion/',
         icon: <IoIcons.IoIosPaper />
       },
-
       {
         title: 'View Ratings',
         path: '#',
         icon: <FaIcons.FaEnvelopeOpenText />
       },
+      {
+       title: 'Report',
+       path: '/feedbackReport',
+       icon: <FaIcons.FaCartPlus />
+      },
     ]
   },
-
 
   {
     title: 'Delivery Management',
@@ -448,7 +543,7 @@ export const SidebarDataStock = [
     title: 'Staff Reports',
     path: '#',
     icon: <IoIcons.IoIosPaper />,
-
+  
 
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -458,7 +553,9 @@ export const SidebarDataStock = [
         path: '/empReport',
         icon: <IoIcons.IoIosPaper />
       },
-      {
+
+   {
+
         title: 'Sallary Report',
         path: '/salaryReport',
         icon: <IoIcons.IoIosPaper />
@@ -468,9 +565,10 @@ export const SidebarDataStock = [
         path: '/leavedempReport',
         icon: <IoIcons.IoIosPaper />
       },
-      
+    
 
     ],
+    
   },
   {
     title: 'Sign Out',

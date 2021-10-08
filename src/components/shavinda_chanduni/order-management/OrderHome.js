@@ -30,12 +30,26 @@ retrievePosts(){
 
 
 onDelete=(id)=>{
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this imaginary file!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+
+    if (willDelete) {
   axios.delete(`https://furniture-store-backend.herokuapp.com/api/post/delete/${id}`).then((res)=>{
-    swal("Deleted Successful", "Category is removed", "success");
+    swal("Deleted Successful", "Order is removed", "success");
     
     
     this.retrievePosts();
   })
+} else {
+  swal("Your imaginary file is safe!");
+}
+}); 
 }
 
 
@@ -142,15 +156,12 @@ render(){
       <br/>
       <br/>
       <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      
+      
       
    
       </div>
-      <Footer />
+     
       </div>
     )
   }
