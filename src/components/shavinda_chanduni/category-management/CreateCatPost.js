@@ -48,7 +48,7 @@ export default class CreatCatePost extends Component {
       swal("Please fill the form correctly", "Form values cannot be empty", "error");
     }
     else if(name.length < 2){
-      swal("User name invaide", "length should be greater than 2", "error");
+      swal("Category name invaide", "length should be greater than 2", "error");
     }
     else if((!con.test(String(type)))){
       swal("Type invaide", "Cannot contain Numerics", "error");
