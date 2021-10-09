@@ -4,20 +4,26 @@ import { BrowserRouter as Router, Route, withRouter, Switch, HashRouter } from "
 import Footer from './components/shavinda_chanduni/Footer/Footer';
 import { Container, Nav } from 'react-bootstrap';
 
-// Athapaththu
-import Navbar from "./components/navbar.component"
-import AdminDashboard from "./components/admin-dashboard.component"
+// Athapaththu - User Management
+import AdminDashboard from "./components/admin-dashboard.component" 
 
-import EditExercise from "./components/edit-exercise.component";
-import CreateExercise from "./components/create-exercise.component";
-import CreateUser from "./components/create-user.component";
-import userList from "./components/user-list.component";
-import EditUser from "./components/edit-user.components";
-import ExercisesList from "./components/exercises-list.component";
-import main from "./components/main.component";
-import cuslog from "./components/cuslog.component";
-import customerReport from "./components/customerReport";
-import userReport from "./components/userReport";
+import ExercisesList from "./components/exercises-list.component"; // Customer - retrieve/delete
+import CreateExercise from "./components/create-exercise.component"; // Customer - create
+import EditExercise from "./components/edit-exercise.component"; // Customer - edit
+import customerReport from "./components/customerReport"; // Customer - report (PDF)
+
+import userList from "./components/user-list.component"; // Admin(user) - retrieve/delete
+import CreateUser from "./components/create-user.component"; // Admin(user) - create
+import EditUser from "./components/edit-user.components"; // Admin(user) - edit
+import userReport from "./components/userReport"; // Admin(user) - report (PDF)
+
+import main from "./components/main.component"; // Admin(user) - logn page
+
+//import cuslog from "./components/cuslog.component";
+//import Navbar from "./components/navbar.component"
+
+
+
 
 
 // chanduni
@@ -181,15 +187,6 @@ class App extends React.Component {
                 <Router  >
                     <SidebarStock></SidebarStock>
 
-                    {/* <HashRouter>
-                        <React.Suspense fallback={loading}>
-
-
-                        </React.Suspense>
-                    </HashRouter> */}
-
-                    {/* <Sidebar pageName={this.state.pageName} ></Sidebar> */}
-
                     <Container fluid>
                         <Switch>
                             <React.Fragment>
@@ -198,40 +195,49 @@ class App extends React.Component {
                                     <EntityHome history={history} />
                                 )} />
 
-
-
-
-<
+                                {/* ______________________  Athapaththu - User Management */}
+                                
+                                {/* Admin login page */} <
                                     Route path="/"
                                     exact component={main}
-                                // exact component = { ExercisesList }
                                 />
-
-                                <
+                                {/* Admin dashboard */} <
                                     Route path="/admindashboard"
                                     exact component={AdminDashboard}
-                                /> <
-                                    Route path="/csedit/:id"
-                                    component={EditExercise}
-                                /> <
+                                /> 
+
+
+                                {/* Customer Details - retrieve/delete */} <
                                     Route path="/main"
                                     component={ExercisesList}
-                                /> <
+                                /> 
+                                {/* Customer Details - create */} <
                                     Route path="/create"
                                     component={CreateExercise}
-                                /> <
-                                    Route path="/user/add/"
-                                    component={CreateUser}
-                                /> <
-                                    Route path="/users/"
-                                    component={userList}
-                                />  <
-                                    Route path="/user/Edit/:id"
-                                    component={EditUser}
-                                /> <
+                                /> 
+                                {/* Customer Details - edit */} <
+                                    Route path="/csedit/:id"
+                                    component={EditExercise}
+                                /> 
+                                {/* Customer Details - report (PDF) */}<
                                     Route path="/cReport"
                                     component={customerReport}
-                                /> <
+                                /> 
+
+
+                                {/* Admin(user) - retrieve/delete */} <
+                                Route path="/users/"
+                                    component={userList}
+                                />  
+                                {/* Admin(user) - creat */} <
+                                    Route path="/user/add/"
+                                    component={CreateUser}
+                                /> 
+                                {/* Admin(user) - edit */}<
+                                    Route path="/user/Edit/:id"
+                                    component={EditUser}
+                                /> 
+                                {/* Admin(user) - report (PDF) */}<
                                     Route path="/uReport"
                                     component={userReport}
                                 />

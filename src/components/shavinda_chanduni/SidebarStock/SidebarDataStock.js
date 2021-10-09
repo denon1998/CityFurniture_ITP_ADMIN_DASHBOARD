@@ -13,26 +13,37 @@ export const SidebarDataStock = [
   },
 
   {
-    title: 'User Management', //Priyankara
+    title: 'User Management', // Athapaththu
     path: '#',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
 
     subNav: [
-      {
+      { // Customer 
         title: 'Customer Details',
         path: '/main',
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'User Details',
-        path: '/users/',
+        title: 'Create new customer',
+        path: '/create',
         icon: <IoIcons.IoIosPaper />
       },
       {
         title: 'Customer Report',
         path: '/cReport',
+        icon: <IoIcons.IoIosPaper />
+      },
+
+      { // User
+        title: 'User Details',
+        path: '/users/',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'Create new user',
+        path: '/user/add',
         icon: <IoIcons.IoIosPaper />
       },
       {
@@ -263,6 +274,8 @@ export const SidebarDataStock = [
 
     ], 
   },
+
+
   {
     title: 'Web Products Report',
     path: '#',
@@ -346,8 +359,9 @@ export const SidebarDataStock = [
       path: '/offersReport',
       icon: <IoIcons.IoMdHelpCircle />
     },
-  ]
-},
+    ]
+  },
+
   {
     title: 'Offers Report',
     path: '#',
@@ -570,6 +584,8 @@ export const SidebarDataStock = [
     ],
     
   },
+
+  // Sign Out
   {
     title: 'Sign Out',
     path: '/',

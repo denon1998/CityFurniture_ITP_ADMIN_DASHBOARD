@@ -8,6 +8,7 @@ export default class EditUser extends Component {
         super(props);
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeemail = this.onChangeemail.bind(this);
         this.onChangeType = this.onChangeType.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -15,6 +16,7 @@ export default class EditUser extends Component {
 
         this.state = {
             username: '',
+            email: '',
             Type: '',
             password: ''
         }
@@ -25,6 +27,7 @@ export default class EditUser extends Component {
             .then(response => {
                 this.setState({
                     username: response.data.username,
+                    email: response.data.email,
                     Type: response.data.Type,
                     password: response.data.password
 
@@ -41,6 +44,12 @@ export default class EditUser extends Component {
     onChangeUsername(e) {
         this.setState({
             username: e.target.value
+        })
+    }
+
+    onChangeemail(e) {
+        this.setState({
+            email: e.target.value
         })
     }
 
@@ -63,10 +72,11 @@ export default class EditUser extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { username, Type, password } = this.state;
+        const { username,email, Type, password } = this.state;
 
         const user = {
             username: username,
+            email: email,
             Type: Type,
             password: password,
         }
@@ -116,7 +126,18 @@ export default class EditUser extends Component {
             <
             div className = "form-group" >
             <
-            label > type: </label> <
+            label > Email: </label> <
+            input type = "text"
+            required className = "form-control"
+            value = { this.state.email }
+            onChange = { this.onChangeemail }
+            /> </
+            div >
+
+            <
+            div className = "form-group" >
+            <
+            label > Type: </label> <
             input type = "text"
             required className = "form-control"
             value = { this.state.Type }
@@ -141,7 +162,9 @@ export default class EditUser extends Component {
             <
             input type = "submit"
             value = "Edit"
-            className = "btn btn-primary" / >
+            className = "btn btn-primary" / > &nbsp;
+
+            <a href="/users/"> <button type="button" class="btn btn-warning"> Cansal</button></a>
             </
             div> </
             form >  </div> </div> </div> </div>
