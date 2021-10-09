@@ -8,6 +8,7 @@ export default class CreateUser extends Component {
         super(props);
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeemail = this.onChangeemail.bind(this);
         this.onChangeType = this.onChangeType.bind(this);
         this.onChangepassword = this.onChangepassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -15,6 +16,7 @@ export default class CreateUser extends Component {
         this.state = {
             show:false,
             username: '',
+            email: '',
             Type: '',
             password: ''
         }
@@ -23,6 +25,12 @@ export default class CreateUser extends Component {
     onChangeUsername(e) {
         this.setState({
             username: e.target.value
+        })
+    }
+
+    onChangeemail(e) {
+        this.setState({
+            email: e.target.value
         })
     }
 
@@ -41,9 +49,10 @@ export default class CreateUser extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const { username, password } = this.state;
+        const { username, email, password } = this.state;
         const user = {
             username: this.state.username,
+            email: this.state.email,
             Type: this.state.Type,
             password: this.state.password,
         }
@@ -51,9 +60,12 @@ export default class CreateUser extends Component {
         console.log(user);
 
         //validation
+        const cuem = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (username.length < 3) {
             swal("User name invalid !", "length shuld be greater than 3", "error" );
+        } else if ((!cuem.test(String(email)))) {
+            swal("Invalid email address !", "Please enter valid email address", "error");
         } else if (password.length < 4)  {
             swal("Password invalid !", "Password shuld be greater than 4", "error" );
         } else {
@@ -83,6 +95,10 @@ export default class CreateUser extends Component {
         this.setState ({
             Type: "Stock Management"
         })
+
+        this.setState ({
+            email: "pasindu@gmail.com"
+        })
     
         this.setState ({
             password: "56781234"
@@ -108,6 +124,7 @@ export default class CreateUser extends Component {
             <
             h3 className="text-center" > <font face = "Comic sans MS" size ="6"> New User </font> </h3> <
             form onSubmit = { this.onSubmit } >
+            
             <
             div className = "form-group" >
             <
@@ -117,6 +134,18 @@ export default class CreateUser extends Component {
             required className = "form-control"
             value = { this.state.username }
             onChange = { this.onChangeUsername }
+            /> </
+            div >
+
+            <
+            div className = "form-group" >
+            <
+            label > Email: </label> <
+            input type = "text"
+            placeholder="Enter a user name"
+            required className = "form-control"
+            value = { this.state.email }
+            onChange = { this.onChangeemail}
             /> </
             div >
 
@@ -141,12 +170,12 @@ export default class CreateUser extends Component {
             placeholder = "Enter a password"
             value = { this.state.password }
             onChange = { this.onChangepassword }
-            /> <label > <p class="text-danger">*Password shuld be at least 4 words long</p></label>
+            /> <label > <p class="text-danger">*Password should be at least 4 words long</p></label>
             </div >
 
             <
             div className = "form-group" >
-            <input type = "submit" value = "Create User" className = "btn btn-primary" / >&nbsp;
+            <input type = "submit" value = "Create User" className = "btn btn-primary" / > &nbsp;
 
             <a href="/users/"> <button type="button" class="btn btn-warning"> Cansal</button></a>
             <br/><br/>

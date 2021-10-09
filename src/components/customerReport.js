@@ -135,7 +135,10 @@ export default class ExercisesList extends Component {
             <
             div className = "col-lg-9 mt-2 mb-2" >
             <
-            h4 > Details of all Customers </h4> </
+            h4 > Details of all Customers </h4> <br/>
+            <button type="button" title="Report generation" class="btn btn-outline-primary btn-sm" 
+            onClick={this.jsPdfGenerator} > Download as a PDF </button>
+            </
             div > <
             div className = "col-lg-3 mt-2 mb-2" >
             <
@@ -177,7 +180,6 @@ export default class ExercisesList extends Component {
                     td > { props.Gender } </td> <
                     td > { props.Email } </td>  < 
                     td > { props.password } </td>  
-
                     </tr>
                 )
 
@@ -186,10 +188,8 @@ export default class ExercisesList extends Component {
             </tbody> 
             </
             table >
-            <button type="button" title="Report generation" class="btn btn-outline-primary btn-sm" 
-            onClick={this.jsPdfGenerator} > Download as a PDF </button>
             
-            
+            <br/><br/><br/><br/><br/>
             </div>
             </div>
         )

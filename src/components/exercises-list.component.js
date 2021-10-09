@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-import jsPdf from 'jspdf'
-import 'jspdf-autotable'
+
 
 const Customer = props => ( <
     tr >
@@ -74,18 +73,6 @@ export default class ExercisesList extends Component {
     }
 
 
-    filterData(Customer, searchKey) {
-
-        this.setState({
-            exercises: this.state.exercises.filter(el => el.Username = searchKey)
-        })
-
-    }
-
-
-
-
-
     handleSearchArea = (e) => {
 
         const searchKey = e.currentTarget.value;
@@ -103,38 +90,23 @@ export default class ExercisesList extends Component {
 
     }
 
-      //pdf generating
-      jsPdfGenerator = () => {
-
-        //new document in jspdf
-        var doc = new jsPdf('p','pt');
-
-        doc.text(210,30,"Details of Customers")
-        doc.autoTable({  html:'#my-pdf' })
-
-        doc.autoTable({
-          columnStyles: { europe: { halign: 'center' } }, 
-          margin: { top: 10 },
-        })
-
-        //save the pdf
-        doc.save("Details of Customers.pdf");
-      }
+  
     
     render() {
         return ( <
             div className = "container" >
             <br/>
+            <div style={{backgroundColor:"#e9ecef"}}>
             <div style = {
                 { float: 'none'}
             } > 
-            <Link to = "/main" >  <button type="button" title="You are now on the customer list" 
-            class="btn btn-secondary" variant = "primary"> Customer </button>
+            <Link to = "/main" > <button type="button" title="You are now on the customer list" 
+            class="btn btn-secondary" variant = "primary"> Customer Details </button>
             </Link >
             
-            <Link to = "/users/" > <Button variant = "info" title="Swith to the list of users" > User </Button>
+            <Link to = "/users/" > <Button variant = "info" title="Swith to the list of users" > User Details </Button>
             </Link > 
-            </div>  <br/>
+            </div> </div>  <br/>
             
             <
             div className = "row" >
@@ -157,7 +129,7 @@ export default class ExercisesList extends Component {
 
 
             <
-            table class="table table-bordered table-white" id="my-pdf" >
+            table class="table table-bordered table-white" >
             <
             thead className = "thead-light" >
             <
@@ -199,8 +171,6 @@ export default class ExercisesList extends Component {
 
             </tbody> </
             table >
-            <button type="button" title="Report generation" class="btn btn-outline-primary btn-sm" 
-            onClick={this.jsPdfGenerator} > Download as a PDF </button>
             
             <
             div style = {
@@ -213,7 +183,7 @@ export default class ExercisesList extends Component {
             </
             Link >
             </div>
-
+            <br/><br/><br/><br/><br/>
             </div>
         )
     }

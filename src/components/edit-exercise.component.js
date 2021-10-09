@@ -233,7 +233,9 @@ export default class EditExercise extends Component {
             <
             input type = "submit"
             value = "Edit"
-            className = "btn btn-primary" / >
+            className = "btn btn-primary" / > &nbsp;
+
+            <a href="/main"> <button type="button" class="btn btn-warning"> Cansal</button></a>
             </div> </
             form > </div> </div> </div> </div>
             <br/><br/> </div> 

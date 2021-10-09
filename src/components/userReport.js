@@ -92,9 +92,11 @@ export default class UserList extends Component {
             <
             div className = "col-lg-9 mt-2 mb-2" >
             <
-            h4 > Details of all Users </h4> </
-            div > 
+            h4 > Details of all Users </h4> <br/>
+            <button type="button" title="Report generation" class="btn btn-outline-primary btn-sm" 
+            onClick={this.jsPdfGenerator} > Download as a PDF </button> 
             
+            </div > 
             <
             div className = "col-lg-3 mt-2 mb-2" >
             <
@@ -118,6 +120,7 @@ export default class UserList extends Component {
 
             <
             th scope = "col" > Name </th> <
+            th scope = "col" > Email </th> <
             th scope = "col" > Type </th> <
             th scope = "col" > Password </th> </
             tr > </
@@ -128,6 +131,7 @@ export default class UserList extends Component {
                     tr key = { props.id } >
                     <
                     td > { props.username } </td> <
+                    td > { props.email } </td> <
                     td > { props.Type } </td>  < 
                     td > { props.password } </td> 
 
@@ -139,10 +143,9 @@ export default class UserList extends Component {
             </tbody>
 
             </table>
-            <button type="button" title="Report generation" class="btn btn-outline-primary btn-sm" 
-            onClick={this.jsPdfGenerator} > Download as a PDF </button>
             
             
+            <br/><br/><br/><br/>
             </div>
             
         )

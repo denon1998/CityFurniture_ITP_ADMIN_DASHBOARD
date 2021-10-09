@@ -5,7 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import swal from '@sweetalert/with-react'
 import './myformStyle.css'
 
-
 export default class CreateExercise extends Component {
     constructor(props) {
         super(props);
@@ -26,8 +25,7 @@ export default class CreateExercise extends Component {
             Birthday: new Date(),
             Gender: '',
             Email: '',
-            Password: '',
-            users: []
+            Password: ''
         }
     }
 
@@ -128,8 +126,8 @@ export default class CreateExercise extends Component {
         }
     }
 
-     //demo button method
-  demo =() => { 
+    //demo button method
+    demo =() => { 
 
     //setState
     this.setState ({
@@ -152,13 +150,11 @@ export default class CreateExercise extends Component {
         Email: "chamidu@gmail.com"
     })
 
-    
-
     this.setState ({
         Password: "chamidU123"
     })
 
-  }
+    }
 
     render() {
         return ( <
@@ -224,7 +220,7 @@ export default class CreateExercise extends Component {
             <
             label > Gender: </label> <
             input type = "text"
-            className = "form-control"
+            required className = "form-control"
             placeholder="Enter gender (Male/Female)"
             value = { this.state.Gender }
             onChange = { this.onChangeGender }
@@ -236,7 +232,7 @@ export default class CreateExercise extends Component {
             <
             label > Email: </label> <
             input type = "text"
-            className = "form-control"
+            required className = "form-control"
             placeholder="Enter email"
             value = { this.state.Email }
             onChange = { this.onChangeEmail }/> 
@@ -264,7 +260,7 @@ export default class CreateExercise extends Component {
             placeholder="Enter a password"
             value = { this.state.Password }
             onChange = { this.onChangepassword }
-            /> <label > <p class="text-danger">*Password shuld be at least 4 words long</p></label>
+            /> <label > <p class="text-danger">*Password should be at least 4 words long</p></label>
             </div >
 
             
