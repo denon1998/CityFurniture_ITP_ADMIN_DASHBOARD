@@ -1,7 +1,7 @@
 import 'react-credit-cards/es/styles-compiled.css';
 import Cards from 'react-credit-cards';
 import React, { Component } from 'react';
-
+import swal from 'sweetalert';
 import axios from 'axios';
 
 
@@ -69,43 +69,43 @@ class EditPosts extends Component {
         const card = /^[0-9\b]+$/;
 
         if (cardnumber.length === 0 || customerName.length === 0 || expiry.length === 0 || cvc.length === 0) {
-            alert("Fields can not be empty!", "Please fill all the information!", "error");
+            swal("Fields can not be empty!", "Please fill all the information!", "error");
 
         } else if ((!card.test(Number(cardnumber)))) {
-            alert("Invalid Card Number", "Card Number cannot contain any Characters!", "error");
+            swal("Invalid Card Number", "Card Number cannot contain any Characters!", "error");
 
         }
         else if ((!name.test(String(customerName)))) {
-            alert("Invalid Customer Name", "Customer name cannot contain any Numbers!", "error");
+            swal("Invalid Customer Name", "Customer name cannot contain any Numbers!", "error");
 
         }
         else if (cardnumber.length > 16) {
-            alert("Invalid Card Number!", "Do not enter more than 16 Numbers!", "error");
+            swal("Invalid Card Number!", "Do not enter more than 16 Numbers!", "error");
         }
 
         else if (cardnumber.length < 16) {
-            alert("Invalid Card Number!", "Do not enter less than 16 Numbers!", "error");
+            swal("Invalid Card Number!", "Do not enter less than 16 Numbers!", "error");
         }
 
 
         else if (customerName.length > 20) {
-            alert("Invalid Customer Name!", "Do not enter more than 20 letters!", "error");
+            swal("Invalid Customer Name!", "Do not enter more than 20 letters!", "error");
         }
 
         else if (customerName.length < 3) {
-            alert("Invalid Customer Name!", "Please check your name again!", "error");
+            swal("Invalid Customer Name!", "Please check your name again!", "error");
         }
 
         else if ((!card.test(Number(cvc)))) {
-            alert("Invalid CVC Number", "CVC cannot contain any Characters!", "error");
+            swal("Invalid CVC Number", "CVC cannot contain any Characters!", "error");
 
         }
 
         else if (cvc.length < 3) {
-            alert("Invalid CVC Number", "CVC should contain 3 numbers only!", "error");
+            swal("Invalid CVC Number", "CVC should contain 3 numbers only!", "error");
         }
         else if (cvc.length > 3) {
-            alert("Invalid CVC Number", "CVC should contain 3 numbers only!", "error");
+            swal("Invalid CVC Number", "CVC should contain 3 numbers only!", "error");
         }
 
 
@@ -116,7 +116,7 @@ class EditPosts extends Component {
 
             if (res.data.success) {
 
-                alert("Paymet updated successfully")
+                swal("Paymet updated successfully")
 
                 this.setState(
                     {

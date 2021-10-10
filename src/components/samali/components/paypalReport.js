@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import jsPdf from 'jspdf';
 import 'jspdf-autotable';
-
+import swal from 'sweetalert';
 
 class Home extends Component {
 
@@ -75,6 +75,8 @@ class Home extends Component {
 
   jsPdfGenerator = () => {
 
+    swal("Done!", "Your Report is Downloding!", "success")
+
     //new document in jspdf
     var doc = new jsPdf('l', 'pt', 'a3');
 
@@ -141,7 +143,8 @@ class Home extends Component {
           </tbody>
 
         </table>
-        <button className="btn-primary" onClick={this.jsPdfGenerator}>Generate Report PDF</button>
+        <button className="btn btn-outline-primary" onClick={this.jsPdfGenerator}><b>Generate Report PDF</b></button>
+             
 
       </div>
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 
 
@@ -35,9 +36,26 @@ class Home extends Component {
 
   //delete function 
   onDelete = (id) => {
-    axios.delete(`https://furniture-store-backend.herokuapp.com/api/paypalpost/delete/${id}`).then((res) => {
-      alert("Deleted Successfully");
-      this.retrievePosts();
+
+    swal({
+      title:"Are you sure?",
+      text:"Once deleted, you will not be able to recover this category details !",
+      icon : "warning",
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+      if(willDelete){
+        axios.delete(`https://furniture-store-backend.herokuapp.com/api/paypalpost/delete/${id}`).then((res) => {
+        swal("Deleted Successfully");
+        this.retrievePosts();
+      })
+      swal("Done! Payment Details has been Deleted!",{
+        icon:"success",
+      });
+    }else{
+      swal("Not Deleted! Your Payment details are Safe!");
+    }
+    
     })
     console.log("delete me")
   }
@@ -141,7 +159,7 @@ class Home extends Component {
           </tbody>
 
         </table>
-        <button className="btn btn-success"><a href="/payment/paypal/report" style={{ textDecoration: 'none', color: 'white' }}>Create New Report Paypal</a> </button>
+        <button className="btn btn-primary"><a href="/payment/paypal/report" style={{ textDecoration: 'none', color: 'white' }}>Create New Report Paypal</a> </button>
 
       </div>
 

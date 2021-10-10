@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../style/CardPay.css'
 
+
 class CardDetailsAdmin extends Component {
     constructor(props){
         super(props);
