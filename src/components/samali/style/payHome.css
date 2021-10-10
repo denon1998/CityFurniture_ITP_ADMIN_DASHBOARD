@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,900&display=swap');
 
-
 *{
     margin:0;
     padding:0;
@@ -34,7 +33,6 @@
   background: linear-gradient(#449ef1);
   border-radius: 50%;
   border: none;
-  
 }
 
 .card{
@@ -44,6 +42,7 @@
       transform-style: preserve-3d;
       perspective: 500px;
 }
+
 .card1{
 
   position: absolute;
