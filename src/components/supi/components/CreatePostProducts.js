@@ -81,7 +81,7 @@ export default class CreatePostProducts extends Component {
    }else if((!name.test(String(colours)))){
      swal("Invalid Colour !", "Colour cannot contain Numbers ! Please enter valid colour name !", "error");
    }else if((!name.test(String(modelType)))){
-     swal("Invalid Model Type !", "Colour cannot contain Numbers ! Please enter valid colour name !", "error");
+     swal("Invalid Model Type !", "Model cannot contain Numbers ! Please enter valid model name !", "error");
    }else if(price.length > 20 ){
      swal("Invalid Price!", "Do not enter more than 20 letters or numbers !", "error");
    }else if((!name.test(String(includedComponents)))){

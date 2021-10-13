@@ -178,8 +178,6 @@ export default class EditPostCategory extends Component {
               onChange={this.handleInputChange} />
           </div>
 
-          <br />
-          <br />
       <div className="text-center">
           <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
             <i className="far fa-check-square"></i>

@@ -56,8 +56,8 @@ export default class CreatePostCategory extends Component {
       swal("Invalid Product Name !", "Product Name cannot contain numbers ! Please enter a valid product name !", "error");
     } else if (categoryName.length > 20) {
       swal("Invalid product Name!", "Do not enter more than 20 letters !", "error");
-    } else if (categoryName.length < 4) {
-      swal("Invalid Product Name !", "Do not enter less than 4 letters !", "error");
+    } else if (categoryName.length < 2) {
+      swal("Invalid Product Name !", "Do not enter less than 2 letters !", "error");
     } else if (categoryId.length < 3) {
       swal("Invalid Category Id !", "Do not enter less than 3 letters !", "error");
     } else if ((!name.test(String(subcategoryType)))) {
