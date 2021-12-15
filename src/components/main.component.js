@@ -30,7 +30,7 @@ export default function Login() {
     return ( 
         <div className="jumbotron">
         <div className = "Login" >
-
+        
         <
         Form onSubmit = { handleSubmit } >
         <
@@ -65,7 +65,8 @@ export default function Login() {
         Login </
         Button> </
         Form >
-
+        <br/>
+        <br/>
 
         </div> </div>
     );
