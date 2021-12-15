@@ -84,12 +84,11 @@ export default class EditUser extends Component {
         console.log(user);
 
         axios.post('https://furniture-store-backend.herokuapp.com/api/users/update/' + this.props.match.params.id, user)
-            .then(res => console.log(res.data));
-
+        .then(res => console.log(res.data));
+        alert("Edit Successfully")
+        
         window.location = '/users/';
     }
-
-
 
 
     render() {
