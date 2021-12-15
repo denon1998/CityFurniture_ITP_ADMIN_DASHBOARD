@@ -77,9 +77,10 @@ export default class CreateUser extends Component {
                 title: "Done!",
                 text: "Customer Successfully Added",
                 icon: "success",
-                button: "Okay!",
-            }).then((value) => {
-                window.location = "/users/";
+                button: "Okay!"
+            })
+            .then((value) => {
+                window.location = '/users/';
             });
         }
     }
