@@ -72,7 +72,7 @@ export default class CreateUser extends Component {
 
             axios.post('https://furniture-store-backend.herokuapp.com/api/users/add', user)
             .then((res) => console.log(res.data));
-    
+
             swal({
                 title: "Done!",
                 text: "Customer Successfully Added",
